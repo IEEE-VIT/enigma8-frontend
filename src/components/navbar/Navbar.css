@@ -1,0 +1,15 @@
+body {
+  margin: 0 20px;
+  text-align: center;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+}
+ul {
+  display: flex;
+  padding: 10px 20px;
+}
+li {
+  padding: 0px 20px;
+}
