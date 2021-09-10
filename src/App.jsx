@@ -1,17 +1,17 @@
 import React from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import "./App.css";
 
-import HomePage from "./pages/Home/HomePage";
-import LeaderBoardPage from "./pages/LeaderBoard/LeaderBoard";
-import LoginPage from "./pages/Login/Login";
-import ProfilePage from "./pages/Profile/Profilepage";
+import HomePage from "./pages/Home/HomePage.component";
+import LeaderBoardPage from "./pages/LeaderBoard/LeaderBoard.component";
+import LoginPage from "./pages/Login/LoginPage.component";
+import ProfilePage from "./pages/Profile/ProfilePage.component";
 
-import Navbar from "./components/navbar/Navbar";
+import Navbar from "./components/navbar/Navbar.component";
 
 function App() {
   return (
-    <BrowserRouter>
+    <div>
       <Navbar />
       <Switch>
         <Route exact path="/" component={HomePage} />
@@ -19,7 +19,7 @@ function App() {
         <Route exact path="/profile" component={ProfilePage} />
         <Route exact path="/login" component={LoginPage} />
       </Switch>
-    </BrowserRouter>
+    </div>
   );
 }
 
