@@ -2,9 +2,7 @@ import React, { useState, useEffect } from "react";
 import { authorized } from "../../api/authorized";
 
 const ProfilePage = () => {
-  const [name, setName] = useState(
-    "We will only know who you are only if you tell us who you are."
-  );
+  const [name, setName] = useState("You-Know-Who");
   useEffect(() => {
     authorized()
       .then((res) => {

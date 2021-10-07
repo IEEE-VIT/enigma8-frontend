@@ -9,12 +9,7 @@ const LoginPage = () => {
     <div>
       LoginPage
       <br />
-      <button
-        type="button"
-        onClick={() => {
-          GoogleAuthRedirect();
-        }}
-      >
+      <button type="button" onClick={GoogleAuthRedirect}>
         Continue with Google
       </button>
     </div>
