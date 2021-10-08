@@ -6,6 +6,7 @@ import HomePage from "./pages/Home/HomePage.component";
 import LeaderBoardPage from "./pages/LeaderBoard/LeaderBoard.component";
 import LoginPage from "./pages/Login/LoginPage.component";
 import ProfilePage from "./pages/Profile/ProfilePage.component";
+import successfulAuth from "./pages/SuccessfulAuth.component";
 
 import Navbar from "./components/navbar/Navbar.component";
 
@@ -18,6 +19,7 @@ function App() {
         <Route exact path="/leaderboard" component={LeaderBoardPage} />
         <Route exact path="/profile" component={ProfilePage} />
         <Route exact path="/login" component={LoginPage} />
+        <Route exact path="/googlesuccessfulAuth" component={successfulAuth} />
       </Switch>
     </div>
   );
