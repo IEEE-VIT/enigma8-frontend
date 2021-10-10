@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { authorized } from "../../api/authorized";
 
-const ProfilePage = () => {
+const Profile = () => {
   const [email, setEmail] = useState("You-Know-Who");
   useEffect(() => {
     authorized()
@@ -27,4 +27,4 @@ const ProfilePage = () => {
   );
 };
 
-export default ProfilePage;
+export default Profile;
