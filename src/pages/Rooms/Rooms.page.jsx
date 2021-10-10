@@ -7,7 +7,6 @@ const Rooms = () => {
   const roomslist = roomId.map((roomid) => {
     return <Room key={roomid} roomId={roomid} />;
   });
-  console.log("inside rooms ");
   return (
     <div>
       Rooms

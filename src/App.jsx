@@ -4,6 +4,7 @@ import "./App.css";
 
 import ProtectedRoute from "./components/ProtectedRoute.component";
 import TimerPage from "./pages/TimerPage/TimerPage.component";
+import TokenProtectedRoute from "./components/TokenProtectedRoute.component";
 
 import Container from "./components/Container/Container.component";
 import PreloginNavbar from "./components/PreloginNavbar/PreloginNavbar.component";
@@ -12,14 +13,15 @@ import PostloginNavbar from "./components/PostloginNavbar/PostloginNavbar.compon
 import Home from "./pages/Home/Home.page";
 import Countdown from "./pages/Countdown/Countdown.page";
 
-import LoginPortal from "./components/LoginPortal/LoginPortal.component";
 import Welcome from "./pages/Welcome/Welcome.component";
 
 import Rooms from "./pages/Rooms/Rooms.page";
 import Leaderboard from "./pages/Leaderboard/Leaderboard.page";
 import Profile from "./pages/Profile/Profile.component";
 import Instructions from "./components/Instructions/Instructions.page";
-import Question from "./components/Question/Question.page";
+import Question from "./pages/Question/Question.page";
+
+import PushNotifs from "./pages/PushNotifs/PushNotifs.page";
 
 import SuccessfulAuth from "./components/SuccessfulAuth.component";
 
@@ -34,12 +36,13 @@ function App() {
           path="/"
           component={() => <Container navbar={PreloginNavbar} page={Home} />}
         />
-        <Route exact path="/login" component={LoginPortal} />
-        <ProtectedRoute
+        <TokenProtectedRoute
           redirect="/"
           exact
           path="/welcome"
-          component={Welcome}
+          component={() => (
+            <Container navbar={PostloginNavbar} page={Welcome} />
+          )}
         />
         <ProtectedRoute
           redirect="/"
@@ -87,10 +90,12 @@ function App() {
             <Container navbar={PostloginNavbar} page={Question} />
           )}
         />
+
         <Route exact path="/googlesuccessfulAuth" component={SuccessfulAuth} />
         <Route component={NotFound} />
         <Route exact path="/timer" component={TimerPage} />
       </Switch>
+      <PushNotifs />
     </div>
   );
 }
