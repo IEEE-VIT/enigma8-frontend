@@ -7,10 +7,11 @@ const LoginPage = () => {
   const history = useHistory();
 
   const redirectChecker = (newUser) => {
+    console.log("redirect loaded");
     if (newUser === "true") {
       history.push("/welcome");
     } else if (newUser === "false") {
-      history.push("/profile");
+      history.push("/countdown");
     }
   };
 

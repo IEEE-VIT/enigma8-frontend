@@ -1,18 +1,15 @@
 import React from "react";
-import "./Navbar.styles.css";
+import "./PostloginNavbar.styles.css";
 import { Link } from "react-router-dom";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 
-const Navbar = () => {
+const PostloginNavbar = () => {
   return (
     <nav>
       <Link to="/">
         <h1>Enigma 8</h1>
       </Link>
       <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
         <li>
           <Link to="/rooms">Rooms</Link>
         </li>
@@ -31,4 +28,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default PostloginNavbar;
