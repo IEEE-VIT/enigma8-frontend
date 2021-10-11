@@ -1,0 +1,7 @@
+.room-card {
+  width: 164px;
+  height: 164px;
+  background-color: grey;
+  margin: 50px;
+  align-items: center;
+}

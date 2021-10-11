@@ -1,0 +1,7 @@
+.rooms-container {
+  display: flex;
+  flex-direction: row;
+  flex-basis: 164px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
