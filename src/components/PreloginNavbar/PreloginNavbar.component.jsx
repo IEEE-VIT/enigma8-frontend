@@ -10,10 +10,10 @@ const PreloginNavbar = () => {
       </Link>
       <ul>
         <li>
-          <a href="#home">Home</a>
+          <a href="./#home">Home</a>
         </li>
         <li>
-          <a href="#sponsors">Sponsors</a>
+          <a href="./#sponsors">Sponsors</a>
         </li>
         <li>
           <Link to="/login">Login</Link>
