@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import { Route, useHistory } from "react-router-dom";
-import PreloginNavbar from "../../components/PreloginNavbar/PreloginNavbar.component";
 
 const Countdown = () => {
   const history = useHistory();
   const [is420, setIs420] = useState(true);
   const handleonClick = () => {
-    history.push("/arena");
+    history.push("/rooms");
     setIs420(false);
   };
   const ContinueBtn = (
@@ -18,7 +17,6 @@ const Countdown = () => {
   const Timer = () => {
     return (
       <div>
-        <PreloginNavbar />
         {/* Add <Timer-dial/> here */}
         Add Timer-dial here
         <div> {is420 ? ContinueBtn : ""} </div>
