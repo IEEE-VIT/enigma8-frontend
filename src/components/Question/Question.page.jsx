@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import "./Question.styles.css";
 
 const Question = () => {
   const [question, setQuestion] = useState("");
-
+  const location = useLocation();
   useEffect(() => {
-    const { search } = window.location;
-    const params = new URLSearchParams(search);
-    const room = params.get("room");
-    setQuestion(`Question of Room ${room} fetched from Backend`);
-  });
+    const { roomNo } = location.state;
+    setQuestion(`Question of Room ${roomNo} fetched from Backend`);
+  }, []);
   return (
     <div>
       Question

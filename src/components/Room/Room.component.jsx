@@ -7,8 +7,10 @@ const Room = (props) => {
   const { roomId } = props;
   const history = useHistory();
   const questionCall = (event) => {
-    console.log(event.target.id);
-    history.push(`/question?room=${event.target.id}`);
+    history.push({
+      pathname: "/question",
+      state: { roomNo: event.target.id },
+    });
   };
   return (
     <div>

@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const Container = ({ navbar, page }) => {
-  console.log("container exe");
   return (
     <>
       {navbar()}
