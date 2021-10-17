@@ -20,6 +20,8 @@ import Profile from "./pages/Profile/Profile.component";
 import Instructions from "./components/Instructions/Instructions.page";
 import Question from "./components/Question/Question.page";
 
+import PushNotifs from "./pages/PushNotifs/PushNotifs.page";
+
 import SuccessfulAuth from "./components/SuccessfulAuth.component";
 
 import NotFound from "./pages/NotFound/NotFound.page";
@@ -86,9 +88,11 @@ function App() {
             <Container navbar={PostloginNavbar} page={Question} />
           )}
         />
+
         <Route exact path="/googlesuccessfulAuth" component={SuccessfulAuth} />
         <Route component={NotFound} />
       </Switch>
+      <PushNotifs />
     </div>
   );
 }
