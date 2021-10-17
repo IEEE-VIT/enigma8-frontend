@@ -26,7 +26,7 @@ const PushNotifs = () => {
         <></>
       )}
       <Token />
-      <Fader text="Hello React" />
+      <Fader text="" />
     </div>
   );
 };
