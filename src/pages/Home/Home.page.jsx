@@ -8,9 +8,9 @@ const HomePage = () => {
   return (
     <div>
       <div>Enigma 8 - Online cryptic hunt</div>
+      <LoginPortal />
       <div>Sponsors</div>
       <div>Footer</div>
-      <LoginPortal />
     </div>
   );
 };

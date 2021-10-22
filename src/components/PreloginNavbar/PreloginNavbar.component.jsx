@@ -16,7 +16,7 @@ const PreloginNavbar = () => {
           <a href="./#sponsors">Sponsors</a>
         </li>
         <li>
-          <Link to="/login">Login</Link>
+          <a href="./#login">Login</a>
         </li>
       </ul>
     </nav>

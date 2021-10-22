@@ -3,11 +3,10 @@ import { useCookies } from "react-cookie";
 import { useHistory } from "react-router-dom";
 
 const LoginPage = () => {
-  const [, setCookies] = useCookies(["token"]);
+  const [, setCookies] = useCookies(["token", "newUser"]);
   const history = useHistory();
 
   const redirectChecker = (newUser) => {
-    console.log("redirect loaded");
     if (newUser === "true") {
       history.push("/welcome");
     } else if (newUser === "false") {
@@ -21,6 +20,7 @@ const LoginPage = () => {
     const googleAuth = params.get("token");
     const newUser = params.get("isNew");
     setCookies("token", googleAuth);
+    setCookies("newUser", newUser);
     redirectChecker(newUser);
   }, []);
 
