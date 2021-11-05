@@ -5,7 +5,7 @@ const Countdown = () => {
   const history = useHistory();
   const [is420, setIs420] = useState(true);
   const handleonClick = () => {
-    history.push("/rooms");
+    history.push("/onboarding");
     setIs420(false);
   };
   const ContinueBtn = (

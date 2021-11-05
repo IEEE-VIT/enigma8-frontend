@@ -1,5 +1,6 @@
 import React from "react";
 import Room from "../../components/Room/Room.component";
+// import Onboarding from "../Onboarding/Onboarding.page";
 import "./Rooms.styles.css";
 
 const Rooms = () => {
@@ -7,9 +8,16 @@ const Rooms = () => {
   const roomslist = roomId.map((roomid) => {
     return <Room key={roomid} roomId={roomid} />;
   });
+  const stars = 2;
+
   return (
     <div>
-      Rooms
+      {/* <Onboarding /> */}
+      <div className="onboarding-pointer-stars">
+        Next room in: {stars} more stars
+      </div>
+      <div className="onboarding-pointer-rooms">Rooms</div>
+
       <div className="rooms-container">{roomslist}</div>
     </div>
   );

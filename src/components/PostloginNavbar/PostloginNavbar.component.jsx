@@ -14,13 +14,13 @@ const PostloginNavbar = () => {
           <Link to="/rooms">Rooms</Link>
         </li>
         <li>Instructions</li>
-        <li>
+        <li className="onboarding-pointer-leaderboard">
           <Link to="/leaderboard">Leaderboard</Link>
         </li>
-        <li>
+        <li className="onboarding-pointer-profile">
           <Link to="/profile">Profile</Link>
         </li>
-        <li>
+        <li className="onboarding-pointer-notif">
           <NotificationsIcon />
         </li>
       </ul>

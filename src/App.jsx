@@ -12,13 +12,15 @@ import Home from "./pages/Home/Home.page";
 import Countdown from "./pages/Countdown/Countdown.page";
 
 import LoginPortal from "./components/LoginPortal/LoginPortal.component";
-import Welcome from "./pages/Welcome/Welcome.component";
+import Welcome from "./pages/Welcome/Welcome.page";
+
+import Onboarding from "./pages/Onboarding/Onboarding.page";
 
 import Rooms from "./pages/Rooms/Rooms.page";
 import Leaderboard from "./pages/Leaderboard/Leaderboard.page";
-import Profile from "./pages/Profile/Profile.component";
+import Profile from "./pages/Profile/Profile.page";
 import Instructions from "./components/Instructions/Instructions.page";
-import Question from "./components/Question/Question.page";
+import Question from "./pages/Question/Question.page";
 
 import SuccessfulAuth from "./components/SuccessfulAuth.component";
 
@@ -46,6 +48,14 @@ function App() {
           path="/countdown"
           component={() => (
             <Container navbar={PreloginNavbar} page={Countdown} />
+          )}
+        />
+        <ProtectedRoute
+          redirect="/"
+          exact
+          path="/onboarding"
+          component={() => (
+            <Container navbar={PostloginNavbar} page={Onboarding} />
           )}
         />
         <ProtectedRoute
