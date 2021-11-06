@@ -1,13 +1,5 @@
 import React, { useState } from "react";
-import {
-  TextField,
-  FormControl,
-  RadioGroup,
-  FormLabel,
-  FormControlLabel,
-  FormHelperText,
-  Radio,
-} from "@material-ui/core";
+import { TextField } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import { createProfile } from "../../api/user";
@@ -17,7 +9,6 @@ const Welcome = () => {
   const history = useHistory();
   const [data, setData] = useState({
     username: "",
-    isCollegeStudent: "",
     outreach: "",
   });
   const [validateData, setValidateData] = useState({});
@@ -52,24 +43,12 @@ const Welcome = () => {
       validateData.outreach = false;
       validateData.outreachHelper = "";
     }
-    if (!data.isCollegeStudent) {
-      validateData.isCollegeStudent = true;
-      validateData.isCollegeStudentHelper =
-        "Please select an appropriate option.";
-    } else {
-      validateData.isCollegeStudent = false;
-      validateData.isCollegeStudentHelper = "";
-    }
     setValidateData({ ...validateData });
   };
   const sendData = () => {
     vaildate();
-    if (
-      !validateData.username &&
-      !validateData.outreach &&
-      !validateData.isCollegeStudent
-    ) {
-      createProfile(data.username, data.isCollegeStudent, data.outreach)
+    if (!validateData.username && !validateData.outreach) {
+      createProfile(data.username, data.outreach)
         .then(() => {
           setCookies("newUser", false);
           history.push("/countdown");
@@ -112,15 +91,6 @@ const Welcome = () => {
               validateData.outreachHelper =
                 "Please select an appropriate option.";
             }
-            if (
-              err.response.data.message ===
-              `"isCollegeStudent" must be a boolean`
-            ) {
-              validateData.isCollegeStudent = true;
-              validateData.isCollegeStudentHelper =
-                "Please select an appropriate option.";
-            }
-
             setValidateData({ ...validateData });
           }
         });
@@ -193,35 +163,6 @@ const Welcome = () => {
           </option>
         ))}
       </TextField>
-
-      <br />
-      <FormControl
-        component="fieldset"
-        style={{
-          marginBottom: "25px",
-          width: "50%",
-        }}
-        required
-        error={validateData.isCollegeStudent}
-      >
-        <div>
-          <FormLabel component="legend" style={{ textAlign: "start" }}>
-            Are you a college student?
-          </FormLabel>
-          <RadioGroup
-            row
-            aria-label="isCollegeStudent"
-            name="isCollegeStudent"
-            onChange={addData}
-          >
-            <FormControlLabel value="true" control={<Radio />} label="Yes" />
-            <FormControlLabel value="false" control={<Radio />} label="No" />
-            <FormHelperText id="isCollegeStudentError">
-              {validateData.isCollegeStudentHelper}
-            </FormHelperText>
-          </RadioGroup>
-        </div>
-      </FormControl>
 
       <br />
       <button type="submit" onClick={sendData}>

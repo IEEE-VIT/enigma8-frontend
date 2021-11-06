@@ -1,7 +1,7 @@
 import { Cookies } from "react-cookie";
 import enigmaAPI from "./config";
 
-export const createProfile = (username, isCollegeStudent, outreach) => {
+export const createProfile = (username, outreach) => {
   const cookies = new Cookies();
   const token = cookies.get("token");
   const config = {
@@ -16,7 +16,6 @@ export const createProfile = (username, isCollegeStudent, outreach) => {
         "/user/create",
         {
           username,
-          isCollegeStudent,
           outreach,
         },
         config
