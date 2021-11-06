@@ -13,7 +13,8 @@ const LoginPortal = () => {
     if (token) {
       history.push("/countdown");
     }
-    if (token && newUser) {
+    if (token && newUser === "true") {
+      console.log(newUser);
       history.push("/welcome");
     }
   }, [token, newUser]);
