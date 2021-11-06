@@ -5,3 +5,24 @@
   margin: 50px;
   align-items: center;
 }
+
+.room-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.room-question-status {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.question-image {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
