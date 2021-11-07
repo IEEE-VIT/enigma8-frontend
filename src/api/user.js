@@ -32,3 +32,27 @@ export const createProfile = (username, isCollegeStudent, outreach) => {
       });
   });
 };
+
+export const getUser = () => {
+  const cookies = new Cookies();
+  const token = cookies.get("token");
+  const config = {
+    headers: {
+      "Content-Type": "application/json; charset=utf-8",
+      Authorization: `Bearer ${token}`,
+    },
+  };
+  return new Promise((resolve, reject) => {
+    enigmaAPI
+      .get("/user/getDetails", config)
+      .then((res) => {
+        resolve(res);
+        if (res.status !== 200) {
+          throw new Error("Something Went Wrong!");
+        }
+      })
+      .catch((err) => {
+        reject(err);
+      });
+  });
+};
