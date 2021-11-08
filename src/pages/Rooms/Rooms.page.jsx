@@ -1,12 +1,27 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Room from "../../components/Room/Room.component";
 // import Onboarding from "../Onboarding/Onboarding.page";
 import "./Rooms.styles.css";
+import { allRooms } from "../../api/room";
 
 const Rooms = () => {
-  const roomId = [1, 2, 3, 4, 5, 6, 7, 8];
-  const roomslist = roomId.map((roomid) => {
-    return <Room key={roomid} roomId={roomid} />;
+  const [rooms, setRooms] = useState([]);
+  useEffect(() => {
+    allRooms()
+      .then((res) => {
+        for (let i = 0; i < res.data.data.data.length; i += 1) {
+          setRooms((room) => [...room, res.data.data.data[i]]);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
+  const roomslist = rooms.map((room) => {
+    return (
+      <Room key={room.room.roomNo} room={room.room} journey={room.journey} />
+    );
   });
   const stars = 2;
 

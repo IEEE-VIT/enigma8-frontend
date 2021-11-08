@@ -16,10 +16,18 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "plugins": ["react"],
+  "plugins": [
+    "react"
+  ],
   "rules": {
     "react/jsx-filename-extension": "off",
-    "no-use-before-define": ["error", { "functions": false, "classes": false }],
+    "no-use-before-define": [
+      "error",
+      {
+        "functions": false,
+        "classes": false
+      }
+    ],
     "no-param-reassign": 0,
     "no-console": "off",
     "prettier/prettier": [
@@ -29,7 +37,8 @@
       }
     ],
     "no-underscore-dangle": "off",
-    "import/prefer-default-export": "off"
+    "import/prefer-default-export": "off",
+    "react/no-array-index-key": "off"
   },
   "root": true
 }

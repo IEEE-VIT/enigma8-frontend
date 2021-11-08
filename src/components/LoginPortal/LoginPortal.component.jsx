@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./LoginPortal.styles.css";
 import { Cookies } from "react-cookie";
 import { useHistory } from "react-router-dom";
@@ -6,17 +6,24 @@ import { useHistory } from "react-router-dom";
 const LoginPortal = () => {
   const cookies = new Cookies();
   const token = cookies.get("token");
+  const newUser = cookies.get("newUser");
   const history = useHistory();
 
-  if (token) {
-    history.push("/countdown");
-  }
+  useEffect(() => {
+    if (token) {
+      history.push("/countdown");
+    }
+    if (token && newUser === "true") {
+      console.log(newUser);
+      history.push("/welcome");
+    }
+  }, [token, newUser]);
   const GoogleAuthRedirect = () => {
     const url = `${process.env.REACT_APP_BACKEND_URL}/auth/web/google`;
     window.open(url, "_self");
   };
   return (
-    <div>
+    <div id="login">
       <div className="login">
         <button
           className="login-button google-login-button"
