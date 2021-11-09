@@ -1,31 +1,52 @@
 import React, { useState } from "react";
 import "./Room.styles.css";
 import PropTypes from "prop-types";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import Toast from "../Notifications/Toast.component";
 import locked from "../../assets/locked.svg";
 import solved from "../../assets/solved.svg";
 import unsolvedUnlocked from "../../assets/unsolved-unlocked.svg";
+import { checkIfRoomUnlocked } from "../../api/room";
+import Powerup from "../Powerup/Powerup.component";
 
 const Room = (props) => {
   const { room, journey } = props;
   const [lockedRoom, setLockedRoom] = useState(false);
   const [notification, setNotification] = useState({ title: "", body: "" });
+  const [openPowerup, setOpenPowerup] = useState(false);
+  const handleClose = () => {
+    setOpenPowerup(false);
+  };
   const history = useHistory();
+  const location = useLocation();
   const questionCall = () => {
     if (!journey.roomUnlocked) {
-      setLockedRoom(true);
-      setNotification({
-        title: "Room Locked",
-        body: "You need to unlock the room first",
-      });
-      setTimeout(() => {
-        setLockedRoom(false);
-      }, 4000);
+      checkIfRoomUnlocked(room._id)
+        .then((res) => {
+          console.log(res.data.data);
+          switch (res.data.data.unlock) {
+            case true:
+              setOpenPowerup(true);
+              break;
+            default:
+              setLockedRoom(true);
+              setNotification({
+                title: "Room Locked",
+                body: `You need ${res.data.data.starsNeeded} stars to unlock the room.`,
+              });
+              setTimeout(() => {
+                setLockedRoom(false);
+              }, 4000);
+              break;
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     } else {
       history.push({
         pathname: "/question",
-        state: { roomNo: room.roomNo, roomId: room._id },
+        state: { ...location.state, roomNo: room.roomNo, roomId: room._id },
       });
     }
   };
@@ -66,6 +87,16 @@ const Room = (props) => {
       </div>
       {lockedRoom ? (
         <Toast title={notification.title} body={notification.body} />
+      ) : (
+        <> </>
+      )}
+      {openPowerup ? (
+        <Powerup
+          openPowerup={openPowerup}
+          handleClose={handleClose}
+          roomId={room._id}
+          roomNo={room.roomNo}
+        />
       ) : (
         <></>
       )}

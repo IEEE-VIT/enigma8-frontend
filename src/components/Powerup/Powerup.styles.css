@@ -1,0 +1,7 @@
+.powerup-modal-description-container-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  cursor: pointer;
+}
