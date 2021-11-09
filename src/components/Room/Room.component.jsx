@@ -19,19 +19,14 @@ const Room = (props) => {
   };
   const history = useHistory();
   const location = useLocation();
-  const questionCall = (event) => {
+  const questionCall = () => {
     if (!journey.roomUnlocked) {
       checkIfRoomUnlocked(room._id)
         .then((res) => {
           console.log(res.data.data);
           switch (res.data.data.unlock) {
             case true:
-              // history.push({
-              //   pathname: "/question",
-              //   state: { ...location.state, roomID: event.target.id },
-              // });
               setOpenPowerup(true);
-              console.log(event.target.id);
               break;
             default:
               setLockedRoom(true);
@@ -51,7 +46,7 @@ const Room = (props) => {
     } else {
       history.push({
         pathname: "/question",
-        state: { ...location.state, roomID: event.target.id },
+        state: { ...location.state, roomNo: room.roomNo, roomId: room._id },
       });
     }
   };
@@ -99,7 +94,8 @@ const Room = (props) => {
         <Powerup
           openPowerup={openPowerup}
           handleClose={handleClose}
-          roomID={room._id}
+          roomId={room._id}
+          roomNo={room.roomNo}
         />
       ) : (
         <></>

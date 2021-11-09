@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Powerup = (props) => {
-  const { roomID, openPowerup, handleClose } = props;
+  const { roomNo, roomId, openPowerup, handleClose } = props;
   const classes = useStyles();
   const history = useHistory();
   const location = useLocation();
@@ -56,8 +56,6 @@ const Powerup = (props) => {
   }, []);
 
   const submitPowerup = () => {
-    console.log(selectPowerupID);
-    console.log("Room ID", roomID);
     switch (selectPowerupID) {
       case undefined:
         setNotification({ title: "Error", body: "Please select a powerup" });
@@ -70,12 +68,12 @@ const Powerup = (props) => {
         }, 4000);
         break;
       default:
-        selectPowerup(roomID, selectPowerupID)
+        selectPowerup(roomId, selectPowerupID)
           .then((res) => {
             console.log(res);
             history.push({
               pathname: "/question",
-              state: { ...location.state, roomID },
+              state: { ...location.state, roomNo, roomId },
             });
           })
           .catch((err) => {
@@ -139,7 +137,8 @@ const Powerup = (props) => {
 };
 
 Powerup.propTypes = {
-  roomID: PropTypes.string.isRequired,
+  roomNo: PropTypes.string.isRequired,
+  roomId: PropTypes.string.isRequired,
   openPowerup: PropTypes.bool.isRequired,
   handleClose: PropTypes.func.isRequired,
 };

@@ -40,5 +40,13 @@
     "import/prefer-default-export": "off",
     "react/no-array-index-key": "off"
   },
-  "root": true
+  "root": true,
+  "settings": {
+        "import/resolver": {
+            "node": {
+                "paths": ["src"],
+                "extensions": [".js", ".jsx", ".ts", ".tsx"]
+            }
+        }
+    }
 }
