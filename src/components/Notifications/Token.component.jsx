@@ -11,7 +11,7 @@ const Notifications = () => {
     async function tokenFunc() {
       data = await getTokenFirebase(setTokenFound);
       if (data) {
-        console.log("Token is", data); // console log: need token for target testing, can remove it just before prod
+        console.log("FCM Test Token:", data); // console log: need token for target testing, can remove it just before prod
       }
       return data;
     }
