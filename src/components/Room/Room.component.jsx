@@ -12,7 +12,7 @@ const Room = (props) => {
   const [lockedRoom, setLockedRoom] = useState(false);
   const [notification, setNotification] = useState({ title: "", body: "" });
   const history = useHistory();
-  const questionCall = (event) => {
+  const questionCall = () => {
     if (!journey.roomUnlocked) {
       setLockedRoom(true);
       setNotification({
@@ -25,7 +25,7 @@ const Room = (props) => {
     } else {
       history.push({
         pathname: "/question",
-        state: { roomNo: event.target.innerText },
+        state: { roomNo: room.roomNo, roomId: room._id },
       });
     }
   };
