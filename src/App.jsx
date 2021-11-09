@@ -3,6 +3,7 @@ import { Switch, Route } from "react-router-dom";
 import "./App.css";
 
 import ProtectedRoute from "./components/ProtectedRoute.component";
+import TimerPage from "./pages/TimerPage/TimerPage.component";
 import TokenProtectedRoute from "./components/TokenProtectedRoute.component";
 
 import Container from "./components/Container/Container.component";
@@ -92,6 +93,7 @@ function App() {
 
         <Route exact path="/googlesuccessfulAuth" component={SuccessfulAuth} />
         <Route component={NotFound} />
+        <Route exact path="/timer" component={TimerPage} />
       </Switch>
       <PushNotifs />
     </div>
