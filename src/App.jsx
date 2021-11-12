@@ -3,15 +3,16 @@ import { Switch, Route } from "react-router-dom";
 import "./App.css";
 
 import ProtectedRoute from "./components/ProtectedRoute.component";
-import TimerPage from "./pages/TimerPage/TimerPage.component";
 import TokenProtectedRoute from "./components/TokenProtectedRoute.component";
 
 import Container from "./components/Container/Container.component";
 import PreloginNavbar from "./components/PreloginNavbar/PreloginNavbar.component";
+import PreEnigmaNavbar from "./components/PreEnigmaNavbar/PreEnigmaNavbar.component";
 import PostloginNavbar from "./components/PostloginNavbar/PostloginNavbar.component";
 
 import Home from "./pages/Home/Home.page";
 import Countdown from "./pages/Countdown/Countdown.page";
+import MockQuestion from "./pages/MockQuestion/MockQuestion.page";
 
 import Welcome from "./pages/Welcome/Welcome.component";
 
@@ -49,7 +50,15 @@ function App() {
           exact
           path="/countdown"
           component={() => (
-            <Container navbar={PreloginNavbar} page={Countdown} />
+            <Container navbar={PreEnigmaNavbar} page={Countdown} />
+          )}
+        />
+        <ProtectedRoute
+          redirect="/"
+          exact
+          path="/mockquestion"
+          component={() => (
+            <Container navbar={PreEnigmaNavbar} page={MockQuestion} />
           )}
         />
         <ProtectedRoute
@@ -92,8 +101,8 @@ function App() {
         />
 
         <Route exact path="/googlesuccessfulAuth" component={SuccessfulAuth} />
+
         <Route component={NotFound} />
-        <Route exact path="/timer" component={TimerPage} />
       </Switch>
       <PushNotifs />
     </div>
