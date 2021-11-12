@@ -4,6 +4,7 @@ import enigmaAPI from "./config";
 export const allRooms = () => {
   const cookies = new Cookies();
   const token = cookies.get("token");
+  console.log("Auth token:", token);
   const config = {
     headers: {
       "Content-Type": "application/json; charset=utf-8",

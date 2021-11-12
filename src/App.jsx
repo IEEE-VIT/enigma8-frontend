@@ -1,6 +1,7 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 import "./App.css";
+import { JoyrideContext } from "./contexts/Joyride.context";
 
 import ProtectedRoute from "./components/ProtectedRoute.component";
 import TimerPage from "./pages/TimerPage/TimerPage.component";
@@ -54,20 +55,33 @@ function App() {
             <Container navbar={PreloginNavbar} page={Countdown} />
           )}
         />
-        <ProtectedRoute
-          redirect="/"
-          exact
-          path="/onboarding"
-          component={() => (
-            <Container navbar={PostloginNavbar} page={Onboarding} />
-          )}
-        />
-        <ProtectedRoute
-          redirect="/"
-          exact
-          path="/rooms"
-          component={() => <Container navbar={PostloginNavbar} page={Rooms} />}
-        />
+        <JoyrideContext>
+          <ProtectedRoute
+            redirect="/"
+            exact
+            path="/onboarding"
+            component={() => (
+              <Container navbar={PostloginNavbar} page={Onboarding} />
+            )}
+          />
+          <ProtectedRoute
+            redirect="/"
+            exact
+            path="/rooms"
+            component={() => (
+              <Container navbar={PostloginNavbar} page={Rooms} />
+            )}
+          />
+          <ProtectedRoute
+            redirect="/"
+            exact
+            path="/question"
+            component={() => (
+              <Container navbar={PostloginNavbar} page={Question} />
+            )}
+          />
+        </JoyrideContext>
+
         <ProtectedRoute
           redirect="/"
           exact
@@ -92,15 +106,6 @@ function App() {
             <Container navbar={PostloginNavbar} page={Profile} />
           )}
         />
-        <ProtectedRoute
-          redirect="/"
-          exact
-          path="/question"
-          component={() => (
-            <Container navbar={PostloginNavbar} page={Question} />
-          )}
-        />
-
         <Route exact path="/googlesuccessfulAuth" component={SuccessfulAuth} />
         <Route component={NotFound} />
         <Route exact path="/timer" component={TimerPage} />

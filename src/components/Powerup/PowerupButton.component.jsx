@@ -6,6 +6,7 @@ const PowerupButton = ({
   selectPowerupButton,
   selectPowerupID,
   bgColour,
+  powerupNo,
 }) => {
   const { _id, icon, name, detail } = powerup;
   const selectPowerup = () => {
@@ -16,7 +17,7 @@ const PowerupButton = ({
   return (
     <button
       type="button"
-      className="powerup-modal-button"
+      className={`powerup-modal-button powerup-${powerupNo}`}
       style={{
         width: "100%",
         marginTop: 10,
@@ -54,6 +55,7 @@ PowerupButton.propTypes = {
   selectPowerupButton: PropTypes.func.isRequired,
   selectPowerupID: PropTypes.string.isRequired,
   bgColour: PropTypes.string.isRequired,
+  powerupNo: PropTypes.number.isRequired,
 };
 
 export default PowerupButton;

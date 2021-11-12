@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import "./Room.styles.css";
 import PropTypes from "prop-types";
 import { useHistory, useLocation } from "react-router-dom";
+import Consumer from "../../contexts/Joyride.context";
+import "./Room.styles.css";
 import Toast from "../Notifications/Toast.component";
 import locked from "../../assets/locked.svg";
 import solved from "../../assets/solved.svg";
@@ -17,9 +18,21 @@ const Room = (props) => {
   const handleClose = () => {
     setOpenPowerup(false);
   };
+  const PowerupComponent = () => {
+    // const { switchJoyride } = context;
+    // switchJoyride(true);
+    return (
+      <Powerup
+        openPowerup={openPowerup}
+        handleClose={handleClose}
+        roomId={room._id}
+        roomNo={room.roomNo}
+      />
+    );
+  };
   const history = useHistory();
   const location = useLocation();
-  const questionCall = () => {
+  const questionCall = (context) => {
     if (!journey.roomUnlocked) {
       checkIfRoomUnlocked(room._id)
         .then((res) => {
@@ -49,6 +62,7 @@ const Room = (props) => {
         state: { ...location.state, roomNo: room.roomNo, roomId: room._id },
       });
     }
+    context.switchJoyride(false, 0);
   };
 
   const questionsStatus = journey.questionsStatus.map(
@@ -72,35 +86,35 @@ const Room = (props) => {
     }
   );
   return (
-    <div>
-      <div className="room-container">
-        {" "}
-        <div className="room-question-status">{questionsStatus}</div>
-        <button
-          type="button"
-          className="room-card"
-          id={room._id}
-          onClick={questionCall}
-        >
-          &nbsp;{room.roomNo}
-        </button>
-      </div>
-      {lockedRoom ? (
-        <Toast title={notification.title} body={notification.body} />
-      ) : (
-        <> </>
-      )}
-      {openPowerup ? (
-        <Powerup
-          openPowerup={openPowerup}
-          handleClose={handleClose}
-          roomId={room._id}
-          roomNo={room.roomNo}
-        />
-      ) : (
-        <></>
-      )}
-    </div>
+    <Consumer>
+      {(context) => {
+        return (
+          <div>
+            <div className="room-container">
+              {" "}
+              <div className="room-question-status">{questionsStatus}</div>
+              <button
+                type="button"
+                className={`room-card roomno-${room.roomNo}`}
+                id={room._id}
+                onClick={() => {
+                  questionCall(context);
+                  context.switchJoyride(false);
+                }}
+              >
+                &nbsp;{room.roomNo}
+              </button>
+            </div>
+            {lockedRoom ? (
+              <Toast title={notification.title} body={notification.body} />
+            ) : (
+              <> </>
+            )}
+            {openPowerup ? PowerupComponent() : <></>}
+          </div>
+        );
+      }}
+    </Consumer>
   );
 };
 

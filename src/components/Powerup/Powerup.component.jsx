@@ -71,6 +71,7 @@ const Powerup = (props) => {
         selectPowerup(roomId, selectPowerupID)
           .then((res) => {
             console.log(res);
+            console.log("should push question!!!");
             history.push({
               pathname: "/question",
               state: { ...location.state, roomNo, roomId },
@@ -87,6 +88,7 @@ const Powerup = (props) => {
     return (
       <PowerupButton
         key={index}
+        powerupNo={index}
         powerup={powerup}
         selectPowerupButton={selectPowerupButton}
         selectPowerupID={selectPowerupID}
