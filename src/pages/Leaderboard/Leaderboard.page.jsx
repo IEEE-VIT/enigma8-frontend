@@ -12,7 +12,7 @@ import {
   TextField,
   Button,
 } from "@material-ui/core";
-import { Pagination } from "@material-ui/lab";
+import Pagination from "@material-ui/lab/Pagination";
 import { getLeaderboard, searchLeaderboard } from "../../api/leaderboards";
 
 const useStyles = makeStyles((theme) => ({

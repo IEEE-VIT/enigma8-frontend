@@ -1,0 +1,39 @@
+.welcome-container {
+  background-image: url("../../assets/welcome/Create_profile.png");
+  background-position: center;
+  background-size: cover;
+  background-size: 100%;
+}
+.welcome-paper-container {
+  position: relative;
+  font-family: "Cinzel", serif;
+}
+.welcome-lefthanger,
+.welcome-righthanger {
+  position: absolute;
+  width: 14%;
+}
+.welcome-lefthanger {
+  bottom: 1%;
+  left: 0.3%;
+}
+.welcome-righthanger {
+  top: 1%;
+  right: 0.3%;
+}
+.welcome-field {
+  margin-bottom: "25px";
+  width: "50%";
+  color: "#ffd37c";
+}
+
+.golden-btn {
+  /* background-image: linear-gradient(to bottom, #ffd37c 0%, #d08123 100%); */
+  cursor: pointer;
+  margin-bottom: 5% !important;
+  padding: 10px;
+  border: 1px solid #d08123;
+}
+/* .golden-btn:hover {
+  background-color: grey !important;
+} */

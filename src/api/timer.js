@@ -1,16 +1,22 @@
 import enigmaAPI from "./config";
 
-const timer = async () => {
-  try {
-    const remTime = await enigmaAPI.get("/static/timer", {
-      timeout: 3000,
-      timeoutErrorMessage: "Connection Timeout",
-    });
-    return remTime.data.data.date;
-  } catch (err) {
-    console.log(err);
-    return 0;
-  }
+export const timer = () => {
+  const config = {
+    headers: {
+      "Content-Type": "application/json; charset=utf-8",
+    },
+  };
+  return new Promise((resolve, reject) => {
+    enigmaAPI
+      .get("/static/timer", config)
+      .then((res) => {
+        resolve(res);
+        if (res.status !== 200) {
+          throw new Error("Something Went Wrong!");
+        }
+      })
+      .catch((err) => {
+        reject(err);
+      });
+  });
 };
-
-export default timer;
