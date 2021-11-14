@@ -1,6 +1,16 @@
-nav {
+.preenigma-nav {
   display: flex;
   justify-content: space-between;
+}
+
+nav * {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  -moz-user-drag: none;
+  -ms-user-drag: none;
 }
 ul {
   display: flex;
@@ -9,12 +19,4 @@ ul {
 }
 li {
   padding: 0px 20px;
-}
-a {
-  text-decoration: none;
-  color: black;
-}
-
-a:visited {
-  color: black;
 }
