@@ -1,0 +1,26 @@
+.brazier-left {
+  left: 47px;
+}
+.brazier-right {
+  right: 47px;
+}
+
+.countdown-page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 30px;
+}
+
+.countdown-time-container {
+  margin-right: 30px;
+}
+
+@media screen and (max-width: 768px) {
+  .countdown-time-container {
+    margin-right: 8px;
+  }
+  .countdown-page-container {
+    margin-left: 8px;
+  }
+}

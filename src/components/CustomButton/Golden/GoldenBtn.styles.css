@@ -1,0 +1,12 @@
+.golden-btn {
+  background: linear-gradient(180deg, #ffd37c 17.7%, #d08123 65.33%);
+  cursor: pointer;
+  margin-bottom: 5% !important;
+  padding: 10px;
+  border: 1px solid #d08123;
+  font-family: "Mulish";
+  font-weight: bold;
+  font-size: 18px;
+  box-sizing: border-box;
+  border-radius: 5px;
+}

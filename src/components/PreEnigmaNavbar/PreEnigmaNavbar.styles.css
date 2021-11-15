@@ -2,6 +2,16 @@ nav {
   display: flex;
   justify-content: space-between;
 }
+
+nav * {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  -moz-user-drag: none;
+  -ms-user-drag: none;
+}
 ul {
   display: flex;
   padding: 10px 20px;

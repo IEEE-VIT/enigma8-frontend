@@ -14,6 +14,7 @@ import { createProfile } from "../../api/user";
 // import Background from "../../assets/welcome/welcome-bg.svg";
 import LeftHanger from "../../assets/welcome/welcome-left.svg";
 import RightHanger from "../../assets/welcome/welcome-right.svg";
+import GoldenBtn from "../../components/CustomButton/Golden/GoldenBtn.component";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -297,13 +298,9 @@ const Welcome = () => {
           ))}
         </TextField>
         <br />
-        <button
-          type="submit"
-          className={`golden-btn ${classes.goldenBtn}`}
-          onClick={sendData}
-        >
+        <GoldenBtn marginTop="0p" width="148px" triggerFunction={sendData}>
           Get Started
-        </button>
+        </GoldenBtn>
       </Paper>
     </Container>
   );
