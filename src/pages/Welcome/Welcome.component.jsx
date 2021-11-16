@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Welcome.styles.css";
 import {
   TextField,
@@ -10,8 +10,6 @@ import {
 import { useHistory } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import { createProfile } from "../../api/user";
-// import DownArrow from "../../assets/welcome/welcome-downarrow.svg";
-// import Background from "../../assets/welcome/welcome-bg.svg";
 import LeftHanger from "../../assets/welcome/welcome-left.svg";
 import RightHanger from "../../assets/welcome/welcome-right.svg";
 import GoldenBtn from "../../components/CustomButton/Golden/GoldenBtn.component";
@@ -42,7 +40,6 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     justifyContent: "center",
     verticalAlign: "middle",
-    width: "75%",
     padding: "1% 2% 0 2%",
     backgroundColor: theme.palette.secondary.main,
     border: "2px solid #D08123",
@@ -101,6 +98,7 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: "bold",
     fontSize: "2rem",
     lineHeight: "48px",
+    margin: "4vh 3vw",
   },
   subtext: {
     padding: "2% 10%",
@@ -118,12 +116,19 @@ const useStyles = makeStyles((theme) => ({
     WebkitBackgroundClip: "text",
     WebkitTextFillColor: "transparent",
     fontFamily: "Mulish",
+    margin: "5vh auto 6vh auto",
   },
 }));
 
 const Welcome = () => {
-  const [, setCookies] = useCookies(["newUser"]);
+  const [cookies, setCookies] = useCookies(["newUser"]);
   const history = useHistory();
+  useEffect(() => {
+    if (cookies.newUser) {
+      history.push("/countdown");
+    }
+  }, []);
+
   const [data, setData] = useState({
     username: "",
     outreach: "",
@@ -254,13 +259,12 @@ const Welcome = () => {
           name="username"
           variant="outlined"
           required
-          className={classes.root}
+          className={`text-field ${classes.root}`}
           error={validateData.username}
           helperText={validateData.usernameHelper}
           onChange={addData}
           style={{
             marginBottom: "25px",
-            width: "50%",
             color: "#ffd37c",
           }}
         />
@@ -274,13 +278,13 @@ const Welcome = () => {
           onChange={addData}
           style={{
             marginBottom: "25px",
-            width: "50%",
           }}
           SelectProps={{
             native: true,
           }}
           variant="outlined"
           required
+          className="text-field"
           error={validateData.outreach}
           helperText={validateData.outreachHelper}
         >

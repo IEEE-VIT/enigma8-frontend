@@ -1,20 +1,33 @@
-nav {
+.prelogin-nav {
   display: flex;
-  justify-content: space-between;
+  text-align: center;
+  align-self: center;
+  justify-content: space-around;
+  padding: 2% 25%;
+  color: white;
+}
+.prelogin-nav-inner {
+  display: flex;
+  text-align: center;
+  align-self: center;
+  justify-content: space-around;
+  padding: 2% 25%;
+  color: white;
 }
 ul {
   display: flex;
+  justify-content: space-around;
   padding: 10px 20px;
   list-style-type: none;
 }
 li {
   padding: 0px 20px;
 }
-a {
+/* a {
   text-decoration: none;
-  color: black;
+  color: white;
 }
 
 a:visited {
-  color: black;
-}
+  color: white;
+} */
