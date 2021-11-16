@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import "./LoginPortal.styles.css";
 import { Cookies } from "react-cookie";
 import { useHistory } from "react-router-dom";
+import GoogleIcon from "../../assets/home/googleIcon.svg";
 
 const LoginPortal = () => {
   const cookies = new Cookies();
@@ -26,19 +27,21 @@ const LoginPortal = () => {
     <div id="login">
       <div className="login">
         <button
-          className="login-button google-login-button"
+          className="login-btn"
           type="button"
           onClick={GoogleAuthRedirect}
         >
-          Continue with Google
+          <img className="google-icon" src={GoogleIcon} alt="" />
+          <span className="login-inner-text"> Continue with Google</span>
         </button>
-        <button
+
+        {/* <button
           className="login-button google-login-button"
           type="button"
           disabled
         >
           Continue with Apple
-        </button>
+        </button> */}
       </div>
     </div>
   );

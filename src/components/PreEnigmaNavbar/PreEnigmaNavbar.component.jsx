@@ -17,6 +17,7 @@ const useStyles = makeStyles(() => ({
     padding: "12px 32px",
     display: "flex",
     alignItems: "center",
+    justifyContent: "space-between",
     verticalAlign: "middle",
     boxShadow: "inset 0px -1px 0px #ffd37c",
   },

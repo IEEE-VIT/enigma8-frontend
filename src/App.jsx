@@ -10,7 +10,7 @@ import ProtectedRoute from "./components/ProtectedRoute.component";
 import TokenProtectedRoute from "./components/TokenProtectedRoute.component";
 
 import Container from "./components/Container/Container.component";
-import PreloginNavbar from "./components/PreloginNavbar/PreloginNavbar.component";
+// import PreloginNavbar from "./components/PreloginNavbar/PreloginNavbar.component";
 import PreEnigmaNavbar from "./components/PreEnigmaNavbar/PreEnigmaNavbar.component";
 import PostloginNavbar from "./components/PostloginNavbar/PostloginNavbar.component";
 
@@ -54,7 +54,8 @@ function App() {
           <Route
             exact
             path="/"
-            component={() => <Container navbar={PreloginNavbar} page={Home} />}
+            // component={() => <Container navbar={PreloginNavbar} page={Home} />}
+            component={Home}
           />
           <TokenProtectedRoute
             redirect="/"
