@@ -44,11 +44,6 @@
   font-size: 1.7rem;
 }
 
-.home-text,
-.prelogin-nav {
-  position: absolute;
-  z-index: 5;
-}
 .home-text {
   position: absolute;
   margin-left: auto;
@@ -57,7 +52,7 @@
   right: 0;
   top: 15vh;
   text-align: center;
-  z-index: 100;
+  z-index: 9;
 }
 .home-background {
   margin: 0;
@@ -67,23 +62,6 @@
   position: relative;
 }
 
-.navbar-social {
-  border-radius: 10px 0 0 10px;
-  position: absolute;
-  right: 0;
-  bottom: calc(-1 * (30vh));
-  padding: 1vh 10px;
-  display: flex;
-  flex-direction: column;
-  background-color: #0b0b0b;
-  border-top: 2px solid #2f2f2f;
-  border-left: 2px solid #2f2f2f;
-  border-bottom: 2px solid #2f2f2f;
-  z-index: 22;
-}
-.navbar-social a {
-  padding: 1vh 2px;
-}
 @media (max-width: 950px) and (min-width: 801px) {
   .home-desert {
     bottom: 0;
@@ -111,12 +89,7 @@
   .home-text {
     top: 30vh !important;
   }
-  .navbar-social {
-    padding: 0.5vh 5px;
-  }
-  .navbar-social a {
-    padding: 1vh 2px;
-  }
+
   .home {
     position: relative;
     width: 100%;
@@ -133,7 +106,9 @@
     width: 70%;
   }
 }
-
+.stars {
+  z-index: -2;
+}
 .star {
   background-color: white;
   border-radius: 50%;
@@ -193,6 +168,7 @@
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   animation-duration: 2s;
+  z-index: 0;
 }
 
 .meteor:before {
