@@ -10,6 +10,7 @@ import ProtectedRoute from "./components/ProtectedRoute.component";
 import TokenProtectedRoute from "./components/TokenProtectedRoute.component";
 
 import Container from "./components/Container/Container.component";
+import GameRoute from "./components/GameRoute/GameRoute.component";
 import PreloginNavbar from "./components/PreloginNavbar/PreloginNavbar.component";
 import PreEnigmaNavbar from "./components/PreEnigmaNavbar/PreEnigmaNavbar.component";
 import PostloginNavbar from "./components/PostloginNavbar/PostloginNavbar.component";
@@ -83,7 +84,7 @@ function App() {
             exact
             path="/rooms"
             component={() => (
-              <Container navbar={PostloginNavbar} page={Rooms} />
+              <GameRoute navbar={PostloginNavbar} page={Rooms} />
             )}
           />
           <ProtectedRoute
@@ -99,7 +100,7 @@ function App() {
             exact
             path="/leaderboard"
             component={() => (
-              <Container navbar={PostloginNavbar} page={Leaderboard} />
+              <GameRoute navbar={PostloginNavbar} page={Leaderboard} />
             )}
           />
           <ProtectedRoute
@@ -107,7 +108,7 @@ function App() {
             exact
             path="/profile"
             component={() => (
-              <Container navbar={PostloginNavbar} page={Profile} />
+              <GameRoute navbar={PostloginNavbar} page={Profile} />
             )}
           />
           <ProtectedRoute
@@ -115,7 +116,7 @@ function App() {
             exact
             path="/question"
             component={() => (
-              <Container navbar={PostloginNavbar} page={Question} />
+              <GameRoute navbar={PostloginNavbar} page={Question} />
             )}
           />
 
