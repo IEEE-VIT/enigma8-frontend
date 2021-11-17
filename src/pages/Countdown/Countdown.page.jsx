@@ -91,8 +91,8 @@ const Countdown = () => {
     timer()
       .then(async (res) => {
         if (
-          Math.floor((new Date("2021-11-26T16:20") - new Date()) / 10000) !==
-          Math.floor((await res.data.data.date) / 10)
+          Math.floor((new Date("2021-11-26T16:20") - new Date()) / 100000) !==
+          Math.floor((await res.data.data.date) / 100)
         ) {
           setWrongSystemTime(true);
         }
@@ -244,7 +244,10 @@ const Countdown = () => {
       <Timer />
       <MockQuestion />
       {wrongSystemTime ? (
-        <OverlayModal innerText="Please correct your system time and reload." />
+        <OverlayModal
+          header="Your clock is inaccurate"
+          innerText="Adjust the system time and date and reload the page."
+        />
       ) : (
         <> </>
       )}

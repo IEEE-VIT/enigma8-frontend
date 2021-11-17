@@ -3,38 +3,88 @@ import { Modal, Box } from "@material-ui/core";
 import PropTypes from "prop-types";
 import "./OverlayModal.styles.css";
 
-const ModalContainer = ({ innerText }) => {
+const ModalContainer = ({ innerText, header }) => {
   const [open] = useState(true);
   const style = {
     position: "absolute",
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    width: 400,
-    bgcolor: "background.paper",
-    border: "2px solid #000",
+    width: "50%",
+    bgcolor: "#121212",
+    border: "2.5px solid transparent",
+    borderImage: "linear-gradient(to right, #ffd37c, #D08123)",
+    borderImageSlice: 1,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    flexDirection: "column",
+    textAlign: "center",
+    fontFamily: "Mulish",
+    // borderImage: "linear-gradient(#FFD37C, #D08123)",
     boxShadow: 24,
     p: 4,
+    "@media screen and (max-width: 786px)": {
+      width: "70%",
+    },
   };
   return (
     <div>
-      {/* <button onClick={handleOpen} type="button">
-        {openText}
-      </button> */}
       <Modal
         open={open}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
         <div className="modal-box">
-          {/* Add Close Button */}
-          <Box sx={style}>{innerText}</Box>
+          <Box sx={style}>
+            <div
+              className="box-modal"
+              style={{
+                background: "-webkit-linear-gradient(#FFD37C, #D08123)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                textAlign: "center",
+                display: "flex",
+                flexDirection: "column",
+              }}
+            >
+              <div
+                className="box-modal-header"
+                style={{
+                  background: "-webkit-linear-gradient(#FFD37C, #D08123)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  textAlign: "center",
+                  fontWeight: "bold",
+                  fontFamily: "Mulish",
+                  fontSize: "1.5rem",
+                }}
+              >
+                {header}
+              </div>
+              <div
+                className="box-modal-innertext"
+                style={{
+                  background: "-webkit-linear-gradient(#FFD37C, #D08123)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  textAlign: "center",
+                  fontFamily: "Mulish",
+                  fontSize: "1.5rem",
+                  marginTop: "36.37px",
+                }}
+              >
+                {innerText}
+              </div>
+            </div>
+          </Box>
         </div>
       </Modal>
     </div>
   );
 };
 ModalContainer.propTypes = {
-  innerText: PropTypes.element.isRequired,
+  innerText: PropTypes.string.isRequired,
+  header: PropTypes.string.isRequired,
 };
 export default ModalContainer;

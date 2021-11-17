@@ -5,7 +5,7 @@ import { Cookies } from "react-cookie";
 import { makeStyles } from "@material-ui/core";
 import logoutIcon from "../../assets/logout.svg";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   nav: {
     backgroundColor: "black",
     height: "69px",
@@ -25,6 +25,21 @@ const useStyles = makeStyles(() => ({
     fontSize: "2rem",
     fontWeight: "700",
     fontFamily: "Cinzel Decorative",
+    [theme.breakpoints.down("xs")]: {
+      fontSize: "24px",
+    },
+  },
+  logout: {
+    border: "none",
+    background: "none",
+    cursor: "pointer",
+    fontSize: "24px",
+    display: "flex",
+    verticalAlign: "center",
+    alignItems: "center",
+    [theme.breakpoints.down("xs")]: {
+      fontSize: "18px",
+    },
   },
 }));
 
@@ -42,15 +57,7 @@ const PreEnigmaNavbar = () => {
         <Link to="/">ENIGMA</Link>
       </div>
       <div
-        style={{
-          border: "none",
-          background: "none",
-          cursor: "pointer",
-          fontSize: "22px",
-          display: "flex",
-          verticalAlign: "center",
-          alignItems: "center",
-        }}
+        className={classes.logout}
         onClick={logout}
         onKeyDown={logout}
         role="button"
