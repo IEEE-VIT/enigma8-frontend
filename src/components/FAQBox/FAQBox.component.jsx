@@ -11,6 +11,9 @@ import { ExpandMore } from "@material-ui/icons";
 import "./FAQBox.styles.css";
 
 const useStyles = makeStyles((theme) => ({
+  field: {
+    border: "1px solid #0fa3b1",
+  },
   svg: {
     color: theme.palette.primary.main,
   },
@@ -37,6 +40,7 @@ const FAQBox = (props) => {
         square="true"
         expanded={expanded === `panel${index + 1}`}
         onChange={handleChange(`panel${index + 1}`)}
+        className={classes.field}
       >
         <AccordionSummary
           expandIcon={<ExpandMore className={classes.svg} />}

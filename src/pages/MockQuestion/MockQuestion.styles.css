@@ -8,10 +8,43 @@
 .mock-question-card {
   flex: 1;
 }
-/* .powerup{
-  text-align: right;
-} */
-#answer {
-  width: 100%;
-  /* margin-bottom: 5px; */
+
+.scarab-beetle-left {
+  left: 0;
+}
+.scarab-beetle-right {
+  right: 0;
+}
+.mock-question-section-1 {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-content: center;
+}
+
+.mock-question-section-1-text {
+  width: 50vw;
+  text-align: center;
+  justify-content: center;
+  align-content: center;
+}
+
+.mock-question-section-2-inner {
+  margin-top: 24px;
+}
+
+.mock-question-section-2-btns-container {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  .mock-question-section-1-text {
+    width: 90vw;
+  }
+  .mock-question-section-1 {
+    margin-top: 24px;
+  }
 }
