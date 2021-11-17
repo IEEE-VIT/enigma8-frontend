@@ -124,7 +124,7 @@ const Welcome = () => {
   const [cookies, setCookies] = useCookies(["newUser"]);
   const history = useHistory();
   useEffect(() => {
-    if (cookies.newUser) {
+    if (!cookies.newUser) {
       history.push("/countdown");
     }
   }, []);

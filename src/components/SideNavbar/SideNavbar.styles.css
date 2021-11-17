@@ -1,0 +1,27 @@
+.navbar-social {
+  border-radius: 10px 0 0 10px;
+  position: absolute;
+  right: 0;
+  bottom: calc(-1 * (30vh));
+  padding: 1vh 10px;
+  display: flex;
+  flex-direction: column;
+  background-color: #0b0b0b;
+  border-top: 2px solid #2f2f2f;
+  border-left: 2px solid #2f2f2f;
+  border-bottom: 2px solid #2f2f2f;
+  z-index: 10;
+}
+.navbar-social a {
+  padding: 1vh 2px;
+}
+@media (max-width: 950px) and (min-width: 801px) {
+}
+@media (max-width: 800px) {
+  .navbar-social {
+    padding: 0.5vh 5px;
+  }
+  .navbar-social a {
+    padding: 1vh 2px;
+  }
+}

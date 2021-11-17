@@ -1,0 +1,13 @@
+.faq-box {
+  color: #d08123 !important;
+}
+.MuiTypography-body1 {
+  letter-spacing: 0.3px !important;
+}
+.MuiPaper-root {
+  color: white !important;
+  background-color: #0b0b0b !important ;
+  margin: 0 0 !important;
+  border: 1px solid #0fa3b1;
+  letter-spacing: 0.3px !important;
+}

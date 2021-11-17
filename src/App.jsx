@@ -4,22 +4,24 @@ import "./App.css";
 
 import { ThemeProvider } from "@material-ui/core";
 import { createTheme } from "@material-ui/core/styles";
-// import { purple } from "@mui/material/colors";
 
 import ProtectedRoute from "./components/ProtectedRoute.component";
 import TokenProtectedRoute from "./components/TokenProtectedRoute.component";
 
 import Container from "./components/Container/Container.component";
+import PreloginNavbar from "./components/PreloginNavbar/PreloginNavbar.component";
 import GameRoute from "./components/GameRoute/GameRoute.component";
-// import PreloginNavbar from "./components/PreloginNavbar/PreloginNavbar.component";
 import PreEnigmaNavbar from "./components/PreEnigmaNavbar/PreEnigmaNavbar.component";
 import PostloginNavbar from "./components/PostloginNavbar/PostloginNavbar.component";
 
 import Home from "./pages/Home/Home.page";
-import Countdown from "./pages/Countdown/Countdown.page";
-import MockQuestion from "./pages/MockQuestion/MockQuestion.page";
+import FAQ from "./pages/FAQ/faq.page";
+import Sponsors from "./pages/Sponsors/Sponsors.page";
 
 import Welcome from "./pages/Welcome/Welcome.component";
+
+import Countdown from "./pages/Countdown/Countdown.page";
+import MockQuestion from "./pages/MockQuestion/MockQuestion.page";
 
 import Rooms from "./pages/Rooms/Rooms.page";
 import Leaderboard from "./pages/Leaderboard/Leaderboard.page";
@@ -44,6 +46,11 @@ const theme = createTheme({
       main: "#0B0B0B ",
       dark: "#ffffff",
     },
+    contrast: {
+      main: "#0FA3B1",
+      light: "#01C0CC",
+      dark: "#037EC3",
+    },
   },
 });
 
@@ -52,11 +59,18 @@ function App() {
     <div className="App">
       <ThemeProvider theme={theme}>
         <Switch>
+          <Route exact path="/" component={Home} />
           <Route
             exact
-            path="/"
-            // component={() => <Container navbar={PreloginNavbar} page={Home} />}
-            component={Home}
+            path="/faq"
+            component={() => <Container navbar={PreloginNavbar} page={FAQ} />}
+          />
+          <Route
+            exact
+            path="/sponsors"
+            component={() => (
+              <Container navbar={PreloginNavbar} page={Sponsors} />
+            )}
           />
           <TokenProtectedRoute
             redirect="/"
