@@ -1,0 +1,47 @@
+.sponsorcard {
+  margin: 10px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  background-image: linear-gradient(to bottom, #ffd37c 0%, #d08123 100%);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: bold;
+}
+.sponsorcard-container div {
+  padding: 1% 1%;
+  margin: 10px auto;
+  /* width: 100%; */
+  text-align: center;
+}
+
+.sponsorcard-title-1 {
+  font-size: 1.6rem;
+}
+.sponsorcard-title-2 {
+  font-size: 1.5rem;
+}
+.sponsorcard-title-3 {
+  font-size: 1.4rem;
+}
+.sponsorcard-title-4 {
+  font-size: 1.35rem;
+}
+
+.sponsorcard-divider-4 {
+  display: none;
+}
+.sponsorcard-paper {
+  background-color: #0b0b0b;
+  width: fit-content;
+  justify-content: center;
+  text-align: center;
+}
+.sponsorcard-img {
+  margin: 10px;
+}

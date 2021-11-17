@@ -3,7 +3,10 @@
   background-color: #0b0b0b;
   border-top: 2px solid #edc473;
   padding: 2vh 0 1vh 0;
+  z-index: 2;
   /* padding: 2vh 20px; */
+  /* position: absolute;
+  bottom: 0; */
 }
 .footer-navbar {
   width: 100%;

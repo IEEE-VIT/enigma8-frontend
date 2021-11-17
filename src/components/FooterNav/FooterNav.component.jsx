@@ -24,38 +24,38 @@ const FooterNav = () => {
         <LinkImage
           link={linkedinLink}
           img={LinkedInIcon}
-          link_class="footer-social-link"
-          img_class="footer-social-icon"
+          linkClass="footer-social-link"
+          imgClass="footer-social-icon"
         />
         <LinkImage
           link={twitterLink}
           img={TwitterIcon}
-          link_class="footer-social-link"
-          img_class="footer-social-icon"
+          linkClass="footer-social-link"
+          imgClass="footer-social-icon"
         />
         <LinkImage
           link={facebookLink}
           img={FacebookIcon}
-          link_class="footer-social-link"
-          img_class="footer-social-icon"
+          linkClass="footer-social-link"
+          imgClass="footer-social-icon"
         />
         <LinkImage
           link={instagramLink}
           img={InstagramIcon}
-          link_class="footer-social-link"
-          img_class="footer-social-icon"
+          linkClass="footer-social-link"
+          imgClass="footer-social-icon"
         />
         <LinkImage
           link={githubLink}
           img={GitHubIcon}
-          link_class="footer-social-link"
-          img_class="footer-social-icon"
+          linkClass="footer-social-link"
+          imgClass="footer-social-icon"
         />
         <LinkImage
           link={youtubeLink}
           img={YouTubeIcon}
-          link_class="footer-social-link"
-          img_class="footer-social-icon"
+          linkClass="footer-social-link"
+          imgClass="footer-social-icon"
         />
       </div>
     </div>

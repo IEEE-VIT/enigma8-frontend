@@ -16,6 +16,7 @@ import PostloginNavbar from "./components/PostloginNavbar/PostloginNavbar.compon
 
 import Home from "./pages/Home/Home.page";
 import FAQ from "./pages/FAQ/faq.page";
+import Sponsors from "./pages/Sponsors/Sponsors.page";
 
 import Welcome from "./pages/Welcome/Welcome.component";
 
@@ -63,6 +64,13 @@ function App() {
             exact
             path="/faq"
             component={() => <Container navbar={PreloginNavbar} page={FAQ} />}
+          />
+          <Route
+            exact
+            path="/sponsors"
+            component={() => (
+              <Container navbar={PreloginNavbar} page={Sponsors} />
+            )}
           />
           <TokenProtectedRoute
             redirect="/"

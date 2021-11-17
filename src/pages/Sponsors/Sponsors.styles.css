@@ -1,0 +1,64 @@
+.sponsors-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+  background-image: linear-gradient(to bottom, #ffd37c 0%, #d08123 100%);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+  text-align: center;
+  align-items: center;
+  width: 100%;
+}
+.sponsorcard-container {
+  /* padding: 1% 1%; */
+  /* margin: 10px;
+    width: 100%; */
+}
+
+.sponsorcard-bag {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.home-bg-left,
+.home-bg-right {
+  position: absolute;
+  z-index: 0;
+  width: 20vw;
+  pointer-events: none;
+}
+.home-bg-left {
+  /* top: 30%; */
+  left: 0;
+}
+.home-bg-right {
+  /* top: 10%; */
+  right: 0;
+}
+/* Extra small devices (phones, 600px and down) */
+@media (max-width: 600px) {
+  .home-bg-left,
+  .home-bg-right {
+    position: absolute;
+    z-index: 0;
+    width: 55vw;
+  }
+}
+
+/* Small devices (tablets and large phones, 600px and up) */
+@media (min-width: 600px) and (max-width: 992px) {
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1200px) {
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+}

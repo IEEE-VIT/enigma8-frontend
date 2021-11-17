@@ -4,6 +4,9 @@ import "./faq.styles.css";
 import FAQBox from "../../components/FAQBox/FAQBox.component";
 import FooterNav from "../../components/FooterNav/FooterNav.component";
 
+import BackgroundLeft from "../../assets/home/bg-left.svg";
+import BackgroundRight from "../../assets/home/bg-right.svg";
+
 import DiscordLogo from "../../assets/home/Discord-Logo.svg";
 import LinkImage from "../../components/LinkImage/LinkImage.component";
 
@@ -27,11 +30,13 @@ const FAQ = () => {
           <LinkImage
             link={discordLink}
             img={DiscordLogo}
-            link_class=""
-            img_class="faq-discord-logo"
+            linkClass=""
+            imgClass="faq-discord-logo"
           />
         </div>
       </div>
+      <img src={BackgroundLeft} className="home-bg-left" alt="" />
+      <img src={BackgroundRight} className="home-bg-right" alt="" />
       <FooterNav />
     </div>
   );

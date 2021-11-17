@@ -8,6 +8,7 @@
   -moz-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
   -moz-text-fill-color: transparent !important;
+  z-index: 20;
 }
 .MuiMenu-list {
   display: flex !important;
