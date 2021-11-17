@@ -16,7 +16,9 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "plugins": ["react"],
+  "plugins": [
+    "react"
+  ],
   "rules": {
     "react/jsx-filename-extension": "off",
     "no-use-before-define": [
@@ -37,14 +39,21 @@
     "no-underscore-dangle": "off",
     "import/prefer-default-export": "off",
     "react/no-array-index-key": "off",
-    "import/no-named-as-default-member": "off"
+    "import/no-named-as-default-member": "off",
   },
   "root": true,
   "settings": {
     "import/resolver": {
       "node": {
-        "paths": ["src"],
-        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+        "paths": [
+          "src"
+        ],
+        "extensions": [
+          ".js",
+          ".jsx",
+          ".ts",
+          ".tsx"
+        ]
       }
     }
   }
