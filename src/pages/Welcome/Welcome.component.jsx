@@ -124,7 +124,7 @@ const Welcome = () => {
   const [cookies, setCookies] = useCookies(["newUser"]);
   const history = useHistory();
   useEffect(() => {
-    if (!cookies.newUser) {
+    if (cookies.newUser === "false") {
       history.push("/countdown");
     }
   }, []);
@@ -220,16 +220,28 @@ const Welcome = () => {
   };
   const outreach = [
     {
-      value: "Instagram",
+      value: "instagram",
       label: "Instagram",
     },
     {
-      value: "Facebook",
+      value: "facebook",
       label: "Facebook",
     },
     {
-      value: "Twitter",
-      label: "Twitter",
+      value: "reddit",
+      label: "Reddit",
+    },
+    {
+      value: "linkedin",
+      label: "LinkedIn",
+    },
+    {
+      value: "discord",
+      label: "Discord",
+    },
+    {
+      value: "word of mouth",
+      label: "Word Of Mouth",
     },
     {
       value: "Others",
