@@ -15,15 +15,15 @@ import Back from "../../assets/mockquestion/back.svg";
 const useStyles = makeStyles((theme) => ({
   scarab: {
     position: "absolute",
-    top: "25%",
-    height: "60%",
+    top: "30%",
+    height: "50%",
     [theme.breakpoints.down("md")]: {
       display: "none",
     },
   },
   MockQuestionImg: {
-    width: "550px",
-    height: "260px",
+    width: "525px",
+    height: "220px",
     [theme.breakpoints.down("md")]: {
       width: "80vw",
       height: "45vw",
@@ -99,6 +99,14 @@ const useStyles = makeStyles((theme) => ({
     WebkitTextFillColor: "transparent",
     fontFamily: "Mulish",
   },
+  MockQuestionHeader: {
+    background: "-webkit-linear-gradient(#FFD37C, #D08123)",
+    WebkitBackgroundClip: "text",
+    WebkitTextFillColor: "transparent",
+    fontFamily: "Mulish",
+    fontSize: "2rem",
+    fontWeight: "bold",
+  },
   MockQuestionContainer: {
     marginTop: "24px",
   },
@@ -145,10 +153,15 @@ const MockQuestion = () => {
   };
   useEffect(getRemTime, []);
   useEffect(updateRemTime, [remTime]);
-  const question =
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mi justo, vel magna aliquam nibh pretium non.";
-  const media =
-    "https://res.cloudinary.com/practicaldev/image/fetch/s--MogK4afM--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/i/w6nrrg4yw4vnux9dhhoq.png";
+  const question = () => {
+    return (
+      <div>
+        <div style={{ fontSize: 24 }}>Mock Question</div>
+        Where lived the man? <br /> <i>Et tu, Brute?</i>
+      </div>
+    );
+  };
+  const media = "https://i.ibb.co/K2wjjb3/Mock-Question.jpg";
   const history = useHistory();
   const goBack = () => {
     history.push({
@@ -157,24 +170,31 @@ const MockQuestion = () => {
   };
 
   const HintModal = () => {
-    const Hint = "Shubhu";
+    const Hint = "Caeser Cipher with Key 5";
     return <div>{Hint}</div>;
   };
   const submitAnswer = () => {
-    if (answer === "Shubham") {
+    if (answer.trim().toLowerCase() === "denmark") {
       setIsCorrect(true);
       validateData.answer = false;
       validateData.answerHelper = "";
-    }
-    if (answer !== "Shubham") {
-      validateData.answer = true;
-      validateData.answerHelper = "Wrong Answer. Keep Trying!";
-    }
-    if (answer === "Close") {
+    } else if (answer.trim().toLowerCase() === "norway") {
+      setIsCorrect(true);
+      validateData.answer = false;
+      validateData.answerHelper = "";
+    } else if (answer.trim().toLowerCase() === "harald") {
       setIsCloseAnswer(true);
       validateData.answer = true;
       validateData.answerHelper = "Wrong Answer. Keep Trying!";
+    } else if (answer.trim().toLowerCase() === "bluetooth") {
+      setIsCloseAnswer(true);
+      validateData.answer = true;
+      validateData.answerHelper = "Wrong Answer. Keep Trying!";
+    } else {
+      validateData.answer = true;
+      validateData.answerHelper = "Wrong Answer. Keep Trying!";
     }
+
     setValidateData({ ...validateData });
   };
   const successfullyAnswered = () => {
@@ -232,12 +252,16 @@ const MockQuestion = () => {
             <div
               className={`mock-question-section-1-text ${classes.MockQuestion}`}
             >
-              {question}
+              {question()}
             </div>
           </div>
           <div className="mock-question-section-2">
-            <div className="mock-question-section-2-media mock-question-section-2-inner">
+            <div
+              className={`mock-question-section-2-media mock-question-section-2-inner ${classes.MockQuestion}`}
+            >
               <img className={classes.MockQuestionImg} src={media} alt="" />
+              <br />
+              rfs gjmnsi gqzj yttym
             </div>
             <div className="mock-question-section-2-answerfield mock-question-section-2-inner">
               <Container
