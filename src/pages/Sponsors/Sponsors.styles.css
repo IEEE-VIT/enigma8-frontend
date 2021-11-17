@@ -21,7 +21,7 @@
 .sponsorcard-bag {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: space-evenly;
   align-items: center;
 }
@@ -48,6 +48,9 @@
     position: absolute;
     z-index: 0;
     width: 55vw;
+  }
+  .sponsorcard-bag {
+    flex-wrap: wrap;
   }
 }
 

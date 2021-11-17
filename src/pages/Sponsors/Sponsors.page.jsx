@@ -9,6 +9,7 @@ import BackgroundRight from "../../assets/home/bg-right.svg";
 import TitleSponsor from "../../assets/home/sponsor-titlesponsor.svg";
 import PowerdBySponsor from "../../assets/home/sponsor-poweredby.svg";
 import GiftingPartner from "../../assets/home/sponsor-gifting-partner.svg";
+import EnvPartner from "../../assets/home/sponsor-env-partner.svg";
 // import IPRPartner from "../../assets/home/ipr-partner.svg";
 import BlockchainPartner from "../../assets/home/sponsor-blockchain-partner.svg";
 import PartnerA from "../../assets/home/sponsor-partner-a.svg";
@@ -41,14 +42,21 @@ const Sponsors = () => {
         />
         <div className="sponsorcard-bag">
           <SponsorsCard
+            img={EnvPartner}
+            title="ENVIRONMENTAL PARTNER"
+            e
+            link="https://www.bysmita.in/"
+            type={3}
+          />
+          <SponsorsCard
             img={BlockchainPartner}
-            title="BLOCKCHAIN PARTNERS"
+            title="BLOCKCHAIN PARTNER"
             link="https://dhiway.com/"
             type={3}
-          />{" "}
+          />
           <SponsorsCard
             img={GiftingPartner}
-            title="GIFTING PARTNERS"
+            title="GIFTING PARTNER"
             link="https://offostore.com/"
             type={3}
           />
