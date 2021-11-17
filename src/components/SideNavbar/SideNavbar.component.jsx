@@ -3,6 +3,7 @@ import "./SideNavbar.styles.css";
 
 import LinkImage from "../LinkImage/LinkImage.component";
 
+import YouTubeIcon from "../../assets/home/youtube.svg";
 import FacebookIcon from "../../assets/home/facebook.svg";
 import LinkedInIcon from "../../assets/home/linkedin.svg";
 import GitHubIcon from "../../assets/home/github.svg";
@@ -14,6 +15,7 @@ const instagramLink = "https://www.instagram.com/ieeevitvellore/?hl=en";
 const githubLink = "https://github.com/IEEE-VIT";
 const twitterLink = "https://twitter.com/ieeevitvellore";
 const linkedinLink = "https://in.linkedin.com/company/ieee-vit-vellore";
+const youtubeLink = "https://www.youtube.com/c/IEEEVITVellore";
 
 const SideNavbar = () => {
   return (
@@ -46,6 +48,12 @@ const SideNavbar = () => {
         <LinkImage
           link={githubLink}
           img={GitHubIcon}
+          linkClass="footer-social-link"
+          imgClass="footer-social-icon"
+        />
+        <LinkImage
+          link={youtubeLink}
+          img={YouTubeIcon}
           linkClass="footer-social-link"
           imgClass="footer-social-icon"
         />

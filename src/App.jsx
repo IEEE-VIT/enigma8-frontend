@@ -134,11 +134,16 @@ function App() {
               <GameRoute navbar={PostloginNavbar} page={Question} />
             )}
           /> */}
-
           <Route
             exact
             path="/googlesuccessfulAuth"
             component={SuccessfulAuth}
+          />
+          <ProtectedRoute
+            redirect="/"
+            component={() => (
+              <Container navbar={PreEnigmaNavbar} page={Countdown} />
+            )}
           />
           <ProtectedRoute
             redirect="/"

@@ -9,7 +9,10 @@ import BackgroundRight from "../../assets/home/bg-right.svg";
 import TitleSponsor from "../../assets/home/sponsor-titlesponsor.svg";
 import PowerdBySponsor from "../../assets/home/sponsor-poweredby.svg";
 import GiftingPartner from "../../assets/home/sponsor-gifting-partner.svg";
+import EnvPartner from "../../assets/home/sponsor-env-partner.svg";
+
 // import IPRPartner from "../../assets/home/ipr-partner.svg";
+
 import BlockchainPartner from "../../assets/home/sponsor-blockchain-partner.svg";
 import PartnerA from "../../assets/home/sponsor-partner-a.svg";
 import PartnerB from "../../assets/home/sponsor-partner-b.svg";
@@ -39,18 +42,25 @@ const Sponsors = () => {
           link="https://unicreds.com/"
           type={2}
         />
+        <SponsorsCard
+          img={BlockchainPartner}
+          title="BLOCKCHAIN PARTNER"
+          link="https://dhiway.com/"
+          type={3}
+        />
         <div className="sponsorcard-bag">
           <SponsorsCard
-            img={BlockchainPartner}
-            title="BLOCKCHAIN PARTNERS"
-            link="https://dhiway.com/"
-            type={3}
-          />{" "}
+            img={EnvPartner}
+            title="ENVIRONMENTAL PARTNER"
+            link="https://www.bysmita.in/"
+            type={4}
+          />
+
           <SponsorsCard
             img={GiftingPartner}
-            title="GIFTING PARTNERS"
+            title="GIFTING PARTNER"
             link="https://offostore.com/"
-            type={3}
+            type={4}
           />
           {/* <SponsorsCard
             img={EmptyTile}
@@ -65,39 +75,38 @@ const Sponsors = () => {
             img={PartnerA}
             title=""
             link="https://gen.xyz/"
-            type={3}
+            type={5}
           />
           <SponsorsCard
             img={PartnerB}
             title=""
             link="https://bit.ly/3aLF5vB"
-            type={3}
+            type={5}
           />
           <SponsorsCard
             img={PartnerC}
             title=""
             link="https://replit.com/"
-            type={3}
+            type={5}
           />
         </div>
-        <SponsorsCard img={" "} title="DIGITAL PARTNERS" link="" type={0} />
-        <div className="sponsorcard-bag">
-          <SponsorsCard
-            img={DigitalPartnerA}
-            title=""
-            link="https://collegeinsider.in/"
-            type={4}
-          />
-          <SponsorsCard
-            img={DigitalPartnerB}
-            title=""
-            link="https://moroesports.com/"
-            type={4}
-          />
-        </div>
+
+        <SponsorsCard
+          img={DigitalPartnerA}
+          title="OUTREACH PARTNER"
+          link="https://collegeinsider.in/"
+          type={6}
+        />
+        <SponsorsCard
+          img={DigitalPartnerB}
+          title="DIGITAL PARTNER"
+          link="https://moroesports.com/"
+          type={7}
+          paperClass="blockchain"
+        />
       </div>
-      <img src={BackgroundLeft} className="home-bg-left" alt="" />
-      <img src={BackgroundRight} className="home-bg-right" alt="" />
+      <img src={BackgroundLeft} className="sponsors-bg-left" alt="" />
+      <img src={BackgroundRight} className="sponsors-bg-right" alt="" />
       <FooterNav />
     </div>
   );
