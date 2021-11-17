@@ -8,7 +8,7 @@ import BackgroundRight from "../../assets/home/bg-right.svg";
 
 import TitleSponsor from "../../assets/home/sponsor-titlesponsor.svg";
 import PowerdBySponsor from "../../assets/home/sponsor-poweredby.svg";
-// import DigitalPartner from "../../assets/home/digital-partner.svg";
+import GiftingPartner from "../../assets/home/sponsor-gifting-partner.svg";
 // import IPRPartner from "../../assets/home/ipr-partner.svg";
 import BlockchainPartner from "../../assets/home/sponsor-blockchain-partner.svg";
 import PartnerA from "../../assets/home/sponsor-partner-a.svg";
@@ -18,7 +18,7 @@ import PartnerC from "../../assets/home/sponsor-partner-c.svg";
 import DigitalPartnerA from "../../assets/home/sponsor-digital-partner-a.svg";
 import DigitalPartnerB from "../../assets/home/sponsor-digital-partner-b.svg";
 
-import EmptyTile from "../../assets/home/sponsor-empty-tile.svg";
+// import EmptyTile from "../../assets/home/sponsor-empty-tile.svg";
 import FooterNav from "../../components/FooterNav/FooterNav.component";
 
 // import LinkImage from "../../components/LinkImage/LinkImage.component";
@@ -47,9 +47,9 @@ const Sponsors = () => {
             type={3}
           />{" "}
           <SponsorsCard
-            img={EmptyTile}
+            img={GiftingPartner}
             title="GIFTING PARTNERS"
-            link=""
+            link="https://offostore.com/"
             type={3}
           />
           {/* <SponsorsCard
@@ -64,25 +64,30 @@ const Sponsors = () => {
           <SponsorsCard
             img={PartnerA}
             title=""
-            link="https://bit.ly/3aLF5vB"
+            link="https://gen.xyz/"
             type={3}
           />
           <SponsorsCard
             img={PartnerB}
             title=""
-            link="https://replit.com/ "
+            link="https://bit.ly/3aLF5vB"
             type={3}
           />
           <SponsorsCard
             img={PartnerC}
             title=""
-            link="https://gen.xyz/"
+            link="https://replit.com/"
             type={3}
           />
         </div>
         <SponsorsCard img={" "} title="DIGITAL PARTNERS" link="" type={0} />
         <div className="sponsorcard-bag">
-          <SponsorsCard img={DigitalPartnerA} title="" link="" type={4} />
+          <SponsorsCard
+            img={DigitalPartnerA}
+            title=""
+            link="https://collegeinsider.in/"
+            type={4}
+          />
           <SponsorsCard
             img={DigitalPartnerB}
             title=""
