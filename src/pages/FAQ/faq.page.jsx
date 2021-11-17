@@ -37,6 +37,7 @@ const FAQ = () => {
       </div>
       <img src={BackgroundLeft} className="home-bg-left" alt="" />
       <img src={BackgroundRight} className="home-bg-right" alt="" />
+
       <FooterNav />
     </div>
   );
