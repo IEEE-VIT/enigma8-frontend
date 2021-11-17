@@ -6,9 +6,11 @@ const useStyles = makeStyles((theme) => ({
   timercardButtonLarge: {
     backgroundColor: "#121212",
     backgroundPosition: "center",
-    background: "-webkit-linear-gradient(#FFD37C, #D08123)",
-    WebkitBackgroundClip: "text",
-    WebkitTextFillColor: "transparent",
+    color: "#d08123",
+    // background:
+    //   "-webkit-linear-gradient(rgba(255, 211, 124, 1), rgba(208, 129, 35, 1))",
+    // WebkitBackgroundClip: "text",
+    // WebkitTextFillColor: "transparent",
     borderRadius: "3.99133px",
     boxShadow: "2.3948px 1.59653px 0.798265px #0FA3B1",
     boxSizing: "border-box",
@@ -38,9 +40,10 @@ const useStyles = makeStyles((theme) => ({
   timercardButtonSmall: {
     backgroundColor: "#121212",
     backgroundPosition: "center",
-    background: "-webkit-linear-gradient(#FFD37C, #D08123)",
-    WebkitBackgroundClip: "text",
-    WebkitTextFillColor: "transparent",
+    color: "#d08123",
+    // background: "-webkit-linear-gradient(#FFD37C, #D08123)",
+    // WebkitBackgroundClip: "text",
+    // WebkitTextFillColor: "transparent",
     borderRadius: "3.99133px",
     boxShadow: "2.3948px 1.59653px 0.798265px #0FA3B1",
     boxSizing: "border-box",

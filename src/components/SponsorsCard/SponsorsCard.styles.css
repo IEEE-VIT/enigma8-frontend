@@ -4,11 +4,12 @@
   justify-content: center;
   align-items: center;
   margin: auto;
-  background-image: linear-gradient(to bottom, #ffd37c 0%, #d08123 100%);
+  /* background-image: linear-gradient(to bottom, #ffd37c 0%, #d08123 100%);
   -webkit-background-clip: text;
   -moz-background-clip: text;
   -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
+  -moz-text-fill-color: transparent; */
+  color: #d08123;
   font-family: "Mulish";
   font-style: normal;
   font-weight: bold;
@@ -41,7 +42,7 @@
 }
 .sponsorcard-paper {
   background-color: #0b0b0b;
-  width: fit-content;
+  /* width: fit-content; */
   justify-content: center;
   text-align: center;
 }
