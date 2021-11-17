@@ -157,10 +157,10 @@ const Welcome = () => {
       validateData.username = true;
       validateData.usernameHelper =
         "Sorry, only alphanumeric characters are allowed.";
-    } else if (data.username.length < 3 || data.username.length > 30) {
+    } else if (data.username.length < 5 || data.username.length > 30) {
       validateData.username = true;
       validateData.usernameHelper =
-        "Sorry, your username must be betweeen 3 and 30 characters long.";
+        "Sorry, your username must be betweeen 5 and 30 characters long.";
     } else {
       validateData.username = false;
       validateData.usernameHelper = "";
@@ -205,6 +205,13 @@ const Welcome = () => {
               validateData.username = true;
               validateData.usernameHelper =
                 "Username must only contain alpha-numeric characters.";
+            } else if (
+              err.response.data.message ===
+              `"username" length must be at least 5 characters long`
+            ) {
+              validateData.username = true;
+              validateData.usernameHelper =
+                "Sorry, your username must be betweeen 5 and 30 characters long.";
             } else if (
               err.response.data.message ===
               `"username" is not allowed to be empty`
