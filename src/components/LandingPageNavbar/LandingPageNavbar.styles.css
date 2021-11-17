@@ -1,9 +1,10 @@
-.prelogin-nav-extended {
-  /* position: absolute; */
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  font-size: 1.2rem;
+.landingpage-nav-container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  font-size: 1.4rem;
   background-image: linear-gradient(to bottom, #ffd37c 0%, #d08123 100%);
   -webkit-background-clip: text;
   -moz-background-clip: text;
@@ -13,10 +14,22 @@
   font-style: normal;
   font-weight: bold;
 }
-.prelogin-nav-extended a {
-  padding: 0 3vw;
+.landingpage-nav {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  width: 100%;
+  height: 50px;
 }
-
+.landingpage-nav a {
+  padding: 5px;
+  transition: all 0.2s ease-in-out;
+}
+/* .landingpage-nav-item:hover {
+  background-color: #0b0b0b;
+  transform: scale(1.5);
+} */
 /* Extra small devices (phones, 600px and down) */
 @media (max-width: 600px) {
   .landingpage-nav {
@@ -26,12 +39,28 @@
 
 /* Small devices (tablets and large phones, 600px and up) */
 @media (min-width: 600px) and (max-width: 992px) {
+  .landingpage-nav {
+    justify-content: space-evenly;
+  }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media (min-width: 992px) and (max-width: 1200px) {
+  .landingpage-nav-container {
+    width: 50%;
+  }
+  .landingpage-nav {
+    display: flex;
+    justify-content: space-around;
+  }
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
+  .landingpage-nav-container {
+    width: 50%;
+  }
+  .landingpage-nav {
+    justify-content: space-around;
+  }
 }
