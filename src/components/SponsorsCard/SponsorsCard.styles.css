@@ -19,7 +19,9 @@
   /* width: 100%; */
   text-align: center;
 }
-
+.sponsorcard-title-0 {
+  font-size: 1.36rem;
+}
 .sponsorcard-title-1 {
   font-size: 1.6rem;
 }
@@ -33,7 +35,8 @@
   font-size: 1.35rem;
 }
 
-.sponsorcard-divider-4 {
+.sponsorcard-divider-4,
+.sponsorcard-divider-3 {
   display: none;
 }
 .sponsorcard-paper {
@@ -42,6 +45,21 @@
   justify-content: center;
   text-align: center;
 }
+.sponsorcard-paper-0 {
+  display: none;
+}
 .sponsorcard-img {
   margin: 10px;
+}
+.sponsorcard-img-1 {
+  width: 90%;
+}
+.sponsorcard-img-2 {
+  width: 70%;
+}
+.sponsorcard-img-3 {
+  width: 60%;
+}
+.sponsorcard-img-4 {
+  width: 60%;
 }
