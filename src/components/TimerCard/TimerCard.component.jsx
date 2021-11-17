@@ -28,6 +28,12 @@ const useStyles = makeStyles((theme) => ({
       fontSize: "24px",
       marginRight: "8px",
     },
+    [theme.breakpoints.down("xs")]: {
+      width: "40px",
+      height: "40px",
+      fontSize: "24px",
+      marginRight: "8px",
+    },
   },
   timercardButtonSmall: {
     backgroundColor: "#121212",
