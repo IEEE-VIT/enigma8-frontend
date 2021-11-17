@@ -1,21 +1,16 @@
 import React, { useState } from "react";
 import { Modal, Box } from "@material-ui/core";
 import PropTypes from "prop-types";
-import "./ModalContainer.styles.css";
-import OutlineGoldenBtn from "../../CustomButton/OutlineGolden/OutlineGoldenBtn.component";
-import Close from "../../../assets/modals/close.svg";
+import "./BlueOverlayModal.styles.css";
 
-const ModalContainer = ({ innerText, openText, type, header }) => {
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
-
+const ModalContainer = ({ innerText, header }) => {
+  const [open] = useState(true);
   const style = {
     position: "absolute",
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    width: "30%",
+    width: "40%",
     bgcolor: "#121212",
     border: "2.5px solid transparent",
     borderImage: "linear-gradient(to right, #0FA3B1, #037EC3)",
@@ -27,51 +22,20 @@ const ModalContainer = ({ innerText, openText, type, header }) => {
     textAlign: "center",
     fontFamily: "Mulish",
     boxShadow: 24,
+    p: 4,
     "@media screen and (max-width: 786px)": {
-      width: "90%",
+      width: "70%",
     },
   };
   return (
     <div>
-      {type === "outlined" ? (
-        <OutlineGoldenBtn
-          triggerFunction={handleOpen}
-          marginTop="0px"
-          width="130px"
-        >
-          {openText}
-        </OutlineGoldenBtn>
-      ) : (
-        <></>
-      )}
       <Modal
         open={open}
-        onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
         <div className="modal-box">
           <Box sx={style}>
-            <div style={{ width: "100%", textAlign: "right" }}>
-              <button
-                type="button"
-                onClick={handleClose}
-                style={{
-                  background: "none",
-                  border: "none",
-                  marginTop: "10px",
-                  marginLeft: "10px",
-                  marginRight: "10px",
-                  padding: "0",
-                }}
-              >
-                <img
-                  src={Close}
-                  style={{ height: 25, cursor: "pointer" }}
-                  alt=""
-                />
-              </button>
-            </div>
             <div
               className="box-modal"
               style={{
@@ -79,9 +43,6 @@ const ModalContainer = ({ innerText, openText, type, header }) => {
                 textAlign: "center",
                 display: "flex",
                 flexDirection: "column",
-                paddingLeft: "32px",
-                paddingRight: "32px",
-                paddingBottom: "32px",
               }}
             >
               <div
@@ -103,7 +64,7 @@ const ModalContainer = ({ innerText, openText, type, header }) => {
                   textAlign: "center",
                   fontFamily: "Mulish",
                   fontSize: "1.5rem",
-                  marginTop: "8px",
+                  marginTop: "36.37px",
                 }}
               >
                 {innerText}
@@ -115,11 +76,8 @@ const ModalContainer = ({ innerText, openText, type, header }) => {
     </div>
   );
 };
-
 ModalContainer.propTypes = {
-  innerText: PropTypes.element.isRequired,
-  openText: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
+  innerText: PropTypes.string.isRequired,
   header: PropTypes.string.isRequired,
 };
 export default ModalContainer;
