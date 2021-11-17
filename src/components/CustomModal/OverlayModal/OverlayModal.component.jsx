@@ -21,7 +21,6 @@ const ModalContainer = ({ innerText, header }) => {
     flexDirection: "column",
     textAlign: "center",
     fontFamily: "Mulish",
-    // borderImage: "linear-gradient(#FFD37C, #D08123)",
     boxShadow: 24,
     p: 4,
     "@media screen and (max-width: 786px)": {

@@ -117,7 +117,11 @@ const Question = () => {
             />
           </div>
           <div className="question-section-2-Btn">
-            <ModalContainer innerText={HintModal()} openText="Hint" />
+            <ModalContainer
+              innerText={HintModal()}
+              openText="Hint"
+              type="fill"
+            />
             <button type="submit" className="question-section-2-SubmitBtn">
               Submit
             </button>
