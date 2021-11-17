@@ -24,18 +24,12 @@ const HamMenu = () => {
   };
   const handleClose = (id) => {
     setAnchorEl(null);
-    switch (id) {
-      case 1:
-        history.push("/");
-        break;
-      case 2:
-        history.push("/sponsors");
-        break;
-      case 3:
-        history.push("/faq");
-        break;
-      default:
-        history.push("/faq");
+    if (id === 1) {
+      history.push("/");
+    } else if (id === 2) {
+      history.push("/sponsors");
+    } else if (id === 3) {
+      history.push("/faq");
     }
   };
   return (
