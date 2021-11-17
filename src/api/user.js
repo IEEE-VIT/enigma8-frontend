@@ -81,8 +81,6 @@ export const getPowerups = () => {
 };
 
 export const selectPowerup = (roomId, powerupId) => {
-  console.log(roomId);
-  console.log(powerupId);
   const cookies = new Cookies();
   const token = cookies.get("token");
   const config = {
