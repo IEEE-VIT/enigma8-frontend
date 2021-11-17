@@ -29,7 +29,12 @@
 }
 
 .golden-btn {
-  /* background-image: linear-gradient(to bottom, #ffd37c 0%, #d08123 100%); */
+  /* background-image: linear-gradient(to bottom, #ffd37c 0%, #d08123 100%);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent; */
+  color: #d08123;
   cursor: pointer;
   margin-bottom: 5% !important;
   padding: 10px;
@@ -49,7 +54,12 @@
     width: 85% !important;
   }
   .golden-btn {
-    /* background-image: linear-gradient(to bottom, #ffd37c 0%, #d08123 100%); */
+    /* background-image: linear-gradient(to bottom, #ffd37c 0%, #d08123 100%);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent; */
+    color: #d08123;
     margin-bottom: 10% !important;
   }
   .welcome-lefthanger,

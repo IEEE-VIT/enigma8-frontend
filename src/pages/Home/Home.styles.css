@@ -32,11 +32,12 @@
   width: 30%;
 }
 .home-subtext {
-  background-image: linear-gradient(to bottom, #0fa3b1 100%, #037ec3 97%);
+  /* background-image: linear-gradient(to bottom, #0fa3b1 100%, #037ec3 97%);
   -webkit-background-clip: text;
   -moz-background-clip: text;
   -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
+  -moz-text-fill-color: transparent; */
+  color: #037ec3;
   margin-top: 2vh;
   margin-bottom: 5vh;
   letter-spacing: 1px;

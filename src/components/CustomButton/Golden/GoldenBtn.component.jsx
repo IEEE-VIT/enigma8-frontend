@@ -12,7 +12,7 @@ const GoldenBtn = (props) => {
     <div>
       <button
         type="submit"
-        style={{ width, marginTop }}
+        style={{ width, marginTop, color: "black" }}
         onClick={handleClick}
         className="golden-btn"
       >

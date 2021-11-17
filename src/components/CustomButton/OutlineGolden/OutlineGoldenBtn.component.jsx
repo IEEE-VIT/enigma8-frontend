@@ -6,9 +6,10 @@ import PropTypes from "prop-types";
 
 const useStyles = makeStyles(() => ({
   OutlineGoldenBtn: {
-    background: "-webkit-linear-gradient(#FFD37C, #D08123)",
-    WebkitBackgroundClip: "text",
-    WebkitTextFillColor: "transparent",
+    // background: "-webkit-linear-gradient(#FFD37C, #D08123)",
+    // WebkitBackgroundClip: "text",
+    // WebkitTextFillColor: "transparent",
+    color: "#d08123",
   },
 }));
 

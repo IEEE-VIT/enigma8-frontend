@@ -13,8 +13,9 @@ const ModalContainer = ({ innerText, header }) => {
     width: "50%",
     bgcolor: "#121212",
     border: "2.5px solid transparent",
-    borderImage: "linear-gradient(to right, #ffd37c, #D08123)",
-    borderImageSlice: 1,
+    // borderImage: "linear-gradient(to right, #ffd37c, #D08123)",
+    // borderImageSlice: 1,
+    borderColor: "#D08123",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
@@ -39,9 +40,10 @@ const ModalContainer = ({ innerText, header }) => {
             <div
               className="box-modal"
               style={{
-                background: "-webkit-linear-gradient(#FFD37C, #D08123)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
+                // background: "-webkit-linear-gradient(#FFD37C, #D08123)",
+                // WebkitBackgroundClip: "text",
+                // WebkitTextFillColor: "transparent",
+                color: "#d08123",
                 textAlign: "center",
                 display: "flex",
                 flexDirection: "column",
@@ -50,9 +52,10 @@ const ModalContainer = ({ innerText, header }) => {
               <div
                 className="box-modal-header"
                 style={{
-                  background: "-webkit-linear-gradient(#FFD37C, #D08123)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
+                  // background: "-webkit-linear-gradient(#FFD37C, #D08123)",
+                  // WebkitBackgroundClip: "text",
+                  // WebkitTextFillColor: "transparent",
+                  color: "#d08123",
                   textAlign: "center",
                   fontWeight: "bold",
                   fontFamily: "Mulish",
@@ -64,9 +67,10 @@ const ModalContainer = ({ innerText, header }) => {
               <div
                 className="box-modal-innertext"
                 style={{
-                  background: "-webkit-linear-gradient(#FFD37C, #D08123)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
+                  // background: "-webkit-linear-gradient(#FFD37C, #D08123)",
+                  // WebkitBackgroundClip: "text",
+                  // WebkitTextFillColor: "transparent",
+                  color: "#d08123",
                   textAlign: "center",
                   fontFamily: "Mulish",
                   fontSize: "1.5rem",

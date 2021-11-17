@@ -31,7 +31,7 @@ import MockQuestion from "./pages/MockQuestion/MockQuestion.page";
 
 // import PushNotifs from "./pages/PushNotifs/PushNotifs.page";
 
-// import SuccessfulAuth from "./components/SuccessfulAuth.component";
+import SuccessfulAuth from "./components/SuccessfulAuth.component";
 
 // import NotFound from "./pages/NotFound/NotFound.page";
 
@@ -133,13 +133,18 @@ function App() {
             component={() => (
               <GameRoute navbar={PostloginNavbar} page={Question} />
             )}
-          />
-
+          /> */}
           <Route
             exact
             path="/googlesuccessfulAuth"
             component={SuccessfulAuth}
-          /> */}
+          />
+          <ProtectedRoute
+            redirect="/"
+            component={() => (
+              <Container navbar={PreEnigmaNavbar} page={Countdown} />
+            )}
+          />
           <ProtectedRoute
             redirect="/"
             component={() => (
