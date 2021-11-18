@@ -162,7 +162,7 @@ const MockQuestion = () => {
   const question = () => {
     return (
       <div>
-        <div style={{ fontSize: 24 }}>Mock Question</div>
+        <div style={{ fontSize: 30 }}>Demo Question</div>
         Where lived the man? <br /> <i>Et tu, Brute?</i>
       </div>
     );

@@ -21,6 +21,9 @@
   .landingpage-nav {
     justify-content: space-around;
   }
+  .enigma-nav-logo {
+    width: 90%;
+  }
 }
 
 /* Small devices (tablets and large phones, 600px and up) */

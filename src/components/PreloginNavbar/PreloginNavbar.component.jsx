@@ -3,6 +3,7 @@ import "./PreloginNavbar.styles.css";
 import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core";
 import HamMenu from "../Menu/menu.component";
+import EnigmaFont from "../../assets/Enigma-font.svg";
 
 const useStyles = makeStyles(() => ({
   nav: {
@@ -62,7 +63,9 @@ const PreloginNavbar = () => {
   return (
     <nav className={classes.nav}>
       <div className={classes.enigma}>
-        <Link to="/">ENIGMA</Link>
+        <Link to="/">
+          <img src={EnigmaFont} alt="" className="enigma-nav-logo" />
+        </Link>
       </div>
       <div className="prelogin-nav">
         {showMenu ? <HamMenu /> : <ExtendedNav />}
