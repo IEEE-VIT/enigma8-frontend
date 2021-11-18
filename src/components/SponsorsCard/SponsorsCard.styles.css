@@ -12,7 +12,7 @@
   font-family: "Cinzel";
   -moz-text-fill-color: transparent; */
   color: #d08123;
-  font-family: "Mulish";
+  font-family: "Cinzel";
   font-style: normal;
   font-weight: bold;
 }
@@ -73,15 +73,31 @@
 .sponsorcard-img {
   margin: 10px;
 }
+/*  title sponsor */
 .sponsorcard-img-1 {
-  width: 90%;
+  width: 95%;
 }
+/*  powered by sponsor */
 .sponsorcard-img-2 {
-  width: 70%;
+  width: 65%;
 }
+/*  blockchain */
 .sponsorcard-img-3 {
-  width: 50%;
+  width: 68%;
 }
+/*  env and gifting  */
 .sponsorcard-img-4 {
+  width: 60%;
+}
+/*  partners */
+.sponsorcard-img-5 {
+  width: 60%;
+}
+/*  outreach */
+.sponsorcard-img-6 {
+  width: 60%;
+}
+/* digital sponsor */
+.sponsorcard-img-7 {
   width: 60%;
 }

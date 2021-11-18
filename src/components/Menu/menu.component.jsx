@@ -12,6 +12,11 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.secondary.main,
     color: theme.palette.primary.main,
   },
+  menuoptions: {
+    color: theme.palette.primary.main,
+    fontFamily: "Mulish",
+    fontSize: "1.2rem",
+  },
 }));
 
 const HamMenu = () => {
@@ -60,9 +65,24 @@ const HamMenu = () => {
           },
         }}
       >
-        <MenuItem onClick={() => handleClose(1)}>Home</MenuItem>
-        <MenuItem onClick={() => handleClose(2)}>Sponsors</MenuItem>
-        <MenuItem onClick={() => handleClose(3)}>FAQ</MenuItem>
+        <MenuItem
+          className={classes.menuoptions}
+          onClick={() => handleClose(1)}
+        >
+          Home
+        </MenuItem>
+        <MenuItem
+          className={classes.menuoptions}
+          onClick={() => handleClose(2)}
+        >
+          Sponsors
+        </MenuItem>
+        <MenuItem
+          className={classes.menuoptions}
+          onClick={() => handleClose(3)}
+        >
+          FAQ
+        </MenuItem>
       </Menu>
     </div>
   );

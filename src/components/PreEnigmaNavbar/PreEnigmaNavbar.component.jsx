@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { Cookies } from "react-cookie";
 import { makeStyles } from "@material-ui/core";
 import logoutIcon from "../../assets/logout.svg";
+import EnigmaFont from "../../assets/Enigma-font.svg";
 
 const useStyles = makeStyles((theme) => ({
   nav: {
@@ -55,7 +56,10 @@ const PreEnigmaNavbar = () => {
   return (
     <nav className={classes.nav}>
       <div className={classes.enigma}>
-        <Link to="/">ENIGMA</Link>
+        <Link to="/">
+          {" "}
+          <img src={EnigmaFont} alt="" className="enigma-nav-logo" />
+        </Link>
       </div>
       <div
         className={classes.logout}

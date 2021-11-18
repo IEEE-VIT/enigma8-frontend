@@ -13,15 +13,19 @@ import "./FAQBox.styles.css";
 const useStyles = makeStyles((theme) => ({
   field: {
     border: "1px solid #0fa3b1",
+    fontSize: "1.5rem",
   },
   svg: {
     color: theme.palette.primary.main,
   },
   question: {
     color: theme.palette.primary.main,
+    fontFamily: "Mulish",
+    fontSize: "1.2rem",
   },
   answer: {
     color: theme.palette.contrast.main,
+    fontSize: "1.1rem",
   },
 }));
 

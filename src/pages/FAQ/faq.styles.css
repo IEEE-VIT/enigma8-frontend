@@ -2,7 +2,12 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100vh;
+  height: 100%;
+  font-family: "Mulish" !important;
+}
+.faq-content {
+  position: relative;
+  /* height: 100%; */
 }
 .faq-container {
   text-align: center;
@@ -92,11 +97,11 @@
 .home-bg-bottom {
   position: absolute;
   z-index: 0;
-  width: 25vw;
+  width: 20vw;
   pointer-events: none;
 }
 .home-bg-left {
-  /* top: 50%; */
+  top: 20%;
   left: 0;
 }
 .home-bg-right {
@@ -106,11 +111,13 @@
 .home-bg-bottom {
   /* top: 10%; */
   bottom: 0;
+  right: 0;
 }
 /* Extra small devices (phones, 600px and down) */
 @media (max-width: 600px) {
   .home-bg-left,
-  .home-bg-right {
+  .home-bg-right,
+  .home-bg-bottom {
     position: absolute;
     z-index: 0;
     width: 55vw;
