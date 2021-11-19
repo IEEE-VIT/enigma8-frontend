@@ -145,12 +145,6 @@ function App() {
               <Container navbar={PreEnigmaNavbar} page={Countdown} />
             )}
           />
-          <ProtectedRoute
-            redirect="/"
-            component={() => (
-              <Container navbar={PreEnigmaNavbar} page={Countdown} />
-            )}
-          />
         </Switch>
         {/* <PushNotifs /> */}
       </ThemeProvider>
