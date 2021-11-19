@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from "react";
+import parse from "html-react-parser";
 import { useHistory } from "react-router-dom";
 import { makeStyles } from "@material-ui/core";
 import CountdownBg from "../../assets/countdown/countdown-page-bg.svg";
-import Brazier from "../../assets/countdown/brazier-countdown-page.svg";
+// import Brazier from "../../assets/countdown/brazier-countdown-page.svg";
+import Torch from "../../assets/countdown/countdown-torch.svg";
 import { timer } from "../../api/timer";
 import OverlayModal from "../../components/CustomModal/OverlayModal/OverlayModal.component";
 import TimerComponent from "../../components/TimerCard/TimerCard.component";
-import "./Countdown.styles.css";
 import GoldenBtn from "../../components/CustomButton/Golden/GoldenBtn.component";
+import "./Countdown.styles.css";
+import "./ignite.styles.scss";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -50,7 +53,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   mockQuestionText: {
-    fontSize: "32px",
+    fontSize: "28px",
     fontWeight: "normal",
     margin: "23.53px 18px",
     textAlign: "center",
@@ -61,8 +64,8 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   brazier: {
-    position: "absolute",
-    bottom: "0",
+    // position: "absolute",
+    // bottom: "0",
     height: "55%",
     [theme.breakpoints.down("sm")]: {
       display: "none",
@@ -89,6 +92,7 @@ const Countdown = () => {
   const [secondsRight, setSecondsRight] = useState(0);
   const [secondsLeft, setSecondsLeft] = useState(0);
   const [wrongSystemTime, setWrongSystemTime] = useState(false);
+  const [fire, setFire] = useState(``);
   const getRemTime = () => {
     timer()
       .then(async (res) => {
@@ -105,7 +109,15 @@ const Countdown = () => {
         console.log(err);
       });
   };
-
+  const Ignite = () => {
+    let flame = "";
+    const flames = 50;
+    // const cls = "particle";
+    for (let i = 0; i < flames; i += 1) {
+      flame += `<div className="particle"></div>`;
+    }
+    setFire(flame);
+  };
   const mockQuestion = () => {
     history.push("/mockquestion");
   };
@@ -139,6 +151,7 @@ const Countdown = () => {
     }
   };
   useEffect(getRemTime, []);
+  useEffect(Ignite, []);
   useEffect(updateRemTime, [remTime]);
   const handleonClick = () => {
     history.push("/rooms");
@@ -253,12 +266,30 @@ const Countdown = () => {
       ) : (
         <> </>
       )}
-      <img src={Brazier} className={`brazier-left ${classes.brazier}`} alt="" />
-      <img
-        src={Brazier}
-        className={`brazier-right ${classes.brazier}`}
-        alt=""
-      />
+      {/* <div className="fire-container fire-container-1"></div> */}
+      {/* <div className="fire-container fire-container-2"></div> */}
+      <div className="brazer">
+        <div className="brazer-container-left">
+          <div className="fire-container fire-container-1">
+            <div className="fire">{parse(fire)}</div>
+          </div>
+          <img
+            src={Torch}
+            className={`brazier-left ${classes.brazier}`}
+            alt=""
+          />
+        </div>
+        <div className="brazer-container-right">
+          <div className="fire-container fire-container-2">
+            <div className="fire">{parse(fire)}</div>
+          </div>
+          <img
+            src={Torch}
+            className={`brazier-right ${classes.brazier}`}
+            alt=""
+          />
+        </div>
+      </div>
     </div>
   );
 };

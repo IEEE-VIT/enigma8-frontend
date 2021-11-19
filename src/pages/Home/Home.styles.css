@@ -62,7 +62,31 @@
   overflow: hidden;
   position: relative;
 }
-
+.sponsor-panel {
+  position: absolute;
+  bottom: 0;
+  z-index: 11;
+  width: 20vw;
+  right: 0;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding: 0 2vw 1vh 0;
+  align-items: center;
+}
+.sponsor-panel-item {
+  padding: 0 1vw;
+}
+.sponsor-panel-item-1 {
+  width: 10vw;
+}
+.sponsor-panel-item-2 {
+  width: 13vw;
+}
+.sponsor-panel-item-3 {
+  width: 11vw;
+}
 @media (max-width: 950px) and (min-width: 801px) {
   .home-desert {
     bottom: 0;
@@ -105,6 +129,37 @@
   .home-brand {
     margin-top: 1vh;
     width: 70%;
+  }
+  .home-background {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+  .sponsor-panel {
+    position: absolute;
+    bottom: 0;
+    z-index: 11;
+    width: 100vw;
+    /* right: 0; */
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 0 2vw 1vh 0;
+  }
+  .sponsor-panel-item {
+    padding: 0 15px;
+  }
+  .sponsor-panel-item-1 {
+    width: 21vw;
+  }
+  .sponsor-panel-item-2 {
+    width: 27vw;
+  }
+  .sponsor-panel-item-3 {
+    width: 22vw;
   }
 }
 .stars {
