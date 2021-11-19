@@ -21,6 +21,7 @@ const ModalContainer = ({ innerText, openText, type, header }) => {
     // borderImage: "linear-gradient(to right, #0FA3B1, #037EC3)",
     // borderImageSlice: 1,
     borderColor: "#037EC3",
+    borderRadius: "22px",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",

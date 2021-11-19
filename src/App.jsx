@@ -21,7 +21,7 @@ import Sponsors from "./pages/Sponsors/Sponsors.page";
 import Welcome from "./pages/Welcome/Welcome.component";
 
 import Countdown from "./pages/Countdown/Countdown.page";
-import MockQuestion from "./pages/MockQuestion/MockQuestion.page";
+import DemoQuestion from "./pages/DemoQuestion/DemoQuestion.page";
 
 // import Rooms from "./pages/Rooms/Rooms.page";
 // import Leaderboard from "./pages/Leaderboard/Leaderboard.page";
@@ -89,9 +89,9 @@ function App() {
           <ProtectedRoute
             redirect="/"
             exact
-            path="/mockquestion"
+            path="/demoquestion"
             component={() => (
-              <Container navbar={PreEnigmaNavbar} page={MockQuestion} />
+              <Container navbar={PreEnigmaNavbar} page={DemoQuestion} />
             )}
           />
           {/* <ProtectedRoute

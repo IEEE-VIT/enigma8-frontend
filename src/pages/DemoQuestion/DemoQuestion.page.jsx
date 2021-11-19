@@ -5,7 +5,7 @@ import ModalContainer from "../../components/CustomModal/ModalContainer/ModalCon
 import { timer } from "../../api/timer";
 import OverlayModal from "../../components/CustomModal/OverlayModal/OverlayModal.component";
 import BlueOverlayModal from "../../components/CustomModal/BlueOverlayModal/BlueOverlayModal.component";
-import "./MockQuestion.styles.css";
+import "./DemoQuestion.styles.css";
 import GoldenBtn from "../../components/CustomButton/Golden/GoldenBtn.component";
 import BlueBtn from "../../components/CustomButton/Blue/BlueBtn.component";
 import ScarabBeetleL from "../../assets/mockquestion/ScarabBeetleL.svg";
@@ -22,8 +22,8 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   MockQuestionImg: {
-    width: "525px",
-    height: "220px",
+    width: "500px",
+    height: "200px",
     [theme.breakpoints.down("md")]: {
       width: "80vw",
       height: "45vw",
@@ -125,7 +125,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const MockQuestion = () => {
+const DemoQuestion = () => {
   const [validateData, setValidateData] = useState({});
   const classes = useStyles();
   const [answer, setAnswer] = useState("");
@@ -155,6 +155,9 @@ const MockQuestion = () => {
   };
   const addAnswer = async (e) => {
     const { value } = e.target;
+    validateData.answer = false;
+    validateData.answerHelper = "";
+    setValidateData({ ...validateData });
     await setAnswer(value);
   };
   useEffect(getRemTime, []);
@@ -203,6 +206,13 @@ const MockQuestion = () => {
 
     setValidateData({ ...validateData });
   };
+
+  const onEnter = (e) => {
+    if (e.key === "Enter") {
+      submitAnswer();
+    }
+  };
+
   const successfullyAnswered = () => {
     return (
       <div>
@@ -285,6 +295,7 @@ const MockQuestion = () => {
                     error={validateData.answer}
                     helperText={validateData.answerHelper}
                     onChange={addAnswer}
+                    onKeyDown={onEnter}
                   />
                 </Paper>
               </Container>
@@ -334,4 +345,4 @@ const MockQuestion = () => {
     </div>
   );
 };
-export default MockQuestion;
+export default DemoQuestion;
