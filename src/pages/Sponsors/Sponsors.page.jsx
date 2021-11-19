@@ -1,26 +1,12 @@
 import React from "react";
 import "./Sponsors.styles.css";
 
+import SponsorsLIST from "../../assets/sponsors/sponsorsList";
 import SponsorsCard from "../../components/SponsorsCard/SponsorsCard.component";
 
 import BackgroundLeft from "../../assets/home/bg-left.svg";
 import BackgroundRight from "../../assets/home/bg-right.svg";
 import BackgroundBottom from "../../assets/home/bg-bottom.svg";
-
-import TitleSponsor from "../../assets/home/sponsor-titlesponsor.svg";
-import PowerdBySponsor from "../../assets/home/sponsor-poweredby.svg";
-import GiftingPartner from "../../assets/home/sponsor-gifting-partner.svg";
-import EnvPartner from "../../assets/home/sponsor-env-partner.png";
-
-// import IPRPartner from "../../assets/home/ipr-partner.svg";
-
-import BlockchainPartner from "../../assets/home/sponsor-blockchain-partner.svg";
-import PartnerA from "../../assets/home/sponsor-partner-a.svg";
-import PartnerB from "../../assets/home/sponsor-partner-b.svg";
-import PartnerC from "../../assets/home/sponsor-partner-c.svg";
-
-import DigitalPartnerA from "../../assets/home/sponsor-digital-partner-a.svg";
-import DigitalPartnerB from "../../assets/home/sponsor-digital-partner-b.svg";
 
 // import EmptyTile from "../../assets/home/sponsor-empty-tile.svg";
 import FooterNav from "../../components/FooterNav/FooterNav.component";
@@ -33,35 +19,34 @@ const Sponsors = () => {
       <div className="sponsors-content">
         <div className="sponsorcard-container">
           <SponsorsCard
-            img={TitleSponsor}
+            img={SponsorsLIST.TitleSponsor.logo}
             title="TITLE SPONSOR"
-            link="https://www.accolite.com/"
+            link={SponsorsLIST.TitleSponsor.link}
             type={1}
           />
           <SponsorsCard
-            img={PowerdBySponsor}
+            img={SponsorsLIST.PoweredBySponsor.logo}
             title="POWERED BY"
-            link="https://unicreds.com/"
+            link={SponsorsLIST.PoweredBySponsor.link}
             type={2}
           />
           <SponsorsCard
-            img={BlockchainPartner}
+            img={SponsorsLIST.BlockchainPartnerLogo.logo}
             title="BLOCKCHAIN PARTNER"
-            link="https://dhiway.com/"
+            link={SponsorsLIST.BlockchainPartnerLogo.link}
             type={3}
           />
           <div className="sponsorcard-bag">
             <SponsorsCard
-              img={EnvPartner}
+              img={SponsorsLIST.EnvPartnerLogo.logo}
               title="ENVIRONMENTAL PARTNER"
-              link="https://www.bysmita.in/"
+              link={SponsorsLIST.EnvPartnerLogo.link}
               type={4}
             />
-
             <SponsorsCard
-              img={GiftingPartner}
+              img={SponsorsLIST.GiftingPartnerLogo.logo}
               title="GIFTING PARTNER"
-              link="https://offostore.com/"
+              link={SponsorsLIST.GiftingPartnerLogo.link}
               type={4}
             />
             {/* <SponsorsCard
@@ -74,38 +59,39 @@ const Sponsors = () => {
           <SponsorsCard img={" "} title="PARTNERS" link="" type={0} />
           <div className="sponsorcard-bag">
             <SponsorsCard
-              img={PartnerA}
+              img={SponsorsLIST.PartnerALogo.logo}
               title=""
-              link="https://gen.xyz/"
+              link={SponsorsLIST.PartnerALogo.link}
               type={5}
             />
             <SponsorsCard
-              img={PartnerB}
+              img={SponsorsLIST.PartnerBLogo.logo}
               title=""
-              link="https://bit.ly/3aLF5vB"
+              link={SponsorsLIST.PartnerBLogo.link}
               type={5}
             />
             <SponsorsCard
-              img={PartnerC}
+              img={SponsorsLIST.PartnerCLogo.logo}
               title=""
-              link="https://replit.com/"
+              link={SponsorsLIST.PartnerCLogo.link}
               type={5}
             />
           </div>
-
-          <SponsorsCard
-            img={DigitalPartnerA}
-            title="OUTREACH PARTNER"
-            link="https://collegeinsider.in/"
-            type={6}
-          />
-          <SponsorsCard
-            img={DigitalPartnerB}
-            title="DIGITAL PARTNER"
-            link="https://moroesports.com/"
-            type={7}
-            paperClass="blockchain"
-          />
+          <div className="sponsorcard-bag">
+            <SponsorsCard
+              img={SponsorsLIST.DigitalPartnerALogo.logo}
+              title="OUTREACH PARTNER"
+              link={SponsorsLIST.DigitalPartnerALogo.link}
+              type={6}
+            />
+            <SponsorsCard
+              img={SponsorsLIST.DigitalPartnerBLogo.logo}
+              title="DIGITAL PARTNER"
+              link={SponsorsLIST.DigitalPartnerBLogo.link}
+              type={7}
+              paperClass="blockchain"
+            />
+          </div>
         </div>
         <img src={BackgroundBottom} className="sponsors-bg-bottom" alt="" />
       </div>

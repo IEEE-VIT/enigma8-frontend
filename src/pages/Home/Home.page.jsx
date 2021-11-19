@@ -4,9 +4,9 @@ import "./Home.styles.css";
 
 import LandingPageNavbar from "../../components/LandingPageNavbar/LandingPageNavbar.component";
 import LoginPortal from "../../components/LoginPortal/LoginPortal.component";
-
+import LinkImage from "../../components/LinkImage/LinkImage.component";
+import SponsorsLIST from "../../assets/sponsors/sponsorsList";
 import SideNavbar from "../../components/SideNavbar/SideNavbar.component";
-
 import EnimgaBrand from "../../assets/home/Enigma_brand.svg";
 import Desert from "../../assets/home/desert.svg";
 
@@ -85,7 +85,26 @@ const HomePage = () => {
         <LoginPortal />
         <SideNavbar />
       </div>
-
+      <div className="sponsor-panel">
+        <LinkImage
+          img={SponsorsLIST.BlockchainPartnerLogo.logo}
+          link={SponsorsLIST.BlockchainPartnerLogo.link}
+          linkClass="footer-social-link"
+          imgClass="sponsor-panel-item sponsor-panel-item-1"
+        />
+        <LinkImage
+          img={SponsorsLIST.TitleSponsor.logo}
+          link={SponsorsLIST.TitleSponsor.link}
+          linkClass="footer-social-link"
+          imgClass="sponsor-panel-item sponsor-panel-item-2"
+        />
+        <LinkImage
+          link={SponsorsLIST.PoweredBySponsor.link}
+          img={SponsorsLIST.PoweredBySponsor.logo}
+          linkClass="footer-social-link"
+          imgClass="sponsor-panel-item sponsor-panel-item-3"
+        />
+      </div>
       <img className="home-desert" src={Desert} alt="" />
       <div className="home-background">
         <div className="night"> </div>
