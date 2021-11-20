@@ -119,7 +119,7 @@ const Countdown = () => {
     setFire(flame);
   };
   const mockQuestion = () => {
-    history.push("/mockquestion");
+    history.push("/demoquestion");
   };
   const renderTime = () => {
     let tempMinutes = Math.floor(remTime / 60);
