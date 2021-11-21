@@ -37,3 +37,20 @@ img {
   -moz-user-drag: none;
   -ms-user-drag: none;
 }
+
+* {
+  scroll-behavior: smooth;
+}
+*::-webkit-scrollbar {
+  width: 7.5px;
+}
+
+*::-webkit-scrollbar-track {
+  background: black;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #ffd37c -12.24%, #d08123 65.33%);
+  border-top-left-radius: 24px;
+  border-bottom-left-radius: 24px;
+}
