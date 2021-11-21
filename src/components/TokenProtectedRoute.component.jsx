@@ -6,7 +6,6 @@ import { Route, Redirect } from "react-router-dom";
 const ProtectedRoute = ({ component: Component, redirect, ...rest }) => {
   const cookies = new Cookies();
   const token = cookies.get("token");
-
   return (
     <Route
       {...rest}

@@ -3,11 +3,11 @@ import { Switch, Route } from "react-router-dom";
 import "./App.css";
 import { ThemeProvider } from "@material-ui/core";
 import { createTheme } from "@material-ui/core/styles";
-import { JoyrideContext } from "./contexts/Joyride.context";
+// import { JoyrideContext } from "./contexts/Joyride.context";
 
 import ProtectedRoute from "./components/ProtectedRoute.component";
 import TokenProtectedRoute from "./components/TokenProtectedRoute.component";
-import GameRoute from "./components/GameRoute/GameRoute.component";
+// import GameRoute from "./components/GameRoute/GameRoute.component";
 
 import Container from "./components/Container/Container.component";
 import PreloginNavbar from "./components/PreloginNavbar/PreloginNavbar.component";
@@ -21,7 +21,7 @@ import Sponsors from "./pages/Sponsors/Sponsors.page";
 
 import Welcome from "./pages/Welcome/Welcome.page";
 
-import Onboarding from "./pages/Onboarding/Onboarding.page";
+// import Onboarding from "./pages/Onboarding/Onboarding.page";
 
 import Rooms from "./pages/Rooms/Rooms.page";
 import Leaderboard from "./pages/Leaderboard/Leaderboard.page";
@@ -96,18 +96,24 @@ function App() {
           />
           <ProtectedRoute
             redirect="/"
+            component={() => (
+              <Container navbar={PreEnigmaNavbar} page={Countdown} />
+            )}
+          />
+          <ProtectedRoute
+            redirect="/"
             exact
             path="/demoquestion"
             component={() => (
               <Container navbar={PreEnigmaNavbar} page={DemoQuestion} />
             )}
           />
-          {/* <ProtectedRoute
+          <ProtectedRoute
             redirect="/"
             exact
             path="/rooms"
             component={() => (
-              <GameRoute navbar={PostloginNavbar} page={Rooms} />
+              <Container navbar={PostloginNavbar} page={Rooms} />
             )}
           />
           <ProtectedRoute
@@ -123,7 +129,7 @@ function App() {
             exact
             path="/leaderboard"
             component={() => (
-              <GameRoute navbar={PostloginNavbar} page={Leaderboard} />
+              <Container navbar={PostloginNavbar} page={Leaderboard} />
             )}
           />
           <ProtectedRoute
@@ -131,7 +137,7 @@ function App() {
             exact
             path="/profile"
             component={() => (
-              <GameRoute navbar={PostloginNavbar} page={Profile} />
+              <Container navbar={PostloginNavbar} page={Profile} />
             )}
           />
           <ProtectedRoute
@@ -139,19 +145,13 @@ function App() {
             exact
             path="/question"
             component={() => (
-              <GameRoute navbar={PostloginNavbar} page={Question} />
+              <Container navbar={PostloginNavbar} page={Question} />
             )}
-          /> */}
+          />
           <Route
             exact
             path="/googlesuccessfulAuth"
             component={SuccessfulAuth}
-          />
-          <ProtectedRoute
-            redirect="/"
-            component={() => (
-              <Container navbar={PreEnigmaNavbar} page={Countdown} />
-            )}
           />
         </Switch>
         {/* <PushNotifs /> */}

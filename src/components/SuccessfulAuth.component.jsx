@@ -11,6 +11,7 @@ const LoginPage = () => {
       history.push("/welcome");
     } else if (newUser === "false") {
       history.push("/countdown");
+      console.log("redirecting");
     }
   };
 
