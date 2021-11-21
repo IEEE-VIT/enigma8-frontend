@@ -4,9 +4,9 @@ import { useHistory, useLocation } from "react-router-dom";
 import Consumer from "../../contexts/Joyride.context";
 import "./Room.styles.css";
 import Toast from "../Notifications/Toast.component";
-import locked from "../../assets/locked.svg";
-import solved from "../../assets/solved.svg";
-import unsolvedUnlocked from "../../assets/unsolved-unlocked.svg";
+import locked from "../../assets/rooms/locked.svg";
+import solved from "../../assets/rooms/solved.svg";
+import unsolvedUnlocked from "../../assets/rooms/unsolved-unlocked.svg";
 import { checkIfRoomUnlocked } from "../../api/room";
 import Powerup from "../Powerup/Powerup.component";
 

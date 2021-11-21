@@ -1,0 +1,56 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Mulish:ital,wght@0,200;0,300;0,400;0,500;1,200;1,300;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap");
+.App {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100vh;
+  text-align: center;
+  /* background: -webkit-linear-gradient(#ffd37c, #d08123); */
+  background-color: black;
+  /* color: #d08123; */
+  /* background-image: linear-gradient(to bottom, #ffd37c 100%, #d08123 100%);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent; */
+  /* background-image: linear-gradient(to bottom, #fccb69 4%, #d17a0f 100%); */
+}
+input {
+  caret-color: white;
+}
+a {
+  text-decoration: none;
+  color: #d08123;
+}
+
+a:visited {
+  color: #d08123;
+}
+
+img {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  -moz-user-drag: none;
+  -ms-user-drag: none;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+*::-webkit-scrollbar {
+  width: 7.5px;
+}
+
+*::-webkit-scrollbar-track {
+  background: black;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #ffd37c -12.24%, #d08123 65.33%);
+  border-top-left-radius: 24px;
+  border-bottom-left-radius: 24px;
+}

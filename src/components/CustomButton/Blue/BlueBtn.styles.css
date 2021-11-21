@@ -1,0 +1,12 @@
+.blue-btn {
+  background: linear-gradient(180deg, #0fa3b1 17.7%, #037ec3 65.33%);
+  cursor: pointer;
+  margin-bottom: 5% !important;
+  padding: 10px;
+  border: 1px solid #0fa3b1;
+  font-family: "Mulish";
+  font-weight: bold;
+  font-size: 18px;
+  box-sizing: border-box;
+  border-radius: 5px;
+}

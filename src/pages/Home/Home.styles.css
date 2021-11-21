@@ -1,10 +1,372 @@
-.login {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.home {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background: radial-gradient(
+    117.62% 101.76% at 49.47% 99.94%,
+    #5c3300 0%,
+    #000000 72.92%
+  );
+  background-blend-mode: normal;
 }
 
-.login-button {
-  margin-top: 10px;
-  width: 200px;
+.home-desert {
+  position: absolute;
+  object-fit: cover;
+  width: 100vw;
+  /* height: 20%; */
+  bottom: calc(-1 * (9vw));
+  right: 0;
+  z-index: 6;
+}
+.home-logo,
+.home-subtext {
+  font-family: Cinzel Decorative;
+  font-style: normal;
+  font-weight: bold;
+  letter-spacing: 0.015em;
+}
+.home-brand {
+  margin-top: 1vh;
+  width: 30%;
+}
+.home-subtext {
+  /* background-image: linear-gradient(to bottom, #0fa3b1 100%, #037ec3 97%);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent; */
+  color: #037ec3;
+  margin-top: 2vh;
+  margin-bottom: 5vh;
+  letter-spacing: 1px;
+  font-weight: 700;
+  font-size: 1.7rem;
+}
+
+.home-text {
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  top: 15vh;
+  text-align: center;
+  z-index: 9;
+}
+.home-background {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+.sponsor-panel {
+  position: absolute;
+  bottom: 0;
+  z-index: 11;
+  width: 20vw;
+  right: 0;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding: 0 2vw 1vh 0;
+  align-items: center;
+}
+.sponsor-panel-item {
+  padding: 0 1vw;
+}
+.sponsor-panel-item-1 {
+  width: 10vw;
+}
+.sponsor-panel-item-2 {
+  width: 13vw;
+}
+.sponsor-panel-item-3 {
+  width: 11vw;
+}
+@media (max-width: 950px) and (min-width: 801px) {
+  .home-desert {
+    bottom: 0;
+  }
+  .home {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background: radial-gradient(
+      117.62% 101.76% at 49.47% 99.94%,
+      #5c3300 0%,
+      #000000 72.92%
+    );
+  }
+  .home-brand {
+    margin-top: 1vh;
+    width: 40%;
+  }
+}
+@media (max-width: 800px) {
+  .home-desert {
+    bottom: 0;
+  }
+  .home-text {
+    top: 30vh !important;
+  }
+
+  .home {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background: radial-gradient(
+      117.62% 101.76% at 49.47% 99.94%,
+      #5c3300 0%,
+      #000000 72.92%
+    );
+  }
+  .home-brand {
+    margin-top: 1vh;
+    width: 70%;
+  }
+  .home-background {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+  .sponsor-panel {
+    position: absolute;
+    bottom: 0;
+    z-index: 11;
+    width: 100vw;
+    /* right: 0; */
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 0 2vw 1vh 0;
+  }
+  .sponsor-panel-item {
+    padding: 0 15px;
+  }
+  .sponsor-panel-item-1 {
+    width: 21vw;
+  }
+  .sponsor-panel-item-2 {
+    width: 27vw;
+  }
+  .sponsor-panel-item-3 {
+    width: 22vw;
+  }
+}
+.stars {
+  z-index: -2;
+}
+.star {
+  background-color: white;
+  border-radius: 50%;
+  position: absolute;
+  animation-name: star;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.star.style1 {
+  animation-duration: 0.5s;
+  animation-name: star;
+}
+.star.style2 {
+  animation-duration: 1s;
+  animation-name: star;
+}
+.star.style3 {
+  animation-duration: 1.5s;
+  animation-name: star;
+}
+.star.style4 {
+  animation-duration: 2s;
+  animation-name: starglitter;
+}
+
+.star.tam1 {
+  width: 1px;
+  height: 1px;
+}
+.star.tam2 {
+  width: 2px;
+  height: 2px;
+}
+.star.tam3 {
+  width: 3px;
+  height: 3px;
+}
+
+.star.opacity1 {
+  opacity: 1;
+}
+.star.opacity2 {
+  opacity: 0.5;
+}
+.star.opacity3 {
+  opacity: 0.1;
+}
+
+.meteor {
+  position: absolute;
+  background-color: #fff;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  transform: rotate(-35deg);
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-duration: 2s;
+  z-index: 0;
+}
+
+.meteor:before {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+  width: 0;
+  height: 0;
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+  border-left: 85px solid white;
+  position: absolute;
+  left: 2px;
+  top: 0;
+}
+
+.meteor.style1 {
+  animation-name: meteorStyle1;
+}
+.meteor.style2 {
+  animation-name: meteorStyle2;
+}
+.meteor.style3 {
+  animation-name: meteorStyle3;
+}
+.meteor.style4 {
+  animation-name: meteorStyle4;
+}
+
+@keyframes escurecer {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
+@keyframes star {
+  0% {
+    box-shadow: 0 0 10px 0px rgba(255, 255, 255, 0.05);
+  }
+  50% {
+    box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.4);
+  }
+  100% {
+    box-shadow: 0 0 10px 0px rgba(255, 255, 255, 0.05);
+  }
+}
+
+@keyframes starglitter {
+  0% {
+    background-color: #ffffff;
+    box-shadow: 0 0 10px 0px rgba(255, 255, 255, 1);
+  }
+  20% {
+    background-color: #ffc4c4;
+    box-shadow: 0 0 10px 0px rgb(255, 196, 196, 1);
+  }
+  80% {
+    background-color: #c4cfff;
+    box-shadow: 0 0 10px 0px rgb(196, 207, 255, 1);
+  }
+  100% {
+    background-color: #ffffff;
+    box-shadow: 0 0 10px 0px rgba(255, 255, 255, 0.2);
+  }
+}
+
+@keyframes meteorStyle1 {
+  0% {
+    opacity: 0;
+    right: 300px;
+    top: 100px;
+  }
+  30% {
+    opacity: 0.3;
+  }
+  60% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0;
+    right: 1000px;
+    top: 600px;
+  }
+}
+
+@keyframes meteorStyle2 {
+  0% {
+    opacity: 0;
+    right: 700px;
+    top: 100px;
+  }
+  30% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    right: 1400px;
+    top: 600px;
+  }
+}
+
+@keyframes meteorStyle3 {
+  0% {
+    opacity: 0;
+    right: 300px;
+    top: 300px;
+  }
+  30% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    right: 1000px;
+    top: 800px;
+  }
+}
+
+@keyframes meteorStyle4 {
+  0% {
+    opacity: 0;
+    right: 700px;
+    top: 300px;
+  }
+  30% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    right: 1400px;
+    top: 800px;
+  }
 }

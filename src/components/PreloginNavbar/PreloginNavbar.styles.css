@@ -1,24 +1,39 @@
-body {
-  margin: 0 20px;
-  text-align: center;
-}
-nav {
+.prelogin-nav-extended {
+  /* position: absolute; */
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
+  font-size: 1.2rem;
+  /* background-image: linear-gradient(to bottom, #ffd37c 0%, #d08123 100%);
+  -webkit-background-clip: text;
+  -moz-background-clip: text; */
+  color: #d08123;
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: bold;
 }
-ul {
-  display: flex;
-  padding: 10px 20px;
-  list-style-type: none;
-}
-li {
-  padding: 0px 20px;
-}
-a {
-  text-decoration: none;
-  color: black;
+.prelogin-nav-extended a {
+  padding: 0 3vw;
 }
 
-a:visited {
-  color: black;
+/* Extra small devices (phones, 600px and down) */
+@media (max-width: 600px) {
+  .landingpage-nav {
+    justify-content: space-around;
+  }
+  .enigma-nav-logo {
+    width: 90%;
+  }
+}
+
+/* Small devices (tablets and large phones, 600px and up) */
+@media (min-width: 600px) and (max-width: 992px) {
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1200px) {
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
 }

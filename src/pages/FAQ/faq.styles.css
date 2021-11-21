@@ -1,0 +1,137 @@
+.faq-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  font-family: "Mulish" !important;
+}
+.faq-content {
+  position: relative;
+  /* height: 100%; */
+}
+.faq-container {
+  text-align: center;
+  margin: 2vh 20%;
+  align-items: center;
+}
+.faq-heading {
+  margin-bottom: 0;
+  text-align: center;
+  /* background-image: linear-gradient(to bottom, #ffd37c 0%, #d08123 100%);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent; */
+  color: #d08123;
+  font-family: Cinzel;
+  font-style: normal;
+  font-weight: bold;
+}
+.faq-box-container {
+  margin-top: 30px;
+  border-radius: 0 !important;
+  border: 3px solid transparent;
+  border-image: linear-gradient(to right, #77c5c4, #017dcc);
+  border-image-slice: 1;
+  box-shadow: 0 0 10px #77c5c4 !important;
+  -webkit-box-shadow: 0 0 10px #77c5c4;
+  box-shadow: 0 0 10px #77c5c4;
+  text-align: left;
+}
+.MuiAccordionSummary-root {
+  padding: 2px 20px !important;
+}
+.faq-discord-container {
+  text-align: center;
+  margin: 4vh auto;
+}
+.faq-discord-text {
+  color: #ffd37c;
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+  margin: 4vh auto;
+  font-size: 1.2rem;
+}
+.faq-discord-container img {
+  width: 25%;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media (max-width: 600px) {
+  .faq-container {
+    margin: 2vh 9vw;
+  }
+  .faq-discord-text {
+    font-size: 1.2rem;
+  }
+  .faq-discord-container img {
+    width: 50%;
+  }
+}
+
+/* Small devices (tablets and large phones, 600px and up) */
+@media (min-width: 600px) and (max-width: 992px) {
+  .faq-container {
+    margin: 2vh 9vw;
+  }
+  .faq-discord-text {
+    font-size: 1.4rem;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1200px) {
+  .faq-discord-text {
+    font-size: 1.2rem;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+}
+
+.home-bg-left,
+.home-bg-right,
+.home-bg-bottom {
+  position: absolute;
+  z-index: 0;
+  width: 20vw;
+  pointer-events: none;
+}
+.home-bg-left {
+  top: 20%;
+  left: 0;
+}
+.home-bg-right {
+  /* top: 10%; */
+  right: 0;
+}
+.home-bg-bottom {
+  /* top: 10%; */
+  bottom: 0;
+  right: 0;
+}
+/* Extra small devices (phones, 600px and down) */
+@media (max-width: 600px) {
+  .home-bg-left,
+  .home-bg-right,
+  .home-bg-bottom {
+    position: absolute;
+    z-index: 0;
+    width: 55vw;
+  }
+}
+
+/* Small devices (tablets and large phones, 600px and up) */
+@media (min-width: 600px) and (max-width: 992px) {
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1200px) {
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+}

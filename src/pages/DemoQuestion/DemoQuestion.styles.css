@@ -1,0 +1,47 @@
+.mock-question-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+.mock-question-card {
+  flex: 1;
+}
+
+.scarab-beetle-left {
+  left: 0;
+}
+.scarab-beetle-right {
+  right: 0;
+}
+.mock-question-section-1 {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-content: center;
+}
+
+.mock-question-section-1-text {
+  width: 50vw;
+  text-align: center;
+  justify-content: center;
+  align-content: center;
+}
+
+.mock-question-section-2-inner {
+  margin-top: 24px;
+}
+
+.mock-question-section-2-btns-container {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  .mock-question-section-1-text {
+    width: 90vw;
+  }
+}

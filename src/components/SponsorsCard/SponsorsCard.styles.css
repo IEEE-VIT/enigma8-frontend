@@ -1,0 +1,112 @@
+.sponsorcard {
+  margin: 50px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  /* background-image: linear-gradient(to bottom, #ffd37c 0%, #d08123 100%);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+  font-family: "Cinzel";
+  -moz-text-fill-color: transparent; */
+  color: #d08123;
+  font-family: "Cinzel";
+  font-style: normal;
+  font-weight: bold;
+}
+.sponsorcard-container > div {
+  padding: 1% 1%;
+  margin: 20px auto;
+  /* width: 100%; */
+  text-align: center;
+}
+.sponsorcard-container div {
+  /* width: 100%; */
+  text-align: center;
+}
+.sponsorcard-title {
+  margin: 20px;
+}
+.sponsorcard-title-0 {
+  font-size: 1.36rem;
+}
+.sponsorcard-title-1,
+.sponsorcard-title-2 {
+  font-size: 1.4rem;
+}
+.sponsorcard-title-3 {
+  font-size: 1.3rem;
+}
+.sponsorcard-title-4,
+.sponsorcard-title-5,
+.sponsorcard-title-6,
+.sponsorcard-title-7 {
+  font-size: 1.3rem;
+}
+
+.sponsorcard-divider-5 {
+  display: none;
+}
+.sponsorcard-paper {
+  background-color: #0b0b0b;
+  width: fit-content;
+  justify-content: space-around;
+  text-align: center;
+  align-items: center;
+  align-self: center;
+  margin: auto;
+}
+.sponsorcard-paper-5 {
+  background-color: #0b0b0b;
+  width: fit-content;
+  justify-content: space-around;
+  text-align: center;
+  align-items: center;
+  align-self: center;
+  margin: 20px;
+}
+.sponsorcard-paper-0 {
+  display: none;
+}
+.sponsorcard-img {
+  margin-top: 40px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+/*  title sponsor */
+.sponsorcard-img-1 {
+  width: 95%;
+}
+/*  powered by sponsor */
+.sponsorcard-img-2 {
+  width: 65%;
+}
+/*  blockchain */
+.sponsorcard-img-3 {
+  width: 68%;
+}
+/*  env and gifting  */
+.sponsorcard-img-4 {
+  width: 60%;
+}
+/*  partners */
+.sponsorcard-img-5 {
+  width: 60%;
+  margin-left: 32%;
+}
+/*  outreach */
+.sponsorcard-img-6 {
+  width: 60%;
+}
+/* digital sponsor */
+.sponsorcard-img-7 {
+  width: 60%;
+}
+
+@media (max-width: 600px) {
+  .sponsorcard-img-5 {
+    margin-left: 0;
+  }
+}
