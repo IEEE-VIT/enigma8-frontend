@@ -2,6 +2,10 @@ import TitleSponsorLogo from "../home/sponsor-titlesponsor.svg";
 import PowerdBySponsorLogo from "../home/sponsor-poweredby.svg";
 import BlockchainPartnerLogo from "../home/sponsor-blockchain-partner.svg";
 
+import HomeTitleSponsorLogo from "../home/home-sponsor-titlesponsor.svg";
+import HomePowerdBySponsorLogo from "../home/home-sponsor-poweredby.svg";
+import HomeBlockchainPartnerLogo from "../home/home-sponsor-blockchain-partner.svg";
+
 import EnvPartnerLogo from "../home/sponsor-env-partner.png";
 import GiftingPartnerLogo from "../home/sponsor-gifting-partner.svg";
 
@@ -23,6 +27,18 @@ const SponsorsLIST = {
   },
   BlockchainPartnerLogo: {
     logo: BlockchainPartnerLogo,
+    link: "https://dhiway.com/",
+  },
+  HomeTitleSponsor: {
+    logo: HomeTitleSponsorLogo,
+    link: "https://www.accolite.com/",
+  },
+  HomePoweredBySponsor: {
+    logo: HomePowerdBySponsorLogo,
+    link: "https://unicreds.com/",
+  },
+  HomeBlockchainPartnerLogo: {
+    logo: HomeBlockchainPartnerLogo,
     link: "https://dhiway.com/",
   },
   EnvPartnerLogo: {
