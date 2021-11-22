@@ -71,7 +71,9 @@
   display: none;
 }
 .sponsorcard-img {
-  margin: 10px;
+  margin-top: 40px;
+  margin-right: 10px;
+  margin-left: 10px;
 }
 /*  title sponsor */
 .sponsorcard-img-1 {
@@ -92,6 +94,7 @@
 /*  partners */
 .sponsorcard-img-5 {
   width: 60%;
+  margin-left: 32%;
 }
 /*  outreach */
 .sponsorcard-img-6 {
@@ -100,4 +103,10 @@
 /* digital sponsor */
 .sponsorcard-img-7 {
   width: 60%;
+}
+
+@media (max-width: 600px) {
+  .sponsorcard-img-5 {
+    margin-left: 0;
+  }
 }

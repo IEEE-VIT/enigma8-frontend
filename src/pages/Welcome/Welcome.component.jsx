@@ -142,6 +142,11 @@ const Welcome = () => {
   });
   const [validateData, setValidateData] = useState({});
   const addData = async (e) => {
+    validateData.username = false;
+    validateData.usernameHelper = "";
+    validateData.outreach = false;
+    validateData.outreachHelper = "";
+    setValidateData({ ...validateData });
     const { name, value } = e.target;
     await setData({
       ...data,

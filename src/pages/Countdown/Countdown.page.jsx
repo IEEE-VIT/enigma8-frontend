@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import parse from "html-react-parser";
 import { useHistory } from "react-router-dom";
 import { makeStyles } from "@material-ui/core";
+import moment from "moment-timezone";
 import CountdownBg from "../../assets/countdown/countdown-page-bg.svg";
 // import Brazier from "../../assets/countdown/brazier-countdown-page.svg";
 import Torch from "../../assets/countdown/countdown-torch.svg";
@@ -93,12 +94,22 @@ const Countdown = () => {
   const [secondsLeft, setSecondsLeft] = useState(0);
   const [wrongSystemTime, setWrongSystemTime] = useState(false);
   const [fire, setFire] = useState(``);
+
   const getRemTime = () => {
     timer()
       .then(async (res) => {
+        const eventStartTime = moment.tz(
+          Date.parse(process.env.REACT_APP_ENIGMA_START_TIME),
+          "Asia/Calcutta"
+        );
+        const currentTime = moment.tz("Asia/Calcutta");
         if (
-          Math.floor((new Date("2021-11-26T16:20") - new Date()) / 100000) !==
-          Math.floor((await res.data.data.date) / 100)
+          Math.floor(
+            moment.duration(eventStartTime.diff(currentTime))._milliseconds /
+              100000
+          ) -
+            res.data.data.date >
+          0
         ) {
           setWrongSystemTime(true);
         }
@@ -119,7 +130,7 @@ const Countdown = () => {
     setFire(flame);
   };
   const mockQuestion = () => {
-    history.push("/mockquestion");
+    history.push("/demoquestion");
   };
   const renderTime = () => {
     let tempMinutes = Math.floor(remTime / 60);
