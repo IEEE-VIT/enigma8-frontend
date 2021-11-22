@@ -1,12 +1,12 @@
 import * as React from "react";
-import { useHistory } from "react-router-dom";
-import "./menu.styles.css";
-import { Button, Menu, MenuItem, SvgIcon, makeStyles } from "@material-ui/core";
-import { MenuOpen } from "@material-ui/icons";
+import PropTypes from "prop-types";
+import "./StoryMenu.styles.css";
+import { Button, Menu, MenuItem, makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
-  button: {
+  dropdownBtn: {
     border: `2px solid ${theme.palette.primary.dark}`,
+    color: theme.palette.contrast.main,
   },
   svg: {
     backgroundColor: theme.palette.secondary.main,
@@ -19,8 +19,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const HamMenu = () => {
-  const history = useHistory();
+const StoryMenu = ({ count, unlocked, triggerFunction, showRoom }) => {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -29,14 +28,20 @@ const HamMenu = () => {
   };
   const handleClose = (id) => {
     setAnchorEl(null);
-    if (id === 1) {
-      history.push("/");
-    } else if (id === 2) {
-      history.push("/sponsors");
-    } else if (id === 3) {
-      history.push("/faq");
-    }
+    if (typeof id === "number") triggerFunction(id);
   };
+  const menuList = [...Array(count)].map((e, i) => {
+    return (
+      <MenuItem
+        key={i}
+        className={classes.menuoptions}
+        onClick={() => handleClose(i + 1)}
+        disabled={i + 1 > unlocked}
+      >
+        {`Room ${i + 1}`}
+      </MenuItem>
+    );
+  });
   return (
     <div className="ham-menu">
       <Button
@@ -45,9 +50,9 @@ const HamMenu = () => {
         aria-haspopup="true"
         aria-expanded={open ? "true" : undefined}
         onClick={handleClick}
-        className={classes.button}
+        className={classes.dropdownBtn}
       >
-        <SvgIcon component={MenuOpen} className={classes.svg} />
+        {`Room ${showRoom}`}
       </Button>
       <Menu
         id="basic-menu"
@@ -65,26 +70,17 @@ const HamMenu = () => {
           },
         }}
       >
-        <MenuItem
-          className={classes.menuoptions}
-          onClick={() => handleClose(1)}
-        >
-          Home
-        </MenuItem>
-        <MenuItem
-          className={classes.menuoptions}
-          onClick={() => handleClose(2)}
-        >
-          Sponsors
-        </MenuItem>
-        <MenuItem
-          className={classes.menuoptions}
-          onClick={() => handleClose(3)}
-        >
-          FAQ
-        </MenuItem>
+        {menuList}
       </Menu>
     </div>
   );
 };
-export default HamMenu;
+
+StoryMenu.propTypes = {
+  count: PropTypes.number.isRequired,
+  unlocked: PropTypes.number.isRequired,
+  triggerFunction: PropTypes.func.isRequired,
+  showRoom: PropTypes.number.isRequired,
+};
+
+export default StoryMenu;

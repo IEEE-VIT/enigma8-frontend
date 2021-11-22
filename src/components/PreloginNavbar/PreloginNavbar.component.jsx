@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./PreloginNavbar.styles.css";
 import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core";
-import HamMenu from "../Menu/menu.component";
+import NavMenu from "../Menu/NavMenu/NavMenu.component";
 import EnigmaFont from "../../assets/Enigma-font.svg";
 
 const useStyles = makeStyles(() => ({
@@ -31,7 +31,7 @@ const useStyles = makeStyles(() => ({
 
 const PreloginNavbar = () => {
   const [showMenu, setShowMenu] = useState(false);
-  const [windowWidth, setWindowWidth] = useState(0);
+  const [, setWindowWidth] = useState(0);
   const isMobile = (width) => {
     if (width < 500) {
       return true;
@@ -45,7 +45,6 @@ const PreloginNavbar = () => {
       setShowMenu(isMobile(x.currentTarget.innerWidth));
     });
   }, []);
-  console.log(windowWidth);
   const classes = useStyles();
   const ExtendedNav = () => (
     <div className="prelogin-nav-extended">
@@ -68,7 +67,7 @@ const PreloginNavbar = () => {
         </Link>
       </div>
       <div className="prelogin-nav">
-        {showMenu ? <HamMenu /> : <ExtendedNav />}
+        {showMenu ? <NavMenu /> : <ExtendedNav />}
       </div>
     </nav>
   );

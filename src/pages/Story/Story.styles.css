@@ -1,0 +1,18 @@
+.story-container {
+  color: white;
+  padding: 2% 4vw;
+}
+.story-content div {
+  padding: 2%;
+  margin: 2%;
+}
+.story-content div:nth-child(odd) {
+  text-align: left;
+  color: goldenrod;
+  padding-right: 10%;
+}
+.story-content div:nth-child(even) {
+  text-align: right;
+  color: aqua;
+  padding-left: 10%;
+}

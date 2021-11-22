@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Modal, makeStyles } from "@material-ui/core";
 import PropTypes from "prop-types";
-import { useHistory, useLocation } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import Toast from "../Notifications/Toast.component";
 import { getPowerups, selectPowerup } from "../../api/user";
 import "./Powerup.styles.css";
@@ -21,10 +21,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Powerup = (props) => {
-  const { roomNo, roomId, openPowerup, handleClose } = props;
+  const { roomId, openPowerup, handleClose } = props;
   const classes = useStyles();
   const history = useHistory();
-  const location = useLocation();
   const [modalStyle] = useState({ top: "10%", left: "10%" });
   const [open] = useState(openPowerup);
   const [selectPowerupID, setSelectPowerupID] = useState("");
@@ -33,7 +32,6 @@ const Powerup = (props) => {
   // const handleOpen = () => {
   //   setOpen(true);
   // };
-  console.log("Hi!", openPowerup);
 
   const selectPowerupButton = (id) => {
     setSelectPowerupID(id);
@@ -44,7 +42,14 @@ const Powerup = (props) => {
     getPowerups()
       .then((res) => {
         for (let i = 0; i < res.data.data.powerups.length; i += 1) {
-          setPowerups((powerup) => [...powerup, res.data.data.powerups[i]]);
+          const tempPowerup = {
+            _id: res.data.data.powerups[i]._id,
+            name: res.data.data.powerups[i].name,
+            detail: res.data.data.powerups[i].detail,
+            icon: res.data.data.powerups[i].icon,
+            availableToUse: res.data.data.powerups[i].available_to_use,
+          };
+          setPowerups((powerup) => [...powerup, tempPowerup]);
         }
       })
       .catch((err) => {
@@ -72,8 +77,7 @@ const Powerup = (props) => {
           .then((res) => {
             console.log(res);
             history.push({
-              pathname: "/question",
-              state: { ...location.state, roomNo, roomId },
+              pathname: "/story",
             });
           })
           .catch((err) => {
@@ -83,7 +87,15 @@ const Powerup = (props) => {
   };
 
   const powerupList = powerups.map((powerup, index) => {
-    const bgColour = powerup._id === selectPowerupID ? "cyan" : "white";
+    // const bgColour = powerup._id === selectPowerupID ? "cyan" : "white";
+    let bgColour = "white";
+    if (!powerup.availableToUse) {
+      bgColour = "grey";
+    } else if (powerup._id === selectPowerupID) {
+      bgColour = "cyan";
+    } else {
+      bgColour = "white";
+    }
     return (
       <PowerupButton
         key={index}
@@ -137,7 +149,6 @@ const Powerup = (props) => {
 };
 
 Powerup.propTypes = {
-  roomNo: PropTypes.string.isRequired,
   roomId: PropTypes.string.isRequired,
   openPowerup: PropTypes.bool.isRequired,
   handleClose: PropTypes.func.isRequired,

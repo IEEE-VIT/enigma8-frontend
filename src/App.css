@@ -8,6 +8,7 @@
   text-align: center;
   /* background: -webkit-linear-gradient(#ffd37c, #d08123); */
   background-color: black;
+  color: white;
   /* color: #d08123; */
   /* background-image: linear-gradient(to bottom, #ffd37c 100%, #d08123 100%);
   -webkit-background-clip: text;
@@ -40,6 +41,7 @@ img {
 
 * {
   scroll-behavior: smooth;
+  color: #d08123;
 }
 *::-webkit-scrollbar {
   width: 7.5px;

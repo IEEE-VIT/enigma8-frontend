@@ -7,8 +7,11 @@ import LoginPortal from "../../components/LoginPortal/LoginPortal.component";
 import LinkImage from "../../components/LinkImage/LinkImage.component";
 import SponsorsLIST from "../../assets/sponsors/sponsorsList";
 import SideNavbar from "../../components/SideNavbar/SideNavbar.component";
-import EnimgaBrand from "../../assets/home/Enigma_brand.svg";
+import EnimgaBrand from "../../assets/home/Enigma-brand.svg";
 import Desert from "../../assets/home/desert.svg";
+import DiscordLogo from "../../assets/home/home-footer-discord.svg";
+
+const discordLink = "https://discord.gg/HUH9nzespc";
 
 const HomePage = () => {
   const [stars, setStars] = useState(``);
@@ -85,26 +88,35 @@ const HomePage = () => {
         <LoginPortal />
         <SideNavbar />
       </div>
-      <div className="sponsor-panel">
+      <div className="home-footer">
+        <div className="sponsor-panel">
+          <LinkImage
+            img={SponsorsLIST.HomeBlockchainPartnerLogo.logo}
+            link={SponsorsLIST.HomeBlockchainPartnerLogo.link}
+            linkClass="footer-social-link"
+            imgClass="sponsor-panel-item sponsor-panel-item-1"
+          />
+          <LinkImage
+            img={SponsorsLIST.HomeTitleSponsor.logo}
+            link={SponsorsLIST.HomeTitleSponsor.link}
+            linkClass="footer-social-link"
+            imgClass="sponsor-panel-item sponsor-panel-item-2"
+          />
+          <LinkImage
+            link={SponsorsLIST.HomePoweredBySponsor.link}
+            img={SponsorsLIST.HomePoweredBySponsor.logo}
+            linkClass="footer-social-link"
+            imgClass="sponsor-panel-item sponsor-panel-item-3"
+          />
+        </div>
         <LinkImage
-          img={SponsorsLIST.BlockchainPartnerLogo.logo}
-          link={SponsorsLIST.BlockchainPartnerLogo.link}
+          link={discordLink}
+          img={DiscordLogo}
           linkClass="footer-social-link"
-          imgClass="sponsor-panel-item sponsor-panel-item-1"
-        />
-        <LinkImage
-          img={SponsorsLIST.TitleSponsor.logo}
-          link={SponsorsLIST.TitleSponsor.link}
-          linkClass="footer-social-link"
-          imgClass="sponsor-panel-item sponsor-panel-item-2"
-        />
-        <LinkImage
-          link={SponsorsLIST.PoweredBySponsor.link}
-          img={SponsorsLIST.PoweredBySponsor.logo}
-          linkClass="footer-social-link"
-          imgClass="sponsor-panel-item sponsor-panel-item-3"
+          imgClass="footer-discord"
         />
       </div>
+
       <img className="home-desert" src={Desert} alt="" />
       <div className="home-background">
         <div className="night"> </div>

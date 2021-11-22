@@ -12,24 +12,24 @@ import Container from "./components/Container/Container.component";
 import PreloginNavbar from "./components/PreloginNavbar/PreloginNavbar.component";
 // import GameRoute from "./components/GameRoute/GameRoute.component";
 import PreEnigmaNavbar from "./components/PreEnigmaNavbar/PreEnigmaNavbar.component";
-// import PostloginNavbar from "./components/PostloginNavbar/PostloginNavbar.component";
+import PostloginNavbar from "./components/PostloginNavbar/PostloginNavbar.component";
 
 import Home from "./pages/Home/Home.page";
 import FAQ from "./pages/FAQ/faq.page";
 import Sponsors from "./pages/Sponsors/Sponsors.page";
-
+import Story from "./pages/Story/Story.page";
 import Welcome from "./pages/Welcome/Welcome.component";
 
 import Countdown from "./pages/Countdown/Countdown.page";
 import DemoQuestion from "./pages/DemoQuestion/DemoQuestion.page";
 
-// import Rooms from "./pages/Rooms/Rooms.page";
-// import Leaderboard from "./pages/Leaderboard/Leaderboard.page";
-// import Profile from "./pages/Profile/Profile.component";
-// import Instructions from "./components/Instructions/Instructions.page";
-// import Question from "./pages/Question/Question.page";
+import Rooms from "./pages/Rooms/Rooms.page";
+import Leaderboard from "./pages/Leaderboard/Leaderboard.page";
+import Profile from "./pages/Profile/Profile.component";
+import Instructions from "./components/Instructions/Instructions.page";
+import Question from "./pages/Question/Question.page";
 
-// import PushNotifs from "./pages/PushNotifs/PushNotifs.page";
+import PushNotifs from "./pages/PushNotifs/PushNotifs.page";
 
 import SuccessfulAuth from "./components/SuccessfulAuth.component";
 
@@ -73,13 +73,13 @@ function App() {
             )}
           />
           <TokenProtectedRoute
-            redirect="/"
+            // redirect="/"
             exact
             path="/welcome"
             component={Welcome}
           />
           <ProtectedRoute
-            redirect="/"
+            // redirect="/"
             exact
             path="/countdown"
             component={() => (
@@ -87,23 +87,23 @@ function App() {
             )}
           />
           <ProtectedRoute
-            redirect="/"
+            // redirect="/"
             exact
             path="/demoquestion"
             component={() => (
               <Container navbar={PreEnigmaNavbar} page={DemoQuestion} />
             )}
           />
-          {/* <ProtectedRoute
+          <ProtectedRoute
             redirect="/"
             exact
             path="/rooms"
             component={() => (
-              <GameRoute navbar={PostloginNavbar} page={Rooms} />
+              <Container navbar={PostloginNavbar} page={Rooms} />
             )}
           />
           <ProtectedRoute
-            redirect="/"
+            // redirect="/"
             exact
             path="/instructions"
             component={() => (
@@ -111,42 +111,50 @@ function App() {
             )}
           />
           <ProtectedRoute
-            redirect="/"
+            // redirect="/"
             exact
             path="/leaderboard"
             component={() => (
-              <GameRoute navbar={PostloginNavbar} page={Leaderboard} />
+              <Container navbar={PostloginNavbar} page={Leaderboard} />
             )}
           />
           <ProtectedRoute
-            redirect="/"
+            // redirect="/"
             exact
             path="/profile"
             component={() => (
-              <GameRoute navbar={PostloginNavbar} page={Profile} />
+              <Container navbar={PostloginNavbar} page={Profile} />
             )}
           />
           <ProtectedRoute
-            redirect="/"
+            // redirect="/"
+            exact
+            path="/story"
+            component={() => (
+              <Container navbar={PostloginNavbar} page={Story} />
+            )}
+          />
+          <ProtectedRoute
+            // redirect="/"
             exact
             path="/question"
             component={() => (
-              <GameRoute navbar={PostloginNavbar} page={Question} />
+              <Container navbar={PostloginNavbar} page={Question} />
             )}
-          /> */}
+          />
           <Route
             exact
             path="/googlesuccessfulAuth"
             component={SuccessfulAuth}
           />
           <ProtectedRoute
-            redirect="/"
+            // redirect="/"
             component={() => (
               <Container navbar={PreEnigmaNavbar} page={Countdown} />
             )}
           />
         </Switch>
-        {/* <PushNotifs /> */}
+        <PushNotifs />
       </ThemeProvider>
     </div>
   );

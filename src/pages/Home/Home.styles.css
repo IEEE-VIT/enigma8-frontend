@@ -29,7 +29,7 @@
 }
 .home-brand {
   margin-top: 1vh;
-  width: 30%;
+  width: 25%;
 }
 .home-subtext {
   /* background-image: linear-gradient(to bottom, #0fa3b1 100%, #037ec3 97%);
@@ -62,18 +62,29 @@
   overflow: hidden;
   position: relative;
 }
-.sponsor-panel {
+.home-footer {
   position: absolute;
   bottom: 0;
   z-index: 11;
-  width: 20vw;
-  right: 0;
+  width: 100%;
   display: flex;
   flex-wrap: nowrap;
   flex-direction: row;
-  justify-content: flex-end;
-  padding: 0 2vw 1vh 0;
+  justify-content: space-between;
   align-items: center;
+  vertical-align: middle;
+}
+.sponsor-panel {
+  display: flex;
+  padding: 0 0 1vh 2vw;
+  align-items: center;
+  /* flex-wrap: wrap; */
+}
+.footer-discord {
+  padding: 0 2vw 1vh 0;
+}
+.footer-discord:hover {
+  transform: scale(1.1);
 }
 .sponsor-panel-item {
   padding: 0 1vw;
@@ -128,7 +139,7 @@
   }
   .home-brand {
     margin-top: 1vh;
-    width: 70%;
+    width: 65%;
   }
   .home-background {
     margin: 0;
@@ -137,29 +148,31 @@
     overflow: hidden;
     position: relative;
   }
-  .sponsor-panel {
+  /* .sponsor-panel {
     position: absolute;
     bottom: 0;
     z-index: 11;
     width: 100vw;
-    /* right: 0; */
     display: flex;
     flex-wrap: nowrap;
     flex-direction: row;
     justify-content: space-around;
     padding: 0 2vw 1vh 0;
-  }
+  } */
   .sponsor-panel-item {
-    padding: 0 15px;
+    padding: 0 10px;
   }
   .sponsor-panel-item-1 {
-    width: 21vw;
+    width: 18vw;
   }
   .sponsor-panel-item-2 {
-    width: 27vw;
+    width: 22vw;
   }
   .sponsor-panel-item-3 {
-    width: 22vw;
+    width: 20vw;
+  }
+  .footer-discord {
+    width: 12vw;
   }
 }
 .stars {

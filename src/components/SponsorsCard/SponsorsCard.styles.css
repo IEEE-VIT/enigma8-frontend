@@ -50,7 +50,6 @@
   display: none;
 }
 .sponsorcard-paper {
-  background-color: #0b0b0b;
   width: fit-content;
   justify-content: space-around;
   text-align: center;
@@ -59,7 +58,6 @@
   margin: auto;
 }
 .sponsorcard-paper-5 {
-  background-color: #0b0b0b;
   width: fit-content;
   justify-content: space-around;
   text-align: center;
@@ -71,9 +69,6 @@
   display: none;
 }
 .sponsorcard-img {
-  margin-top: 40px;
-  margin-right: 10px;
-  margin-left: 10px;
 }
 /*  title sponsor */
 .sponsorcard-img-1 {
@@ -94,7 +89,6 @@
 /*  partners */
 .sponsorcard-img-5 {
   width: 60%;
-  margin-left: 32%;
 }
 /*  outreach */
 .sponsorcard-img-6 {

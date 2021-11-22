@@ -1,0 +1,10 @@
+.ham-menu {
+  z-index: 20;
+}
+.MuiMenu-list {
+  display: flex !important;
+  flex-direction: column !important;
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: bold;
+}
