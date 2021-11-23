@@ -39,7 +39,8 @@
     "no-underscore-dangle": "off",
     "import/prefer-default-export": "off",
     "react/no-array-index-key": "off",
-    "import/no-named-as-default-member": "off"
+    "import/no-named-as-default-member": "off",
+    "jsx-a11y/media-has-caption": "off"
   },
   "root": true,
   "settings": {

@@ -36,7 +36,6 @@ const FAQBox = (props) => {
 
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
-    console.log(`panel${props.index + 1}`);
   };
   return (
     <div className="faq-box">

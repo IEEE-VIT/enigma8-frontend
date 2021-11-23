@@ -7,7 +7,7 @@ const PowerupButton = ({
   selectPowerupID,
   bgColour,
 }) => {
-  const { _id, icon, name, detail } = powerup;
+  const { _id, icon, name, detail, availableToUse } = powerup;
   const selectPowerup = () => {
     if (selectPowerupID !== _id) {
       selectPowerupButton(_id);
@@ -25,6 +25,7 @@ const PowerupButton = ({
       }}
       id={_id}
       onClick={selectPowerup}
+      disabled={!availableToUse}
     >
       <div className="powerup-modal-description-container-row">
         <div className="powerup-modal-description-container-image">
@@ -49,7 +50,7 @@ PowerupButton.propTypes = {
     name: PropTypes.string.isRequired,
     detail: PropTypes.string.isRequired,
     icon: PropTypes.string.isRequired,
-    available_to_use: PropTypes.bool.isRequired,
+    availableToUse: PropTypes.bool.isRequired,
   }).isRequired,
   selectPowerupButton: PropTypes.func.isRequired,
   selectPowerupID: PropTypes.string.isRequired,

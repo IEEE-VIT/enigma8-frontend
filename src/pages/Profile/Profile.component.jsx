@@ -13,9 +13,7 @@ const Profile = () => {
   useEffect(() => {
     getUser()
       .then((res) => {
-        console.log(res.data.data);
         setUser(res.data.data);
-        console.log(user);
       })
       .catch((err) => {
         console.log(err);
