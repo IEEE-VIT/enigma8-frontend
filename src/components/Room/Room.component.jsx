@@ -12,6 +12,7 @@ import Powerup from "../Powerup/Powerup.component";
 const Room = (props) => {
   const { room, journey } = props;
   const [lockedRoom, setLockedRoom] = useState(false);
+  const [questionSolved, setQuestionSolved] = useState(false);
   const [notification, setNotification] = useState({ title: "", body: "" });
   const [openPowerup, setOpenPowerup] = useState(false);
   const handleClose = () => {
@@ -20,10 +21,10 @@ const Room = (props) => {
   const history = useHistory();
   const location = useLocation();
   const questionCall = () => {
-    if (!journey.roomUnlocked) {
-      checkIfRoomUnlocked(room._id)
-        .then((res) => {
-          if (res.data.data.unlock) {
+    checkIfRoomUnlocked(room._id)
+      .then((res) => {
+        switch (res.data.data.status) {
+          case "locked":
             setLockedRoom(true);
             setNotification({
               title: "Room Locked",
@@ -32,19 +33,37 @@ const Room = (props) => {
             setTimeout(() => {
               setLockedRoom(false);
             }, 4000);
-          }
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    } else if (journey.roomUnlocked && journey.powerupSet === "no") {
-      setOpenPowerup(true);
-    } else {
-      history.push({
-        pathname: "/question",
-        state: { ...location.state, roomNo: room.roomNo, roomId: room._id },
+            break;
+          case "complete":
+            setQuestionSolved(true);
+            setNotification({
+              title: "Room Solved",
+              body: `You have solved the room.`,
+            });
+            setTimeout(() => {
+              setQuestionSolved(false);
+            }, 4000);
+            break;
+          case "unlocked":
+            history.push({
+              pathname: "/question",
+              state: {
+                ...location.state,
+                roomNo: room.roomNo,
+                roomId: room._id,
+              },
+            });
+            break;
+          case "canUnlock":
+            setOpenPowerup(true);
+            break;
+          default:
+            break;
+        }
+      })
+      .catch((err) => {
+        console.log(err);
       });
-    }
   };
 
   const questionsStatus = journey.questionsStatus.map(
@@ -81,6 +100,11 @@ const Room = (props) => {
         </button>
       </div>
       {lockedRoom ? (
+        <Toast title={notification.title} body={notification.body} />
+      ) : (
+        <> </>
+      )}
+      {questionSolved ? (
         <Toast title={notification.title} body={notification.body} />
       ) : (
         <> </>
