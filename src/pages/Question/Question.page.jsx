@@ -112,7 +112,6 @@ const Question = () => {
   const handlePowerUp = () => {
     usePowerup(roomId)
       .then((res) => {
-        console.log(res.data.data);
         // Set PowerUp Image
         setIsPowerUp(true);
         setPowerUp(`${res.data.data.text} ${res.data.data.data}`);

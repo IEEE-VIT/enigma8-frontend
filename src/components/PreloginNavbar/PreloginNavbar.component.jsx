@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./PreloginNavbar.styles.css";
 import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core";
-import HamMenu from "../Menu/menu.component";
+import NavMenu from "../Menu/NavMenu/NavMenu.component";
 import EnigmaFont from "../../assets/Enigma-font.svg";
 
 const useStyles = makeStyles(() => ({
@@ -67,7 +67,7 @@ const PreloginNavbar = () => {
         </Link>
       </div>
       <div className="prelogin-nav">
-        {showMenu ? <HamMenu /> : <ExtendedNav />}
+        {showMenu ? <NavMenu /> : <ExtendedNav />}
       </div>
     </nav>
   );

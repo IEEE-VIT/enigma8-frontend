@@ -13,6 +13,9 @@ const PostloginNavbar = () => {
         <li>
           <Link to="/rooms">Rooms</Link>
         </li>
+        <li>
+          <Link to="/story">Story</Link>
+        </li>
         <li>Instructions</li>
         <li>
           <Link to="/leaderboard">Leaderboard</Link>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Modal, makeStyles } from "@material-ui/core";
 import PropTypes from "prop-types";
-import { useHistory, useLocation } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import Toast from "../Notifications/Toast.component";
 import { getPowerups, selectPowerup } from "../../api/user";
 import "./Powerup.styles.css";
@@ -21,10 +21,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Powerup = (props) => {
-  const { roomNo, roomId, openPowerup, handleClose } = props;
+  const { roomId, openPowerup, handleClose } = props;
   const classes = useStyles();
   const history = useHistory();
-  const location = useLocation();
   const [modalStyle] = useState({ top: "10%", left: "10%" });
   const [open] = useState(openPowerup);
   const [selectPowerupID, setSelectPowerupID] = useState("");
@@ -78,8 +77,7 @@ const Powerup = (props) => {
           .then((res) => {
             console.log(res);
             history.push({
-              pathname: "/question",
-              state: { ...location.state, roomNo, roomId },
+              pathname: "/story",
             });
           })
           .catch((err) => {
@@ -151,7 +149,6 @@ const Powerup = (props) => {
 };
 
 Powerup.propTypes = {
-  roomNo: PropTypes.string.isRequired,
   roomId: PropTypes.string.isRequired,
   openPowerup: PropTypes.bool.isRequired,
   handleClose: PropTypes.func.isRequired,
