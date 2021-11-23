@@ -11,7 +11,6 @@ import TokenProtectedRoute from "./components/TokenProtectedRoute.component";
 
 import Container from "./components/Container/Container.component";
 import PreloginNavbar from "./components/PreloginNavbar/PreloginNavbar.component";
-
 import PreEnigmaNavbar from "./components/PreEnigmaNavbar/PreEnigmaNavbar.component";
 import PostloginNavbar from "./components/PostloginNavbar/PostloginNavbar.component";
 
@@ -21,7 +20,7 @@ import Sponsors from "./pages/Sponsors/Sponsors.page";
 
 import Welcome from "./pages/Welcome/Welcome.page";
 
-// import Onboarding from "./pages/Onboarding/Onboarding.page";
+import Onboarding from "./pages/Onboarding/Onboarding.page";
 
 import Rooms from "./pages/Rooms/Rooms.page";
 import Leaderboard from "./pages/Leaderboard/Leaderboard.page";
@@ -30,12 +29,6 @@ import Instructions from "./components/Instructions/Instructions.page";
 import Question from "./pages/Question/Question.page";
 import Countdown from "./pages/Countdown/Countdown.page";
 import DemoQuestion from "./pages/DemoQuestion/DemoQuestion.page";
-
-// import Rooms from "./pages/Rooms/Rooms.page";
-// import Leaderboard from "./pages/Leaderboard/Leaderboard.page";
-// import Profile from "./pages/Profile/Profile.component";
-// import Instructions from "./components/Instructions/Instructions.page";
-// import Question from "./pages/Question/Question.page";
 
 // import PushNotifs from "./pages/PushNotifs/PushNotifs.page";
 
@@ -106,6 +99,14 @@ function App() {
             path="/demoquestion"
             component={() => (
               <Container navbar={PreEnigmaNavbar} page={DemoQuestion} />
+            )}
+          />
+          <ProtectedRoute
+            redirect="/"
+            exact
+            path="/onboarding"
+            component={() => (
+              <Container navbar={PostloginNavbar} page={Onboarding} />
             )}
           />
           <ProtectedRoute

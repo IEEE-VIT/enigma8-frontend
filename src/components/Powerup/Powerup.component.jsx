@@ -33,7 +33,6 @@ const Powerup = (props) => {
   // const handleOpen = () => {
   //   setOpen(true);
   // };
-  console.log("Hi!", openPowerup);
 
   const selectPowerupButton = (id) => {
     setSelectPowerupID(id);
@@ -44,7 +43,14 @@ const Powerup = (props) => {
     getPowerups()
       .then((res) => {
         for (let i = 0; i < res.data.data.powerups.length; i += 1) {
-          setPowerups((powerup) => [...powerup, res.data.data.powerups[i]]);
+          const tempPowerup = {
+            _id: res.data.data.powerups[i]._id,
+            name: res.data.data.powerups[i].name,
+            detail: res.data.data.powerups[i].detail,
+            icon: res.data.data.powerups[i].icon,
+            availableToUse: res.data.data.powerups[i].available_to_use,
+          };
+          setPowerups((powerup) => [...powerup, tempPowerup]);
         }
       })
       .catch((err) => {
@@ -84,7 +90,15 @@ const Powerup = (props) => {
   };
 
   const powerupList = powerups.map((powerup, index) => {
-    const bgColour = powerup._id === selectPowerupID ? "cyan" : "white";
+    // const bgColour = powerup._id === selectPowerupID ? "cyan" : "white";
+    let bgColour = "white";
+    if (!powerup.availableToUse) {
+      bgColour = "grey";
+    } else if (powerup._id === selectPowerupID) {
+      bgColour = "cyan";
+    } else {
+      bgColour = "white";
+    }
     return (
       <PowerupButton
         key={index}
