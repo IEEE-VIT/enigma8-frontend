@@ -23,26 +23,22 @@ const Room = (props) => {
     if (!journey.roomUnlocked) {
       checkIfRoomUnlocked(room._id)
         .then((res) => {
-          console.log(res.data.data);
-          switch (res.data.data.unlock) {
-            case true:
-              setOpenPowerup(true);
-              break;
-            default:
-              setLockedRoom(true);
-              setNotification({
-                title: "Room Locked",
-                body: `You need ${res.data.data.starsNeeded} stars to unlock the room.`,
-              });
-              setTimeout(() => {
-                setLockedRoom(false);
-              }, 4000);
-              break;
+          if (res.data.data.unlock) {
+            setLockedRoom(true);
+            setNotification({
+              title: "Room Locked",
+              body: `You need ${res.data.data.starsNeeded} stars to unlock the room.`,
+            });
+            setTimeout(() => {
+              setLockedRoom(false);
+            }, 4000);
           }
         })
         .catch((err) => {
           console.log(err);
         });
+    } else if (journey.roomUnlocked && journey.powerupSet === "no") {
+      setOpenPowerup(true);
     } else {
       history.push({
         pathname: "/question",
@@ -74,7 +70,6 @@ const Room = (props) => {
   return (
     <div>
       <div className="room-container">
-        {" "}
         <div className="room-question-status">{questionsStatus}</div>
         <button
           type="button"
@@ -115,11 +110,12 @@ Room.propTypes = {
   }).isRequired,
   journey: PropTypes.shape({
     // powerupId: PropTypes.string.isRequired,
-    powerupUsed: PropTypes.bool.isRequired,
     questionsStatus: PropTypes.arrayOf(PropTypes.string).isRequired,
     // roomId: PropTypes.string.isRequired,
     roomUnlocked: PropTypes.bool.isRequired,
     stars: PropTypes.number.isRequired,
+    powerupSet: PropTypes.string.isRequired,
+    powerupUsed: PropTypes.string.isRequired,
     // userId: PropTypes.string.isRequired,
     // _id: PropTypes.string.isRequired,
   }).isRequired,

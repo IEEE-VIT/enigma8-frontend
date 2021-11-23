@@ -5,7 +5,7 @@ import NotificationsIcon from "@material-ui/icons/Notifications";
 
 const PostloginNavbar = () => {
   return (
-    <nav>
+    <nav style={{ display: "flex", justifyContent: "space-between" }}>
       <Link to="/">
         <h1>Enigma 8</h1>
       </Link>

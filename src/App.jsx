@@ -10,9 +10,9 @@ import TokenProtectedRoute from "./components/TokenProtectedRoute.component";
 
 import Container from "./components/Container/Container.component";
 import PreloginNavbar from "./components/PreloginNavbar/PreloginNavbar.component";
-// import GameRoute from "./components/GameRoute/GameRoute.component";
+import GameRoute from "./components/GameRoute/GameRoute.component";
 import PreEnigmaNavbar from "./components/PreEnigmaNavbar/PreEnigmaNavbar.component";
-// import PostloginNavbar from "./components/PostloginNavbar/PostloginNavbar.component";
+import PostloginNavbar from "./components/PostloginNavbar/PostloginNavbar.component";
 
 import Home from "./pages/Home/Home.page";
 import FAQ from "./pages/FAQ/faq.page";
@@ -23,11 +23,11 @@ import Welcome from "./pages/Welcome/Welcome.component";
 import Countdown from "./pages/Countdown/Countdown.page";
 import DemoQuestion from "./pages/DemoQuestion/DemoQuestion.page";
 
-// import Rooms from "./pages/Rooms/Rooms.page";
-// import Leaderboard from "./pages/Leaderboard/Leaderboard.page";
-// import Profile from "./pages/Profile/Profile.component";
-// import Instructions from "./components/Instructions/Instructions.page";
-// import Question from "./pages/Question/Question.page";
+import Rooms from "./pages/Rooms/Rooms.page";
+import Leaderboard from "./pages/Leaderboard/Leaderboard.page";
+import Profile from "./pages/Profile/Profile.component";
+import Instructions from "./components/Instructions/Instructions.page";
+import Question from "./pages/Question/Question.page";
 
 // import PushNotifs from "./pages/PushNotifs/PushNotifs.page";
 
@@ -94,7 +94,7 @@ function App() {
               <Container navbar={PreEnigmaNavbar} page={DemoQuestion} />
             )}
           />
-          {/* <ProtectedRoute
+          <ProtectedRoute
             redirect="/"
             exact
             path="/rooms"
@@ -133,7 +133,7 @@ function App() {
             component={() => (
               <GameRoute navbar={PostloginNavbar} page={Question} />
             )}
-          /> */}
+          />
           <Route
             exact
             path="/googlesuccessfulAuth"
