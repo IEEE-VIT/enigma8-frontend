@@ -31,7 +31,7 @@ const useStyles = makeStyles(() => ({
 
 const PreloginNavbar = () => {
   const [showMenu, setShowMenu] = useState(false);
-  const [windowWidth, setWindowWidth] = useState(0);
+  const [, setWindowWidth] = useState(0);
   const isMobile = (width) => {
     if (width < 500) {
       return true;
@@ -45,7 +45,6 @@ const PreloginNavbar = () => {
       setShowMenu(isMobile(x.currentTarget.innerWidth));
     });
   }, []);
-  console.log(windowWidth);
   const classes = useStyles();
   const ExtendedNav = () => (
     <div className="prelogin-nav-extended">

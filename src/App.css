@@ -40,6 +40,7 @@ img {
 
 * {
   scroll-behavior: smooth;
+  color: #d08123;
 }
 *::-webkit-scrollbar {
   width: 7.5px;
