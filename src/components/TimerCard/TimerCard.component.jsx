@@ -48,7 +48,13 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: "2.3948px 1.59653px 0.798265px #0FA3B1",
     boxSizing: "border-box",
     border: "1px solid #0FA3B1",
-    width: "68.65px",
+    width: "30.65px",
+    height: "30.65px",
+    marginRight: "6.45px",
+    "& h3": {
+      margin: "0",
+      fontWeight: "bold",
+    },
   },
 }));
 
