@@ -1,0 +1,47 @@
+.progress-bar-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10% 0;
+}
+.progress-bar-status {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.progress-bar-room-card {
+  color: black;
+  font-family: "Mulish";
+  text-align: center;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16.9865px;
+  width: 3vw;
+  height: 3vw;
+  border-radius: 50%;
+  margin: 50px;
+  border: none;
+  align-items: center;
+}
+.room-number {
+  color: #d08123;
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: bold;
+}
+@supports (background-clip: text) and (-webkit-text-fill-color: transparent) {
+  .room-number {
+    background-image: linear-gradient(to bottom, #fccb69 4%, #d17a0f 100%);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+.key-img {
+  padding: 2% 5%;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}

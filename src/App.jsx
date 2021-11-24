@@ -25,7 +25,7 @@ import DemoQuestion from "./pages/DemoQuestion/DemoQuestion.page";
 
 import Rooms from "./pages/Rooms/Rooms.page";
 import Leaderboard from "./pages/Leaderboard/Leaderboard.page";
-import Profile from "./pages/Profile/Profile.component";
+import Profile from "./pages/Profile/Profile.pages";
 import Question from "./pages/Question/Question.page";
 
 import PushNotifs from "./pages/PushNotifs/PushNotifs.page";

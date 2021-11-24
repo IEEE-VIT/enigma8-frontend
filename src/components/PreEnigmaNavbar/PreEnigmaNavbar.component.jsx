@@ -10,12 +10,7 @@ const useStyles = makeStyles((theme) => ({
   nav: {
     backgroundColor: "black",
     height: "69px",
-    // color: "white",
     backgroundPosition: "center",
-    // background: "-webkit-linear-gradient(#FFD37C, #D08123)",
-    // WebkitBackgroundClip: "text",
-    // WebkitTextFillColor: "transparent",
-    color: "#d08123",
     padding: "12px 32px",
     display: "flex",
     alignItems: "center",
@@ -68,7 +63,7 @@ const PreEnigmaNavbar = () => {
         role="button"
         tabIndex={0}
       >
-        <img style={{ height: 29.33 }} src={logoutIcon} alt="" /> Logout
+        <img style={{ height: 25.33 }} src={logoutIcon} alt="" />
       </div>
     </nav>
   );

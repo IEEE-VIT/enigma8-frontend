@@ -8,8 +8,7 @@
   text-align: center;
   /* background: -webkit-linear-gradient(#ffd37c, #d08123); */
   background-color: black;
-  color: white;
-  /* color: #d08123; */
+  color: #d08123;
   /* background-image: linear-gradient(to bottom, #ffd37c 100%, #d08123 100%);
   -webkit-background-clip: text;
   -moz-background-clip: text;
@@ -17,6 +16,13 @@
   -moz-text-fill-color: transparent; */
   /* background-image: linear-gradient(to bottom, #fccb69 4%, #d17a0f 100%); */
 }
+/* @supports (background-clip: text) and (--webkit-text-fill-color: transparent) {
+  .App {
+    background-image: linear-gradient(to bottom, #fccb69 4%, #d17a0f 100%);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+} */
 input {
   caret-color: white;
 }
