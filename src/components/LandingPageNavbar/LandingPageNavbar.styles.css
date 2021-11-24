@@ -15,8 +15,11 @@
   font-style: normal;
   font-weight: bold;
 }
+.landingpage-nav-item {
+  color: #d08123;
+}
 @supports (background-clip: text) and (-webkit-text-fill-color: transparent) {
-  .landingpage-nav-container {
+  .landingpage-nav-item {
     background-image: linear-gradient(to bottom, #fccb69 4%, #d17a0f 100%);
     background-clip: text;
     -webkit-text-fill-color: transparent;
