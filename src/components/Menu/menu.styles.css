@@ -1,13 +1,4 @@
 .ham-menu {
-  background-image: linear-gradient(
-    to bottom,
-    #ffd37c 0%,
-    #d08123 100%
-  ) !important;
-  -webkit-background-clip: text !important;
-  -moz-background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-  -moz-text-fill-color: transparent !important;
   z-index: 20;
 }
 .MuiMenu-list {

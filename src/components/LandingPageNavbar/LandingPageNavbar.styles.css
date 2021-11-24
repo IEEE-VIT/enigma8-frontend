@@ -15,6 +15,13 @@
   font-style: normal;
   font-weight: bold;
 }
+@supports (background-clip: text) and (--webkit-text-fill-color: transparent) {
+  .landingpage-nav-container {
+    background-image: linear-gradient(to bottom, #fccb69 4%, #d17a0f 100%);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
 .landingpage-nav {
   display: flex;
   flex-direction: row;

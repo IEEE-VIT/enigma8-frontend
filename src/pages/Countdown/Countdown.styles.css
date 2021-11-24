@@ -4,14 +4,22 @@
   align-items: center;
   margin-left: 30px;
 }
-
+.countdown-timer-head,
+.countdown-page-days-text {
+  color: #d08123;
+}
+@supports (background-clip: text) and (--webkit-text-fill-color: transparent) {
+  .countdown-timer-head,
+  .countdown-page-days-text {
+    background-image: linear-gradient(to bottom, #fccb69 4%, #d17a0f 100%);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
 .countdown-time-container {
   margin-right: 30px;
 }
 
-/* .countdown {
-  position: relative;
-} */
 .brazer-container-left,
 .brazer-container-right {
   width: 25vw;
@@ -25,21 +33,11 @@
 .brazer-container-left {
   left: 47px;
 }
-.fire-container {
-  /* position: absolute; */
-  /* top: 20%; */
-}
+
 .brazier-right,
 .brazier-left {
   width: 10vw;
 }
-
-/* .fire-container-1 {
-  left: 65px;
-}
-.fire-container-2 {
-  right: 65px;
-} */
 
 @media screen and (max-width: 768px) {
   .countdown-time-container {

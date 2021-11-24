@@ -98,17 +98,10 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
   },
   MockQuestion: {
-    // background: "-webkit-linear-gradient(#FFD37C, #D08123)",
-    // WebkitBackgroundClip: "text",
-    // WebkitTextFillColor: "transparent",
     color: "#d08123",
     fontFamily: "Mulish",
   },
   MockQuestionHeader: {
-    // background: "-webkit-linear-gradient(#FFD37C, #D08123)",
-    // WebkitBackgroundClip: "text",
-    // WebkitTextFillColor: "transparent",
-    color: "#d08123",
     fontFamily: "Mulish",
     fontSize: "2rem",
     fontWeight: "bold",
@@ -164,7 +157,7 @@ const DemoQuestion = () => {
   useEffect(updateRemTime, [remTime]);
   const question = () => {
     return (
-      <div>
+      <div className="mockquestion-heading">
         <div style={{ fontSize: 30 }}>Demo Question</div>
         Where lived the man? <br /> <i>Et tu, Brute?</i>
       </div>
