@@ -1,21 +1,19 @@
-.room-card {
-  width: 164px;
-  height: 164px;
-  background-color: grey;
-  margin: 50px;
-  align-items: center;
-}
-
 .room-container {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  margin: 2vh 2vw;
 }
 
 .room-question-status {
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+
+.room-card {
   align-items: center;
 }
 
@@ -25,4 +23,5 @@
   -ms-user-select: none;
   user-select: none;
   -webkit-user-drag: none;
+  padding: 1vw;
 }
