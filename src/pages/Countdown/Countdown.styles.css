@@ -8,7 +8,7 @@
 .countdown-page-days-text {
   color: #d08123;
 }
-@supports (background-clip: text) and (--webkit-text-fill-color: transparent) {
+@supports (background-clip: text) and (-webkit-text-fill-color: transparent) {
   .countdown-timer-head,
   .countdown-page-days-text {
     background-image: linear-gradient(to bottom, #fccb69 4%, #d17a0f 100%);

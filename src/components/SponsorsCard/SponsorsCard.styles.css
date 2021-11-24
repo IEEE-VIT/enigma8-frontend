@@ -9,7 +9,7 @@
   font-style: normal;
   font-weight: bold;
 }
-@supports (background-clip: text) and (--webkit-text-fill-color: transparent) {
+@supports (background-clip: text) and (-webkit-text-fill-color: transparent) {
   .sponsorcard {
     background-image: linear-gradient(to bottom, #fccb69 -80%, #d17a0f 100%);
     background-clip: text;
