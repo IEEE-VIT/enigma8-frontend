@@ -1,8 +1,28 @@
 .rooms-container {
-  display: flex;
+  /* display: flex;
   flex-direction: row;
   flex-basis: 164px;
   flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 18px;
+  justify-content: center; */
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 }
+.rooms-status {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding: 3vh 4% 0 4%;
+}
+
+.room-status-text {
+  color: #0fa3b1;
+  font-size: 1.3rem;
+  padding-right: 1vw;
+}
+/* @supports (background-clip: text) and (-webkit-text-fill-color: transparent) {
+  .room-status-text {
+    background-image: linear-gradient(to bottom, #77c5c4 100%, #017dcc 100%);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+} */

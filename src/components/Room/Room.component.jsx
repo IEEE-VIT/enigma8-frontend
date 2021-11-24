@@ -3,6 +3,7 @@ import "./Room.styles.css";
 import PropTypes from "prop-types";
 import { useHistory, useLocation } from "react-router-dom";
 import Toast from "../Notifications/Toast.component";
+import RoomDoor from "../../assets/rooms/RoomDoor.svg";
 import locked from "../../assets/rooms/locked.svg";
 import solved from "../../assets/rooms/solved.svg";
 import unsolvedUnlocked from "../../assets/rooms/unsolved-unlocked.svg";
@@ -90,14 +91,16 @@ const Room = (props) => {
     <div>
       <div className="room-container">
         <div className="room-question-status">{questionsStatus}</div>
-        <button
-          type="button"
+        <div
+          onClick={questionCall}
+          onKeyDown={questionCall}
+          role="button"
           className="room-card"
           id={room._id}
-          onClick={questionCall}
+          tabIndex={0}
         >
-          &nbsp;{room.roomNo}
-        </button>
+          <img src={RoomDoor} alt="" className="room-card" />
+        </div>
       </div>
       {lockedRoom ? (
         <Toast title={notification.title} body={notification.body} />
