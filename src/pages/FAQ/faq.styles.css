@@ -17,15 +17,17 @@
 .faq-heading {
   margin-bottom: 0;
   text-align: center;
-  /* background-image: linear-gradient(to bottom, #ffd37c 0%, #d08123 100%);
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent; */
   color: #d08123;
   font-family: Cinzel;
   font-style: normal;
   font-weight: bold;
+}
+@supports (background-clip: text) and (-webkit-text-fill-color: transparent) {
+  .faq-heading {
+    background-image: linear-gradient(to bottom, #fccb69 -80%, #d17a0f 100%);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 }
 .faq-box-container {
   margin-top: 30px;

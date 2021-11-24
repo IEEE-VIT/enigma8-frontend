@@ -4,7 +4,6 @@ import { useHistory } from "react-router-dom";
 import { makeStyles } from "@material-ui/core";
 import moment from "moment-timezone";
 import CountdownBg from "../../assets/countdown/countdown-page-bg.svg";
-// import Brazier from "../../assets/countdown/brazier-countdown-page.svg";
 import Torch from "../../assets/countdown/countdown-torch.svg";
 import { timer } from "../../api/timer";
 import OverlayModal from "../../components/CustomModal/OverlayModal/OverlayModal.component";
@@ -20,7 +19,6 @@ const useStyles = makeStyles((theme) => ({
     backgroundRepeat: "no-repeat",
     backgroundSize: "contain",
     height: "calc(100% - 99px)",
-    // color: "white",
     backgroundPosition: "center",
   },
   countdownTime: {
@@ -34,10 +32,6 @@ const useStyles = makeStyles((theme) => ({
     margin: "23.53px auto",
     textAlign: "center",
     fontFamily: "Mulish",
-    // background: "-webkit-linear-gradient(#FFD37C, #D08123)",
-    // WebkitBackgroundClip: "text",
-    // WebkitTextFillColor: "transparent",
-    color: "#d08123",
   },
   countdownTimeHeader: {
     fontSize: "32px",
@@ -45,10 +39,6 @@ const useStyles = makeStyles((theme) => ({
     margin: "60px 18px",
     textAlign: "center",
     fontFamily: "Cinzel Decorative",
-    // background: "-webkit-linear-gradient(#FFD37C, #D08123)",
-    // WebkitBackgroundClip: "text",
-    // WebkitTextFillColor: "transparent",
-    color: "#d08123",
     [theme.breakpoints.down("sm")]: {
       fontSize: "24px",
     },
@@ -178,7 +168,9 @@ const Countdown = () => {
     return (
       <div>
         <div>
-          <div className={`${classes.countdownTimeHeader}`}>
+          <div
+            className={`countdown-timer-head ${classes.countdownTimeHeader}`}
+          >
             {is420
               ? "The wait is over!"
               : "The Ultimate Cryptic Hunt Begins In"}
