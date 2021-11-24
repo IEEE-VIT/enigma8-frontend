@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import "./ProfileMenu.styles.css";
 import { Cookies } from "react-cookie";
 import { Button, Menu, MenuItem, makeStyles } from "@material-ui/core";
+import ProfileLogo from "../../../assets/navbar/profile.svg";
 import viewProfile from "../../../assets/navbar/view-profile.svg";
 import logoutIcon from "../../../assets/navbar/logout.svg";
 
@@ -53,7 +54,11 @@ const ProfileMenu = () => {
         onClick={handleClick}
         className={classes.button}
       >
-        Profile
+        <img
+          src={ProfileLogo}
+          alt=""
+          className="prelogin-nav-item prelogin-nav-item-profile"
+        />
       </Button>
       <Menu
         id="basic-menu"

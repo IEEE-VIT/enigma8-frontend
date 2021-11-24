@@ -22,12 +22,7 @@ const Rooms = () => {
       <Room key={room.room.roomNo} room={room.room} journey={room.journey} />
     );
   });
-  return (
-    <div>
-      Rooms
-      <div className="rooms-container">{roomslist}</div>
-    </div>
-  );
+  return <div className="rooms-container">{roomslist}</div>;
 };
 
 export default Rooms;
