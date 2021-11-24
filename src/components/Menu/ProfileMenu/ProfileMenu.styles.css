@@ -1,0 +1,12 @@
+.MuiMenu-list {
+  display: flex !important;
+  flex-direction: column !important;
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: bold;
+}
+.profile-menu .MuiButton-root {
+  padding: 0 !important;
+  text-transform: none !important;
+  letter-spacing: 0.6px !important;
+}

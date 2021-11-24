@@ -2,6 +2,7 @@ import React from "react";
 import "./PostloginNavbar.styles.css";
 import { Link } from "react-router-dom";
 import NotificationsIcon from "@material-ui/icons/Notifications";
+import ProfileMenu from "../Menu/ProfileMenu/ProfileMenu.component";
 
 const PostloginNavbar = () => {
   return (
@@ -21,7 +22,7 @@ const PostloginNavbar = () => {
           <Link to="/leaderboard">Leaderboard</Link>
         </li>
         <li>
-          <Link to="/profile">Profile</Link>
+          <ProfileMenu />
         </li>
         <li>
           <NotificationsIcon />
