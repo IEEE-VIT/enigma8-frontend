@@ -4,7 +4,7 @@
 .MuiTypography-body1 {
   letter-spacing: 0.3px !important;
 }
-.MuiPaper-root {
+.MuiAccordion-root {
   color: white !important;
   background-color: #0b0b0b !important ;
   margin: 0 0 !important;
