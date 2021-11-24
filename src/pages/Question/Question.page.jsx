@@ -31,12 +31,17 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.secondary.main,
     fontFamily: "Mulish",
     color: theme.palette.primary.main,
+    display: "flex",
+    margin: "12px 0 12px 0 !important",
     "& .MuiFormLabel-root": {
       // color: theme.palette.primary.main,
       // background: "-webkit-linear-gradient(#FFD37C, #D08123)",
       // WebkitBackgroundClip: "text",
       // WebkitTextFillColor: "transparent",
       color: "#d08123",
+    },
+    "& .MuiFormControl-root": {
+      width: "100% !important",
     },
     "& .MuiInputLabel-root": {
       // color: "white",
@@ -261,66 +266,79 @@ const Question = () => {
     );
   };
   return (
-    <div>
-      <div className="question-container">
-        <div className="question-section-1">
-          <div className="question-section-1-backBtn">
-            <button type="button" onClick={goBack}>
-              Back
-            </button>
-          </div>
-          <div className="question-section-1-question">
-            <div className="question-section-1-questionNo">
-              Q. {questionNum}
+    <div className="question-page">
+      <div className="question-section-1-room-heading">Room {roomNo}</div>
+      <div className="question-box">
+        <div className="question-container">
+          <div className="question-section-1">
+            <div className="question-section-1-top">
+              <div className="question-section-1-backBtn">
+                <button
+                  className="question-section-1-backBtn-text"
+                  type="button"
+                  onClick={goBack}
+                >
+                  Back
+                </button>
+              </div>
+              <div className="question-section-1-question">
+                <div className="question-section-1-questionNo">
+                  Q. {questionNum}
+                </div>
+                <div className="question-section-1-text">
+                  Question: {question}
+                </div>
+              </div>
             </div>
-            <div className="question-section-1-text">Question: {question}</div>
-          </div>
 
-          <div className="question-section-1-hinttext">Hint: {hint}</div>
-          <div className="question-section-1-text">Room {roomNo}</div>
-        </div>
-        <div className="question-section-2">
-          <div className="question-section-2-media">
-            {mediaType === "image/png" ? (
-              <img style={{ height: 300, width: 300 }} src={media} alt="" />
-            ) : (
-              <> </>
-            )}
-            {mediaType === "video/mp4" ? (
-              <video width="320" height="240" controls src={media} />
-            ) : (
-              <> </>
-            )}
+            <div className="question-section-1-hint-display">
+              <div className="question-section-1-hint-text-heading">HINT</div>
+              <div className="question-section-1-hint-text">{hint}</div>
+            </div>
           </div>
-          <div className="question-section-2-answerfield">
-            <Paper className={`${classes.paper}`}>
-              <TextField
-                id="answer"
-                label="Enter Answer"
-                name="answer"
-                variant="outlined"
-                required
-                className={`text-field ${classes.root}`}
-                onChange={handleSetAnswer}
-                error={wrongAnswer.status}
-                helperText={wrongAnswer.helper}
+          <div className="question-section-2">
+            <div className="question-section-2-media">
+              {mediaType === "image/png" ? (
+                <img style={{ height: 300, width: 300 }} src={media} alt="" />
+              ) : (
+                <> </>
+              )}
+              {mediaType === "video/mp4" ? (
+                <video width="320" height="240" controls src={media} />
+              ) : (
+                <> </>
+              )}
+            </div>
+            <div className="question-section-2-answerfield">
+              <Paper className={`${classes.paper}`}>
+                <TextField
+                  id="answer"
+                  label="Enter Answer"
+                  name="answer"
+                  variant="outlined"
+                  required
+                  className={`text-field ${classes.root}`}
+                  onChange={handleSetAnswer}
+                  error={wrongAnswer.status}
+                  helperText={wrongAnswer.helper}
+                />
+              </Paper>
+            </div>
+            <div className="question-section-2-Btn">
+              <ModalContainer
+                innerText={HintModal()}
+                openText="Hint"
+                type="outlined"
+                header="HINT"
               />
-            </Paper>
-          </div>
-          <div className="question-section-2-Btn">
-            <ModalContainer
-              innerText={HintModal()}
-              openText="Hint"
-              type="outlined"
-              header="HINT"
-            />
-            <button
-              type="submit"
-              className="question-section-2-SubmitBtn"
-              onClick={handleSubmit}
-            >
-              Submit
-            </button>
+              <button
+                type="submit"
+                className="question-section-2-SubmitBtn"
+                onClick={handleSubmit}
+              >
+                Submit
+              </button>
+            </div>
           </div>
         </div>
       </div>
