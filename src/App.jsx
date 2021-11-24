@@ -26,7 +26,6 @@ import DemoQuestion from "./pages/DemoQuestion/DemoQuestion.page";
 import Rooms from "./pages/Rooms/Rooms.page";
 import Leaderboard from "./pages/Leaderboard/Leaderboard.page";
 import Profile from "./pages/Profile/Profile.component";
-import Instructions from "./components/Instructions/Instructions.page";
 import Question from "./pages/Question/Question.page";
 
 import PushNotifs from "./pages/PushNotifs/PushNotifs.page";
@@ -100,14 +99,6 @@ function App() {
             path="/rooms"
             component={() => (
               <Container navbar={PostloginNavbar} page={Rooms} />
-            )}
-          />
-          <ProtectedRoute
-            // redirect="/"
-            exact
-            path="/instructions"
-            component={() => (
-              <Container navbar={PostloginNavbar} page={Instructions} />
             )}
           />
           <ProtectedRoute
