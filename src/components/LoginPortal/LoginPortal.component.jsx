@@ -15,7 +15,6 @@ const LoginPortal = () => {
       history.push("/countdown");
     }
     if (token && newUser === "true") {
-      console.log(newUser);
       history.push("/welcome");
     }
   }, [token, newUser]);

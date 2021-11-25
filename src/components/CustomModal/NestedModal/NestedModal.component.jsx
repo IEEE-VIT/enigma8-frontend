@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import OutlineGoldenBtn from "../../CustomButton/OutlineGolden/OutlineGoldenBtn.component";
 import "./NestedModal.styles.css";
 
 const NestedModal = ({
@@ -15,9 +16,13 @@ const NestedModal = ({
   const Pre = () => (
     <div>
       <p>{PreMessage}</p>
-      <button type="button" onClick={handleChange}>
+      <OutlineGoldenBtn
+        triggerFunction={handleChange}
+        marginTop="0px"
+        width="180px"
+      >
         {ButtonText}
-      </button>
+      </OutlineGoldenBtn>
     </div>
   );
   const Post = () => (

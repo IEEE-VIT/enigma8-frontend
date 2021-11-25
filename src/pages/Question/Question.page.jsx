@@ -8,10 +8,12 @@ import {
   usePowerup,
 } from "../../api/transact";
 import ModalContainer from "../../components/CustomModal/ModalContainer/ModalContainer.component";
+import PowerupModalContainer from "../../components/CustomModal/PowerupModalContainer/PowerupModalContainer.component";
 import BlueOverlayModal from "../../components/CustomModal/BlueOverlayModal/BlueOverlayModal.component";
 import BlueBtn from "../../components/CustomButton/Blue/BlueBtn.component";
 import NestedModal from "../../components/CustomModal/NestedModal/NestedModal.component";
 import "./Question.styles.css";
+import GoldenBtn from "../../components/CustomButton/Golden/GoldenBtn.component";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -98,11 +100,16 @@ const Question = () => {
   const [nextRoomUnlocked, setNextRoomUnlocked] = useState(false);
   const [scoreEarned, setScoreEarned] = useState(0);
   const [wrongAnswer, setWrongAnswer] = useState({});
+  const history = useHistory();
   const location = useLocation();
+  if (location.state === undefined) {
+    window.location.href = "/rooms";
+  }
   const { roomId, roomNo } = location.state;
   const [questionNum, setQuestionNum] = useState();
-  // const [nextRoomId, setNextRoomId] = useState(roomId);
-  const history = useHistory();
+  const [powerupName, setPowerupName] = useState("");
+  const [powerupIcon, setPowerupIcon] = useState("");
+  const [powerupUsed, setPowerupUsed] = useState(false);
   const goBack = () => {
     history.push({
       pathname: "/rooms",
@@ -129,11 +136,12 @@ const Question = () => {
     getQuestion(roomId)
       .then((res) => {
         const info = res.data.data;
-        console.log(info);
         setQuestion(info.question.text);
         setQuestionNum(info.question.questionNo);
         setMedia(info.question.media);
         setMediaType(info.question.mediaType);
+        setPowerupIcon(info.powerupDetails.icon);
+        setPowerupName(info.powerupDetails.name);
         if (info.hint !== null) {
           setIsHint(true);
           setHint(info.hint);
@@ -142,13 +150,15 @@ const Question = () => {
           setIsPowerUp(true);
           handlePowerUp();
         }
+        if (info.powerupUsed === "yes") {
+          setPowerupUsed(true);
+        }
       })
       .catch((err) => {
         console.log(err);
       });
   };
   const closeCorrectAnswer = () => {
-    console.log(nextRoomUnlocked);
     if (nextRoomUnlocked) {
       history.push({
         pathname: "/rooms",
@@ -208,7 +218,6 @@ const Question = () => {
   const handleSubmit = () => {
     submitAnswer(roomId, answer)
       .then((res) => {
-        console.log(res.data.data);
         setIsCloseAnswer(res.data.data.closeAnswer);
         setIsCorrectAnswer(res.data.data.correctAnswer);
         if (!res.data.data.correctAnswer) {
@@ -217,11 +226,6 @@ const Question = () => {
           setWrongAnswer({ ...wrongAnswer });
         }
         setNextRoomUnlocked(res.data.data.nextRoomUnlocked);
-        // if (res.data.data.nextRoomId !== null) {
-        //   setNextRoomId(res.data.data.nextRoomId);
-        // } else {
-        //   setNextRoomId(roomId);
-        // }
         setScoreEarned(res.data.data.scoreEarned);
       })
       .catch((err) => {
@@ -237,7 +241,6 @@ const Question = () => {
       .catch((err) => {
         console.log(err);
       });
-    // POST route: update Hint used
   };
   const HintModal = () => {
     const PreHintText = "If you use hint, then your points will be reduced.";
@@ -253,8 +256,12 @@ const Question = () => {
     );
   };
   const PowerUpModal = () => {
-    const PrePowerUpText = `This powerup can be used only once in this room. Are you sure you want to use ' ${powerUp} ' powerup for this question?.`;
+    const PrePowerUpText = `This powerup can be used only once in this room. Are you sure you want to use ${powerupName} powerup for this question?`;
     const PostPowerUpText = `${powerUp}`;
+
+    if (powerupUsed === true) {
+      return <div>You&apos;ve already claimed your powerup for this room.</div>;
+    }
     return (
       <NestedModal
         stateValue={isPowerUp}
@@ -324,30 +331,35 @@ const Question = () => {
                 />
               </Paper>
             </div>
-            <div className="question-section-2-Btn">
+            <div
+              className="question-section-2-Btn"
+              style={{ justifyContent: "space-around" }}
+            >
               <ModalContainer
                 innerText={HintModal()}
                 openText="Hint"
                 type="outlined"
                 header="HINT"
               />
-              <button
-                type="submit"
-                className="question-section-2-SubmitBtn"
-                onClick={handleSubmit}
+              <GoldenBtn
+                marginTop="0px"
+                width="148px"
+                triggerFunction={handleSubmit}
               >
                 Submit
-              </button>
+              </GoldenBtn>
             </div>
           </div>
         </div>
       </div>
       <div className="powerup">
-        <ModalContainer
+        <PowerupModalContainer
           innerText={PowerUpModal()}
-          openText="PowerUp"
+          openText="Powerup"
+          powerupName={powerupName}
+          powerupIcon={powerupIcon}
           type="outlined"
-          header="HINT"
+          header="Powerup"
         />
       </div>
       {isCloseAnswer ? <BlueOverlayModal innerText={closeAnswered()} /> : <></>}

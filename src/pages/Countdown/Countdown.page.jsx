@@ -159,9 +159,9 @@ const Countdown = () => {
     setIs420(false);
   };
   const ContinueButton = (
-    <button type="button" onClick={handleonClick}>
-      Continue
-    </button>
+    <GoldenBtn marginTop="40px" width="148px" triggerFunction={handleonClick}>
+      Play Enigma
+    </GoldenBtn>
   );
 
   const Timer = () => {
