@@ -34,7 +34,6 @@ const RoomCard = (props) => {
             }, 4000);
             break;
           case "complete":
-            console.log("solved");
             setQuestionSolved(true);
             setNotification({
               title: "Room Solved",

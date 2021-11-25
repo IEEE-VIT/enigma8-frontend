@@ -74,8 +74,7 @@ const Powerup = (props) => {
         break;
       default:
         selectPowerup(roomId, selectPowerupID)
-          .then((res) => {
-            console.log(res);
+          .then(() => {
             history.push({
               pathname: "/story",
             });
