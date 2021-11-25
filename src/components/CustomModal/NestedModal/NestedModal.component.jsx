@@ -9,6 +9,9 @@ const NestedModal = ({
   ButtonText,
   triggerFunction,
   PostMessage,
+  powerUp,
+  imagePowerup,
+  imagePowerupUrl,
 }) => {
   const handleChange = () => {
     triggerFunction();
@@ -27,10 +30,27 @@ const NestedModal = ({
   );
   const Post = () => (
     <div>
-      <p>{PostMessage}</p>
+      <p style={{ color: "#0FA3B1" }}>
+        {PostMessage}
+        {imagePowerup ? (
+          <img
+            src={imagePowerupUrl}
+            style={{ width: "500px", marginTop: "12px" }}
+            alt=""
+          />
+        ) : (
+          { powerUp }
+        )}
+      </p>
     </div>
   );
   return stateValue ? Post() : Pre();
+};
+
+NestedModal.defaultProps = {
+  powerUp: "",
+  imagePowerup: "",
+  imagePowerupUrl: "",
 };
 
 NestedModal.propTypes = {
@@ -39,6 +59,9 @@ NestedModal.propTypes = {
   ButtonText: PropTypes.string.isRequired,
   triggerFunction: PropTypes.func.isRequired,
   PostMessage: PropTypes.elementType.isRequired,
+  powerUp: PropTypes.string,
+  imagePowerup: PropTypes.string,
+  imagePowerupUrl: PropTypes.string,
 };
 
 export default NestedModal;
