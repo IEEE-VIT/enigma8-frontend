@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Modal, makeStyles } from "@material-ui/core";
 import PropTypes from "prop-types";
+import Close from "../../assets/CloseGold.svg";
 import "./Instructions.styles.css";
 
 const useStyles = makeStyles((theme) => ({
@@ -109,6 +110,22 @@ const Instructions = ({ handleClose, openInstructions }) => {
   };
   const body = (
     <div style={modalStyle} className={classes.paper}>
+      <div style={{ width: "100%", textAlign: "right" }}>
+        <button
+          type="button"
+          onClick={handleClose}
+          style={{
+            background: "none",
+            border: "none",
+            marginTop: "10px",
+            marginLeft: "10px",
+            marginRight: "10px",
+            padding: "0",
+          }}
+        >
+          <img src={Close} style={{ height: 25, cursor: "pointer" }} alt="" />
+        </button>
+      </div>
       <div className={classes.instructions}>Instructions</div>
       <div className={classes.buttons}>
         <button
@@ -169,7 +186,7 @@ const Instructions = ({ handleClose, openInstructions }) => {
               : {}
           }
         >
-          Miscelannous
+          Miscellannous
         </button>
       </div>
       <div>

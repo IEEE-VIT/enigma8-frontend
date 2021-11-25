@@ -24,7 +24,6 @@
   font-size: 12.53px;
 }
 
-/* .MuiPaginationItem-outlinedPrimary .Mui-selected {
-  border: "#D08123" !important;
-  background: "none" !important;
-} */
+.MuiPaginationItem-ellipsis {
+  color: #d08123 !important;
+}

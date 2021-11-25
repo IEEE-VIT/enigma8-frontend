@@ -73,6 +73,7 @@ const ProfileMenu = () => {
         PaperProps={{
           style: {
             transform: "translateX(-0%) translateY(45%)",
+            backgroundColor: "#000000",
           },
         }}
       >

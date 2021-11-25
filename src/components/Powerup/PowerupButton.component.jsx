@@ -24,6 +24,7 @@ const PowerupButton = ({
         backgroundColor: `${bgColour}`,
         border: "none",
         opacity: !availableToUse ? 0.7 : "none",
+        cursor: !availableToUse ? "not-allowed" : "pointer",
       }}
       id={_id}
       onClick={selectPowerup}

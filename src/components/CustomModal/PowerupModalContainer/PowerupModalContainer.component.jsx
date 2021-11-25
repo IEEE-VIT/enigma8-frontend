@@ -50,7 +50,7 @@ const PowerupModalContainer = ({
         <button
           onClick={handleOpen}
           type="button"
-          style={{ background: "none", border: "none" }}
+          style={{ background: "none", border: "none", cursor: "pointer" }}
         >
           <img src={powerupIcon} style={{ width: "99px" }} alt="" />
           <div

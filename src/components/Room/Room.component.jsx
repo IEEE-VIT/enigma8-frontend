@@ -79,7 +79,7 @@ const Room = (props) => {
 
       return (
         <img
-          className="question-image"
+          className={`question-image question-image${index}`}
           key={index}
           src={questionIMG}
           alt="room-status"
@@ -96,6 +96,7 @@ const Room = (props) => {
           onKeyDown={questionCall}
           role="button"
           className="room-card"
+          style={{ cursor: "pointer" }}
           id={room._id}
           tabIndex={0}
         >
