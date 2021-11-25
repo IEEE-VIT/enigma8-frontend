@@ -100,7 +100,11 @@ const Room = (props) => {
           id={room._id}
           tabIndex={0}
         >
-          <img src={RoomDoor} alt="" className="room-card" />
+          <img
+            src={RoomDoor}
+            alt=""
+            className={`room-card ${room.roomNo === "1" ? "roomno-1" : ""}`}
+          />
         </div>
       </div>
       {lockedRoom ? (

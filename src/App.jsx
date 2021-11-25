@@ -2,6 +2,7 @@ import React from "react";
 import { Switch, Route } from "react-router-dom";
 import "./App.css";
 
+// import { JoyrideContext } from "./context/joyride.context";
 import { ThemeProvider } from "@material-ui/core";
 import { createTheme } from "@material-ui/core/styles";
 
@@ -22,6 +23,8 @@ import Welcome from "./pages/Welcome/Welcome.component";
 
 import Countdown from "./pages/Countdown/Countdown.page";
 import DemoQuestion from "./pages/DemoQuestion/DemoQuestion.page";
+
+import Onboarding from "./pages/Onboarding/Onboarding.page";
 
 import Rooms from "./pages/Rooms/Rooms.page";
 import Leaderboard from "./pages/Leaderboard/Leaderboard.page";
@@ -91,6 +94,15 @@ function App() {
             path="/demoquestion"
             component={() => (
               <Container navbar={PreEnigmaNavbar} page={DemoQuestion} />
+            )}
+          />
+          {/* <JoyrideContext> */}
+          <ProtectedRoute
+            redirect="/"
+            exact
+            path="/onboarding"
+            component={() => (
+              <Container navbar={PostloginNavbar} page={Onboarding} />
             )}
           />
           <ProtectedRoute

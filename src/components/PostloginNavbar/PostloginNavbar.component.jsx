@@ -38,7 +38,7 @@ const PostloginNavbar = () => {
   };
   const classes = useStyles();
   return (
-    <nav className={classes.nav}>
+    <nav className={`onboarding-pointer-navbar ${classes.nav}`}>
       <div className={classes.enigma}>
         <Link to="/">
           <img src={EnigmaFont} alt="" className="enigma-nav-logo" />
