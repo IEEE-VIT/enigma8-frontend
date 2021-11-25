@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Room.styles.css";
 import PropTypes from "prop-types";
 import { useHistory, useLocation } from "react-router-dom";
+import Consumer from "../../context/joyride.context";
 import Toast from "../Notifications/Toast.component";
 import RoomDoor from "../../assets/rooms/RoomDoor.svg";
 import locked from "../../assets/rooms/locked.svg";
@@ -21,7 +22,7 @@ const Room = (props) => {
   };
   const history = useHistory();
   const location = useLocation();
-  const questionCall = () => {
+  const questionCall = (context) => {
     checkIfRoomUnlocked(room._id)
       .then((res) => {
         switch (res.data.data.status) {
@@ -65,6 +66,7 @@ const Room = (props) => {
       .catch((err) => {
         console.log(err);
       });
+    context.switchJoyride(false);
   };
 
   const questionsStatus = journey.questionsStatus.map(
@@ -88,46 +90,53 @@ const Room = (props) => {
     }
   );
   return (
-    <div>
-      <div className="room-container">
-        <div className="room-question-status">{questionsStatus}</div>
-        <div
-          onClick={questionCall}
-          onKeyDown={questionCall}
-          role="button"
-          className="room-card"
-          style={{ cursor: "pointer" }}
-          id={room._id}
-          tabIndex={0}
-        >
-          <img
-            src={RoomDoor}
-            alt=""
-            className={`room-card ${room.roomNo === "1" ? "roomno-1" : ""}`}
-          />
-        </div>
-      </div>
-      {lockedRoom ? (
-        <Toast title={notification.title} body={notification.body} />
-      ) : (
-        <> </>
-      )}
-      {questionSolved ? (
-        <Toast title={notification.title} body={notification.body} />
-      ) : (
-        <> </>
-      )}
-      {openPowerup ? (
-        <Powerup
-          openPowerup={openPowerup}
-          handleClose={handleClose}
-          roomId={room._id}
-          roomNo={room.roomNo}
-        />
-      ) : (
-        <></>
-      )}
-    </div>
+    <Consumer>
+      {(context) => {
+        <div>
+          <div className="room-container">
+            <div className="room-question-status">{questionsStatus}</div>
+            <div
+              onClick={() => {
+                questionCall(context);
+                // context.switchJoyride(false);
+              }}
+              onKeyDown={questionCall}
+              role="button"
+              className="room-card"
+              style={{ cursor: "pointer" }}
+              id={room._id}
+              tabIndex={0}
+            >
+              <img
+                src={RoomDoor}
+                alt=""
+                className={`room-card ${room.roomNo === "1" ? "roomno-1" : ""}`}
+              />
+            </div>
+          </div>
+          {lockedRoom ? (
+            <Toast title={notification.title} body={notification.body} />
+          ) : (
+            <> </>
+          )}
+          {questionSolved ? (
+            <Toast title={notification.title} body={notification.body} />
+          ) : (
+            <> </>
+          )}
+          {openPowerup ? (
+            <Powerup
+              openPowerup={openPowerup}
+              handleClose={handleClose}
+              roomId={room._id}
+              roomNo={room.roomNo}
+            />
+          ) : (
+            <></>
+          )}
+        </div>;
+      }}
+    </Consumer>
   );
 };
 

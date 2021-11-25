@@ -1,11 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
+import Joyride from "react-joyride";
 import { Switch, Route } from "react-router-dom";
 import "./App.css";
-
-// import { JoyrideContext } from "./context/joyride.context";
 import { ThemeProvider } from "@material-ui/core";
 import { createTheme } from "@material-ui/core/styles";
-
 import ProtectedRoute from "./components/ProtectedRoute.component";
 import TokenProtectedRoute from "./components/TokenProtectedRoute.component";
 
@@ -57,6 +55,7 @@ const theme = createTheme({
 });
 
 function App() {
+  const [run, setRun] = useState(false);
   return (
     <div className="App">
       <ThemeProvider theme={theme}>
@@ -96,7 +95,7 @@ function App() {
               <Container navbar={PreEnigmaNavbar} page={DemoQuestion} />
             )}
           />
-          {/* <JoyrideContext> */}
+          
           <ProtectedRoute
             redirect="/"
             exact
@@ -111,6 +110,14 @@ function App() {
             path="/rooms"
             component={() => (
               <Container navbar={PostloginNavbar} page={Rooms} />
+            )}
+          />{" "}
+          <ProtectedRoute
+            // redirect="/"
+            exact
+            path="/question"
+            component={() => (
+              <Container navbar={PostloginNavbar} page={Question} />
             )}
           />
           <ProtectedRoute
@@ -135,14 +142,6 @@ function App() {
             path="/story"
             component={() => (
               <Container navbar={PostloginNavbar} page={Story} />
-            )}
-          />
-          <ProtectedRoute
-            // redirect="/"
-            exact
-            path="/question"
-            component={() => (
-              <Container navbar={PostloginNavbar} page={Question} />
             )}
           />
           <Route
