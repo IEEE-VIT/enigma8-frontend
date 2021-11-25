@@ -71,6 +71,7 @@ const PostloginNavbar = () => {
               border: "none",
               margin: "0",
               padding: "0",
+              cursor: "pointer",
             }}
             onClick={handleOpen}
           >

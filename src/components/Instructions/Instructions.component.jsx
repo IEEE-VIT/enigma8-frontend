@@ -6,13 +6,34 @@ import "./Instructions.styles.css";
 const useStyles = makeStyles((theme) => ({
   paper: {
     position: "absolute",
-    width: "80%",
-    backgroundColor: theme.palette.background.paper,
+    width: "70%",
+    backgroundColor: "#000",
     border: "2px solid #000",
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
     maxHeight: "80%",
     overflowY: "auto",
+  },
+  instructions: {
+    textAlign: "center",
+    fontSize: "36px",
+    fontWeight: "700",
+    fontFamily: "Cinzel",
+    marginBottom: "25px",
+  },
+  buttons: {
+    display: "flex",
+    justifyContent: "space-around",
+    marginBottom: "25px",
+  },
+  button: {
+    fontFamily: "Mulish",
+    fontWeight: "700",
+    fontSize: "18px",
+    background: "none",
+    border: "none",
+    cursor: "pointer",
+    paddingBottom: "3px",
   },
 }));
 
@@ -20,20 +41,55 @@ const Instructions = ({ handleClose, openInstructions }) => {
   const classes = useStyles();
   const [modalStyle] = useState({ top: "10%", left: "10%" });
   const instructions = {
-    gameMechanics: ["Game Mechanics", "These are the rules"],
-    scoringSystem: ["Scoring System", "These are the rules"],
-    roomStates: ["Room States", "These are the rules"],
-    powerups: ["Powerups", "These are the rules"],
-    miscelannous: ["Miscelannous", "These are the rules"],
+    gameMechanics: [
+      "Enigma 8 is an online cryptic hunt where players solve exciting riddles and puzzles to win amazing prizes.",
+      "There are eight rooms in total and each room has three questions.",
+      "On solving a question, the player will receive a key.",
+      "A particular amount of keys are required to unlock a room.",
+      "Solve every question to be the first one to solve Enigma.",
+    ],
+    scoringSystem: [
+      "Upon solving a question, a player shall receive a particular amount of points relative to the competition - the earlier you solve a question, the higher your score will be. These points determine your position on the leaderboard.",
+      "Upon using a hint, X points will be deducted from the score earned on solving that particular question.",
+    ],
+    roomStates: [
+      "A room can either be locked, unlocked, or solved.",
+      "A room is locked when the player does not have the minimum amount of stars to unlock it else if the player hasn’t yet chosen a powerup for that room.",
+      "A room is unlocked when the player has sufficient stars and has chosen a powerup for that room.",
+      "A room is solved only when a player solves all three questions in that room.",
+    ],
+    powerups: [
+      "Every player gets eight power ups at the start of the game.",
+      "Before a player enters the room, they have to choose a powerup and the powerup chosen can only be used in that particular room.",
+      "Only one powerup can be chosen per room and can only be used  only for one question in that room.",
+      "No points will be deducted for using a powerup.",
+      "Each powerup can be used only once, during the entire game.",
+    ],
+    miscellaneous: [
+      "To smoothen your experience during Enigma, please enable the notifications for this app/website to receive important updates.",
+      "Malpractice in any form will be dealt with seriously. Players are requested to report us of any such practices.",
+      "Enigma is an individual player game and the players are requested to maintain the integrity of the game and not to divulge the solutions anywhere..",
+    ],
   };
   const [instructionContent, setInstructionContent] = useState(
     instructions.gameMechanics
   );
   const displayInstructions = instructionContent.map((instruction) => {
     return (
-      <div>
-        <h3>{instruction}</h3>
-      </div>
+      <li>
+        <div
+          style={{
+            borderRadius: "12px",
+            border: "2px solid #D08123",
+            marginBottom: "17px",
+            fontFamily: "Mulish",
+            fontSize: "16px",
+            padding: "13px 30px",
+          }}
+        >
+          {instruction}
+        </div>
+      </li>
     );
   });
   const setGameMechanics = () => {
@@ -48,27 +104,77 @@ const Instructions = ({ handleClose, openInstructions }) => {
   const setPowerups = () => {
     setInstructionContent(instructions.powerups);
   };
-  const setMiscelannous = () => {
-    setInstructionContent(instructions.miscelannous);
+  const setMiscellaneous = () => {
+    setInstructionContent(instructions.miscellaneous);
   };
   const body = (
     <div style={modalStyle} className={classes.paper}>
-      <button type="button" onClick={setGameMechanics}>
-        Game Mechanics
-      </button>
-      <button type="button" onClick={setScoringSystem}>
-        Scoring System
-      </button>
-      <button type="button" onClick={setRoomStates}>
-        Room States
-      </button>
-      <button type="button" onClick={setPowerups}>
-        Powerups
-      </button>
-      <button type="button" onClick={setMiscelannous}>
-        Miscelannous
-      </button>
-      <div>{displayInstructions}</div>
+      <div className={classes.instructions}>Instructions</div>
+      <div className={classes.buttons}>
+        <button
+          type="button"
+          className={classes.button}
+          onClick={setGameMechanics}
+          style={
+            instructionContent[0] === instructions.gameMechanics[0]
+              ? { borderBottom: "2px solid #D08123" }
+              : {}
+          }
+        >
+          Game Mechanics
+        </button>
+        <button
+          type="button"
+          className={classes.button}
+          onClick={setScoringSystem}
+          style={
+            instructionContent[0] === instructions.scoringSystem[0]
+              ? { borderBottom: "2px solid #D08123" }
+              : {}
+          }
+        >
+          Scoring System
+        </button>
+        <button
+          type="button"
+          className={classes.button}
+          onClick={setRoomStates}
+          style={
+            instructionContent[0] === instructions.roomStates[0]
+              ? { borderBottom: "2px solid #D08123" }
+              : {}
+          }
+        >
+          Room States
+        </button>
+        <button
+          type="button"
+          className={classes.button}
+          onClick={setPowerups}
+          style={
+            instructionContent[0] === instructions.powerups[0]
+              ? { borderBottom: "2px solid #D08123" }
+              : {}
+          }
+        >
+          Powerups
+        </button>
+        <button
+          type="button"
+          className={classes.button}
+          onClick={setMiscellaneous}
+          style={
+            instructionContent[0] === instructions.miscellaneous[0]
+              ? { borderBottom: "2px solid #D08123" }
+              : {}
+          }
+        >
+          Miscelannous
+        </button>
+      </div>
+      <div>
+        <ul>{displayInstructions}</ul>
+      </div>
     </div>
   );
 

@@ -12,11 +12,3 @@ nav * {
   -moz-user-drag: none;
   -ms-user-drag: none;
 }
-ul {
-  display: flex;
-  padding: 10px 20px;
-  list-style-type: none;
-}
-li {
-  padding: 0px 20px;
-}
