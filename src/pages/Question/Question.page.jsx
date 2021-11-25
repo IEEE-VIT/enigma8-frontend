@@ -111,6 +111,9 @@ const Question = () => {
   const [powerupName, setPowerupName] = useState("");
   const [powerupIcon, setPowerupIcon] = useState("");
   const [powerupUsed, setPowerupUsed] = useState(false);
+  const [imagePowerup, setImagePowerup] = useState(false);
+  const [imagePowerupUrl, setImagePowerupUrl] = useState("");
+  const [powerupHelperText, setPowerupHelperText] = useState("");
   const goBack = () => {
     history.push({
       pathname: "/rooms",
@@ -125,10 +128,16 @@ const Question = () => {
   const handlePowerUp = () => {
     usePowerup(roomId)
       .then((res) => {
-        console.log(res.data.data.text);
-        // Set PowerUp Image
+        console.log(res.data.data);
         setIsPowerUp(true);
-        setPowerUp(`${res.data.data.text} ${res.data.data.data}`);
+        setPowerupHelperText(`${res.data.data.text}`);
+        if (res.data.data.imgUrl !== null) {
+          setImagePowerup(true);
+          setImagePowerupUrl(res.data.data.imgUrl);
+        }
+        if (res.data.data.data !== null) {
+          setPowerUp(`${res.data.data.data}`);
+        }
       })
       .catch((err) => {
         console.log(err);
@@ -161,11 +170,7 @@ const Question = () => {
       });
   };
   const closeCorrectAnswer = () => {
-    if (nextRoomUnlocked) {
-      history.push({
-        pathname: "/rooms",
-      });
-    } else if (questionNum === 3) {
+    if (questionNum === 3) {
       history.push({
         pathname: "/rooms",
       });
@@ -174,6 +179,12 @@ const Question = () => {
       setIsCorrectAnswer(false);
     }
   };
+  const redirectToRoom = () => {
+    history.push({
+      pathname: "/rooms",
+    });
+  };
+
   const closeAnswered = () => {
     return (
       <div>
@@ -191,6 +202,38 @@ const Question = () => {
     );
   };
   const correctAnswered = () => {
+    if (nextRoomUnlocked) {
+      return (
+        <div>
+          <h4 style={{ marginBottom: 30, marginTop: 0 }}>
+            Your answer is correct! You earnt {scoreEarned} points!
+          </h4>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
+            <BlueBtn
+              triggerFunction={closeCorrectAnswer}
+              marginTop="0"
+              width="140.74px"
+            >
+              Continue
+            </BlueBtn>
+            <div style={{ marginLeft: "18px" }}>
+              <BlueBtn
+                triggerFunction={redirectToRoom}
+                marginTop="0"
+                width="140.74px"
+              >
+                Continue to Rooms
+              </BlueBtn>
+            </div>
+          </div>
+        </div>
+      );
+    }
     return (
       <div>
         <h4 style={{ marginBottom: 30, marginTop: 0 }}>
@@ -264,25 +307,21 @@ const Question = () => {
   };
   const PowerUpModal = () => {
     const PrePowerUpText = `This powerup can be used only once in this room. Are you sure you want to use ${powerupName} powerup for this question?`;
-    const PostPowerUpText = `${powerUp}`;
+    // const PostPowerUpText = `${powerupHelperText} ${powerUp}`;
 
     if (powerupUsed === true) {
       return <div>You&apos;ve already claimed your powerup for this room.</div>;
     }
-    // const getPowerupIcon = () => {
-    //   return (
-    //     <div>
-    //       <img src={powerupIcon} alt="" />
-    //     </div>
-    //   );
-    // };
     return (
       <NestedModal
         stateValue={isPowerUp}
         PreMessage={PrePowerUpText}
         ButtonText="Use Powerup"
         triggerFunction={handlePowerUp}
-        PostMessage={PostPowerUpText}
+        PostMessage={powerupHelperText}
+        powerUp={powerUp}
+        imagePowerup={imagePowerup}
+        imagePowerupUrl={imagePowerupUrl}
       />
     );
   };

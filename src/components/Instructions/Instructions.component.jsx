@@ -3,6 +3,7 @@ import { Modal, makeStyles } from "@material-ui/core";
 import PropTypes from "prop-types";
 import Close from "../../assets/CloseGold.svg";
 import "./Instructions.styles.css";
+import ListIcon from "../../assets/instructions/list-icon.svg";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -35,6 +36,7 @@ const useStyles = makeStyles((theme) => ({
     border: "none",
     cursor: "pointer",
     paddingBottom: "3px",
+    color: "#0fa3b1",
   },
 }));
 
@@ -77,7 +79,10 @@ const Instructions = ({ handleClose, openInstructions }) => {
   );
   const displayInstructions = instructionContent.map((instruction) => {
     return (
-      <li>
+      <div style={{ display: "flex" }}>
+        <div style={{ marginTop: "8px", marginRight: "8px" }}>
+          <img src={ListIcon} alt="" />
+        </div>
         <div
           style={{
             borderRadius: "12px",
@@ -86,11 +91,12 @@ const Instructions = ({ handleClose, openInstructions }) => {
             fontFamily: "Mulish",
             fontSize: "16px",
             padding: "13px 30px",
+            width: "100%",
           }}
         >
           {instruction}
         </div>
-      </li>
+      </div>
     );
   });
   const setGameMechanics = () => {
@@ -190,7 +196,7 @@ const Instructions = ({ handleClose, openInstructions }) => {
         </button>
       </div>
       <div>
-        <ul>{displayInstructions}</ul>
+        <div className="instructions-list">{displayInstructions}</div>
       </div>
     </div>
   );

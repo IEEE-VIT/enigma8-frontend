@@ -21,7 +21,7 @@ const PowerupModalContainer = ({
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    width: "30%",
+    width: "60%",
     bgcolor: "#121212",
     border: "2.5px solid transparent",
     // borderImage: "linear-gradient(to right, #0FA3B1, #037EC3)",
@@ -42,11 +42,6 @@ const PowerupModalContainer = ({
   return (
     <div>
       {type === "outlined" ? (
-        // <OutlineGoldenBtn
-        //   triggerFunction={handleOpen}
-        //   marginTop="0px"
-        //   width="130px"
-        // >
         <button
           onClick={handleOpen}
           type="button"
