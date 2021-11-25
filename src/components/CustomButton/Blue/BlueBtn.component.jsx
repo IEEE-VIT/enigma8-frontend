@@ -12,7 +12,7 @@ const BlueBtn = (props) => {
     <div>
       <button
         type="submit"
-        style={{ width, marginTop }}
+        style={{ width, marginTop, color: "#000000" }}
         onClick={handleClick}
         className="blue-btn"
       >

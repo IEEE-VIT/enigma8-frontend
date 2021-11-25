@@ -7,6 +7,7 @@ import GoldenBtn from "../CustomButton/Golden/GoldenBtn.component";
 import { getPowerups, selectPowerup } from "../../api/user";
 import "./Powerup.styles.css";
 import PowerupButton from "./PowerupButton.component";
+import Close from "../../assets/CloseGold.svg";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -25,7 +26,12 @@ const Powerup = (props) => {
   const { roomId, openPowerup, handleClose } = props;
   const classes = useStyles();
   const history = useHistory();
-  const [modalStyle] = useState({ top: "10%", left: "10%" });
+  const [modalStyle] = useState({
+    top: "10%",
+    left: "10%",
+    justifyContent: "center",
+    textAlign: "center",
+  });
   const [open] = useState(openPowerup);
   const [selectPowerupID, setSelectPowerupID] = useState("");
   const [powerupSelected, setPowerupSelected] = useState(false);
@@ -108,18 +114,28 @@ const Powerup = (props) => {
   });
   const body = (
     <div style={modalStyle} className={`powerup-container ${classes.paper}`}>
-      <h2 className="powerups-modal-title">Choose a powerup</h2>
-      <div id="powerups-modal-description">
-        {powerupList}
-        <br />
-
+      <div style={{ width: "100%", textAlign: "right" }}>
         <button
           type="button"
           onClick={handleClose}
-          style={{ marginTop: "10px" }}
+          style={{
+            background: "none",
+            border: "none",
+            marginTop: "10px",
+            marginLeft: "10px",
+            marginRight: "10px",
+            padding: "0",
+          }}
         >
-          Close
+          <img src={Close} style={{ height: 25, cursor: "pointer" }} alt="" />
         </button>
+      </div>
+      <h2 style={{ margin: 0 }} className="powerups-modal-title">
+        Choose a powerup
+      </h2>
+      <div id="powerups-modal-description">
+        {powerupList}
+        <br />
         <GoldenBtn
           marginTop="40px"
           width="148px"

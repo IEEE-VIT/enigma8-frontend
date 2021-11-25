@@ -12,6 +12,7 @@ import PowerupModalContainer from "../../components/CustomModal/PowerupModalCont
 import BlueOverlayModal from "../../components/CustomModal/BlueOverlayModal/BlueOverlayModal.component";
 import BlueBtn from "../../components/CustomButton/Blue/BlueBtn.component";
 import NestedModal from "../../components/CustomModal/NestedModal/NestedModal.component";
+import BlueNestedModal from "../../components/CustomModal/BlueNestedModal/BlueNestedModal.component";
 import "./Question.styles.css";
 import GoldenBtn from "../../components/CustomButton/Golden/GoldenBtn.component";
 
@@ -233,6 +234,11 @@ const Question = () => {
         console.log(err);
       });
   };
+  const onEnter = (e) => {
+    if (e.key === "Enter") {
+      handleSubmit();
+    }
+  };
   const handleHint = () => {
     useHint(roomId)
       .then((res) => {
@@ -247,7 +253,7 @@ const Question = () => {
     const PreHintText = "If you use hint, then your points will be reduced.";
     const PostHintText = `${hint}`;
     return (
-      <NestedModal
+      <BlueNestedModal
         stateValue={isHint}
         PreMessage={PreHintText}
         ButtonText="Use Hint"
@@ -337,6 +343,7 @@ const Question = () => {
                   required
                   className={`text-field ${classes.root}`}
                   onChange={handleSetAnswer}
+                  onKeyDown={onEnter}
                   error={wrongAnswer.status}
                   helperText={wrongAnswer.helper}
                 />
@@ -350,7 +357,7 @@ const Question = () => {
                 innerText={HintModal()}
                 openText="Hint"
                 type="outlined"
-                header="HINT"
+                header=""
               />
               <GoldenBtn
                 marginTop="0px"

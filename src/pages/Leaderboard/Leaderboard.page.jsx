@@ -24,7 +24,11 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "black",
     "& .MuiTableCell-root": {
       border: "1px solid #363636",
+      borderLeftColor: "#0FA3B1",
       borderRightColor: "#0FA3B1",
+    },
+    "& .MuiTable-root": {
+      border: "1px solid #0FA3B1",
     },
     "& .MuiTableCell-head": {
       border: "1px solid #0FA3B1",
@@ -32,6 +36,11 @@ const useStyles = makeStyles((theme) => ({
   },
   tableCell: {
     color: "#d08123",
+  },
+  tableCellUser: {
+    backgroundColor: "#D08123",
+    color: "#000000",
+    fontWeight: "500",
   },
   container: {
     width: "1000px",
@@ -177,7 +186,7 @@ const Leaderboard = () => {
   const classes = useStyles();
   const [page, setPage] = useState(1);
   const [count, setCount] = useState(1);
-  const perPage = 10;
+  const perPage = 9;
   const [leaderboard, setLeaderboard] = useState([
     {
       rank: 1,
@@ -273,7 +282,7 @@ const Leaderboard = () => {
   const addSearch = async (e) => {
     const { value } = e.target;
     await setSearch(value.trim());
-    if (value === "") {
+    if (value.trim() === "") {
       searchUser();
     }
   };
@@ -304,7 +313,7 @@ const Leaderboard = () => {
     }
   };
   return (
-    <div>
+    <div className="leaderboard-container">
       <Grid container className={classes.leaderboard} justifyContent="center">
         <div style={{ marginTop: "48px" }}>Leaderboard</div>
       </Grid>
@@ -314,20 +323,27 @@ const Leaderboard = () => {
         className={`${classes.paper}`}
         style={{ justifyContent: "space-between" }}
       >
-        <div className={classes.search}>
-          <div className={classes.searchIcon}>
-            <SearchIcon />
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          <div className={classes.search}>
+            <div className={classes.searchIcon}>
+              <SearchIcon />
+            </div>
+            <InputBase
+              placeholder="Search Username"
+              classes={{
+                root: classes.inputRoot,
+                input: classes.inputInput,
+              }}
+              onChange={addSearch}
+              onKeyDown={onEnter}
+              inputProps={{ "aria-label": "search" }}
+            />
           </div>
-          <InputBase
-            placeholder="Search Username"
-            classes={{
-              root: classes.inputRoot,
-              input: classes.inputInput,
-            }}
-            onChange={addSearch}
-            onKeyDown={onEnter}
-            inputProps={{ "aria-label": "search" }}
-          />
+          <div
+            className={`countdown-page-days-text ${classes.countdownTimeText}`}
+          >
+            Press Enter to Search
+          </div>
         </div>
         <div>
           <div className="countdown-page-container">
@@ -400,7 +416,11 @@ const Leaderboard = () => {
       </Grid>
       <Grid container justifyContent="center">
         <TableContainer
-          style={{ margin: "24px", width: "1000px" }}
+          style={{
+            margin: "24px",
+            width: "1000px",
+            borderBottom: "1px solid #0FA3B1",
+          }}
           component={Paper}
         >
           <Table className={classes.table} aria-label="simple table">
@@ -453,6 +473,20 @@ const Leaderboard = () => {
                   </TableCell>
                 </TableRow>
               ))}
+              <TableRow>
+                <TableCell className={classes.tableCellUser} align="center">
+                  {rank}
+                </TableCell>
+                <TableCell className={classes.tableCellUser} align="center">
+                  {username} (You)
+                </TableCell>
+                <TableCell className={classes.tableCellUser} align="center">
+                  {score}
+                </TableCell>
+                <TableCell className={classes.tableCellUser} align="center">
+                  {questionsSolved}
+                </TableCell>
+              </TableRow>
             </TableBody>
           </Table>
         </TableContainer>
