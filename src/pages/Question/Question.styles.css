@@ -98,7 +98,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 20px 145px;
+  padding: 20px 2vw;
   background: #121212;
   border: 1px solid #292929;
   box-sizing: border-box;
@@ -187,8 +187,8 @@
 }
 
 .powerup {
-  position: absolute;
-  /* bottom: -1vh; */
+  position: fixed;
+  bottom: 1vh;
   padding-bottom: 30px;
   right: 2vw;
   align-self: flex-end;
