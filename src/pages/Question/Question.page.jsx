@@ -124,6 +124,7 @@ const Question = () => {
   const handlePowerUp = () => {
     usePowerup(roomId)
       .then((res) => {
+        console.log(res.data.data.text);
         // Set PowerUp Image
         setIsPowerUp(true);
         setPowerUp(`${res.data.data.text} ${res.data.data.data}`);
@@ -262,6 +263,13 @@ const Question = () => {
     if (powerupUsed === true) {
       return <div>You&apos;ve already claimed your powerup for this room.</div>;
     }
+    // const getPowerupIcon = () => {
+    //   return (
+    //     <div>
+    //       <img src={powerupIcon} alt="" />
+    //     </div>
+    //   );
+    // };
     return (
       <NestedModal
         stateValue={isPowerUp}
@@ -297,16 +305,19 @@ const Question = () => {
                 </div>
               </div>
             </div>
-
-            <div className="question-section-1-hint-display">
-              <div className="question-section-1-hint-text-heading">HINT</div>
-              <div className="question-section-1-hint-text">{hint}</div>
-            </div>
+            {isHint ? (
+              <div className="question-section-1-hint-display">
+                <div className="question-section-1-hint-text-heading">HINT</div>
+                <div className="question-section-1-hint-text">{hint}</div>
+              </div>
+            ) : (
+              ""
+            )}
           </div>
           <div className="question-section-2">
             <div className="question-section-2-media">
               {mediaType === "image/png" ? (
-                <img style={{ height: 300, width: 300 }} src={media} alt="" />
+                <img style={{ width: "25vw" }} src={media} alt="" />
               ) : (
                 <> </>
               )}
