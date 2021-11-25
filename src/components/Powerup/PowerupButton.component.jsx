@@ -13,32 +13,26 @@ const PowerupButton = ({
       selectPowerupButton(_id);
     }
   };
+  console.log(icon, name, detail, availableToUse);
   return (
     <button
       type="button"
-      className="powerup-modal-button"
+      className="powerup-item-container"
       style={{
         width: "100%",
         marginTop: 10,
         backgroundColor: `${bgColour}`,
         border: "none",
+        opacity: !availableToUse ? 0.7 : "none",
       }}
       id={_id}
       onClick={selectPowerup}
       disabled={!availableToUse}
     >
-      <div className="powerup-modal-description-container-row">
-        <div className="powerup-modal-description-container-image">
-          <img src={icon} alt="Powerup" />
-        </div>
-        <div className="powerup-modal-description-container-text">
-          <div className="powerup-modal-description-container-text-title">
-            <h3>{name}</h3>
-          </div>
-          <div className="powerup-modal-description-container-text-description">
-            <p>{detail}</p>
-          </div>
-        </div>
+      <div className="powerup-item">
+        <img src={icon} className="powerup-item-icon" alt="" />
+        <div className="powerup-item-heading">{name}</div>
+        <div className="powerup-item-text">{detail}</div>
       </div>
     </button>
   );

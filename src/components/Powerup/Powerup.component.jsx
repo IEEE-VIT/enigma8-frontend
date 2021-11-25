@@ -3,6 +3,7 @@ import { Modal, makeStyles } from "@material-ui/core";
 import PropTypes from "prop-types";
 import { useHistory } from "react-router-dom";
 import Toast from "../Notifications/Toast.component";
+import GoldenBtn from "../CustomButton/Golden/GoldenBtn.component";
 import { getPowerups, selectPowerup } from "../../api/user";
 import "./Powerup.styles.css";
 import PowerupButton from "./PowerupButton.component";
@@ -11,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
   paper: {
     position: "absolute",
     width: "80%",
-    backgroundColor: theme.palette.background.paper,
+    backgroundColor: "#0b0b0b",
     border: "2px solid #000",
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
@@ -87,13 +88,13 @@ const Powerup = (props) => {
 
   const powerupList = powerups.map((powerup, index) => {
     // const bgColour = powerup._id === selectPowerupID ? "cyan" : "white";
-    let bgColour = "white";
+    let bgColour = "black";
     if (!powerup.availableToUse) {
-      bgColour = "grey";
+      bgColour = "black";
     } else if (powerup._id === selectPowerupID) {
-      bgColour = "cyan";
+      bgColour = "#004D54";
     } else {
-      bgColour = "white";
+      bgColour = "black";
     }
     return (
       <PowerupButton
@@ -106,14 +107,9 @@ const Powerup = (props) => {
     );
   });
   const body = (
-    <div style={modalStyle} className={classes.paper}>
-      <h2 id="powerups-modal-title">
-        Choose a powerup before entering a room.
-      </h2>
+    <div style={modalStyle} className={`powerup-container ${classes.paper}`}>
+      <h2 className="powerups-modal-title">Choose a powerup</h2>
       <div id="powerups-modal-description">
-        <button type="button" onClick={submitPowerup}>
-          Continue
-        </button>
         {powerupList}
         <br />
 
@@ -124,6 +120,13 @@ const Powerup = (props) => {
         >
           Close
         </button>
+        <GoldenBtn
+          marginTop="40px"
+          width="148px"
+          triggerFunction={submitPowerup}
+        >
+          Continue
+        </GoldenBtn>
       </div>
     </div>
   );
