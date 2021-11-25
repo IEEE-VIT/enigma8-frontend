@@ -1,17 +1,53 @@
 .story-container {
   color: white;
   padding: 2% 4vw;
+  background: url("../../assets/story/StoryBackground.svg") no-repeat center
+    center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  display: flex;
+  vertical-align: middle;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.pregame-text {
+  position: absolute;
+  top: 40%;
+  color: #d08123;
+  text-align: center;
+  padding: 20px 2vw;
+  background: #121212;
+  border: 1px solid #292929;
+  box-sizing: border-box;
+  border-radius: 6px;
+  margin: 0 0 64px 4vh;
+  font-size: 2rem;
+  z-index: 10;
+  margin: 0 20vw;
+}
+.story-content div:nth-child(odd) {
+  text-align: right;
+  color: goldenrod;
+  padding-right: 10%;
+}
+.story-content div:nth-child(even) {
+  text-align: left;
+  color: aqua;
+  padding-left: 10%;
 }
 .story-content div {
   padding: 2%;
   margin: 2%;
 }
-.story-content div:nth-child(odd) {
+.story-content div div:nth-child(odd) {
   text-align: left;
   color: goldenrod;
   padding-right: 10%;
 }
-.story-content div:nth-child(even) {
+.story-content div div:nth-child(even) {
   text-align: right;
   color: aqua;
   padding-left: 10%;
