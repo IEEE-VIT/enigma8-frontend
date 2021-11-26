@@ -95,7 +95,6 @@ function App() {
               <Container navbar={PreEnigmaNavbar} page={DemoQuestion} />
             )}
           />
-          
           <ProtectedRoute
             redirect="/"
             exact
@@ -103,6 +102,17 @@ function App() {
             component={() => (
               <Container navbar={PostloginNavbar} page={Onboarding} />
             )}
+          />
+          <Joyride
+            run={run}
+            steps={steps}
+            // stepIndex={stepIndex}
+            continuous // next instead of close
+            // callback={handleJoyrideCallback(context)}
+            // run={run}
+            // scrollToFirstStep
+            // showProgress
+            // showSkipButton
           />
           <ProtectedRoute
             redirect="/"
