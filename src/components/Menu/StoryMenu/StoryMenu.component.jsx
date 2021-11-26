@@ -7,6 +7,9 @@ const useStyles = makeStyles((theme) => ({
   dropdownBtn: {
     border: `2px solid ${theme.palette.primary.dark}`,
     color: theme.palette.contrast.main,
+    backgroundColor: "#0B0B0B",
+    borderRadius: "11px 11px 0px 0px",
+    padding: "1% 3%",
   },
   svg: {
     backgroundColor: theme.palette.secondary.main,
@@ -16,6 +19,7 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.primary.main,
     fontFamily: "Mulish",
     fontSize: "1.2rem",
+    backgroundColor: "#0B0B0B",
   },
 }));
 
@@ -43,7 +47,7 @@ const StoryMenu = ({ count, unlocked, triggerFunction, showRoom }) => {
     );
   });
   return (
-    <div className="ham-menu">
+    <div className="story-menu">
       <Button
         id="basic-button"
         aria-controls="basic-menu"
@@ -66,7 +70,7 @@ const StoryMenu = ({ count, unlocked, triggerFunction, showRoom }) => {
         }}
         PaperProps={{
           style: {
-            transform: "translateX(-0%) translateY(32%)",
+            transform: "translateX(-0%) translateY(16%)",
           },
         }}
       >
