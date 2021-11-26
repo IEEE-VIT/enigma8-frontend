@@ -73,6 +73,7 @@ const Instructions = ({ handleClose, openInstructions }) => {
       "Malpractice in any form will be dealt with seriously. Players are requested to report us of any such practices.",
       "Enigma is an individual player game and the players are requested to maintain the integrity of the game and not to divulge the solutions anywhere..",
       "Only VITians who joined VIT in 2021 are eligible for Best Fresher's prize.",
+      "In case of any disputes, IEEE-VIT reserves the right of the final decision.",
     ],
   };
   const [instructionContent, setInstructionContent] = useState(

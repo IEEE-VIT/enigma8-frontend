@@ -40,7 +40,7 @@ const PostloginNavbar = () => {
   return (
     <nav className={classes.nav}>
       <div className={classes.enigma}>
-        <Link to="/">
+        <Link to="/rooms">
           <img src={EnigmaFont} alt="" className="enigma-nav-logo" />
         </Link>
       </div>
