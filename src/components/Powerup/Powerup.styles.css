@@ -30,10 +30,10 @@
   grid-template-columns: 1fr 2fr 4fr;
   align-items: center;
   vertical-align: middle;
-  padding: 2% 5%;
+  padding: 1% 5%;
 }
 .powerup-item-icon {
-  width: 6vw;
+  width: 65px;
 }
 .powerup-item-heading {
   font-size: 2rem;

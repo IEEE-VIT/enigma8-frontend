@@ -6,6 +6,7 @@ import { allRooms } from "../../api/room";
 import { getUser } from "../../api/user";
 import StoryMenu from "../../components/Menu/StoryMenu/StoryMenu.component";
 import GoldenBtn from "../../components/CustomButton/Golden/GoldenBtn.component";
+import Loader from "../../components/Loader/Loader.component";
 
 const Story = () => {
   // type 1 - game not started
@@ -28,57 +29,69 @@ const Story = () => {
   const [nextRoomNo, setNextRoomNo] = useState(0);
 
   const [story, setStory] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const history = useHistory();
 
   useEffect(() => {
     // currentRoomId - to know which room to show
-    getUser().then((res) => {
-      const redirectRoomId = res.data.data.currentRoomId;
-      // Setting PREGAME
-      if (redirectRoomId === undefined) setPreGame(true);
-      setNextRoomId(redirectRoomId);
-      // for dropdown menu :
-      // total rooms
-      // upto how many are unlocked (for disabling)
-      //
-      allRooms()
-        .then((resp) => {
-          const info = resp.data.data.data;
-          setTotalRooms(info.length);
-          for (let i = 0; i < info.length; i += 1) {
-            if (info[i].journey.powerupSet === "yes") {
-              setUnlocked(Number(info[i].room.roomNo));
-              setCurrentroomNo(Number(info[i].room.roomNo));
-              // Setting ISFIRSTROOM
-              if (
-                Number(info[i].room.roomNo) === 1 &&
-                info[i].room._id === currentroomNo
-              ) {
-                console.log(Number(info[i].room.roomNo));
-                setIsFirstRoom(false);
+    getUser()
+      .then((res) => {
+        const redirectRoomId = res.data.data.currentRoomId;
+        // Setting PREGAME
+        if (redirectRoomId === undefined) setPreGame(true);
+        setNextRoomId(redirectRoomId);
+        // for dropdown menu :
+        // total rooms
+        // upto how many are unlocked (for disabling)
+        //
+        allRooms()
+          .then((resp) => {
+            const info = resp.data.data.data;
+            setTotalRooms(info.length);
+            for (let i = 0; i < info.length; i += 1) {
+              if (info[i].journey.powerupSet === "yes") {
+                setUnlocked(Number(info[i].room.roomNo));
+                setCurrentroomNo(Number(info[i].room.roomNo));
+
+                // Setting ISFIRSTROOM
+                if (
+                  Number(info[i].room.roomNo) === 1 &&
+                  info[i].room._id === currentroomNo
+                ) {
+                  console.log(Number(info[i].room.roomNo));
+                  setIsFirstRoom(false);
+                }
+              }
+              if (redirectRoomId === info[i].room._id) {
+                const statusList = info[i].journey.questionsStatus;
+                const solvedCount = statusList.filter(
+                  (status) => status === "solved"
+                ).length;
+                if (solvedCount === 3) setIsSolved(true);
+                setNextRoomNo(Number(info[i].room.roomNo));
               }
             }
-            if (redirectRoomId === info[i].room._id) {
-              const statusList = info[i].journey.questionsStatus;
-              const solvedCount = statusList.filter(
-                (status) => status === "solved"
-              ).length;
-              if (solvedCount === 3) setIsSolved(true);
-              setNextRoomNo(Number(info[i].room.roomNo));
-            }
-          }
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    });
-    getFullStory()
-      .then((response) => {
-        const storydata = response.data.data.story;
-        setStory(storydata);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      })
+      .then(() => {
+        getFullStory()
+          .then((response) => {
+            const storydata = response.data.data.story;
+            setStory(storydata);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      })
+      .then(() => {
+        setIsLoading(false);
       })
       .catch((err) => {
         console.log(err);
+        setIsLoading(false);
       });
   }, []);
 
@@ -207,7 +220,6 @@ const Story = () => {
 
   const decideContent = () => {
     if (preGame) return PreGameContainer();
-    console.log("contents", isFirstRoom, metCharacters);
     if (isFirstRoom && !metCharacters) {
       return RoomZeroContainer();
     }
@@ -221,6 +233,9 @@ const Story = () => {
     }
     return 3;
   };
+  if (isLoading) {
+    return <Loader />;
+  }
   return (
     <div className={`story-container story-container-${decideClass()}`}>
       {decideContent()}

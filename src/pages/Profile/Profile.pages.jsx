@@ -6,6 +6,7 @@ import solved from "../../assets/profile/solved-key.svg";
 import RoomCard from "../../components/RoomCard/RoomCard.component";
 import SecretChamber from "../../assets/profile/room-9.svg";
 import Background from "../../assets/profile/bird-bg.svg";
+import Loader from "../../components/Loader/Loader.component";
 
 const Profile = () => {
   const [user, setUser] = useState({
@@ -16,6 +17,7 @@ const Profile = () => {
     stars: 0,
   });
   const [rooms, setRooms] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     allRooms()
       .then((res) => {
@@ -23,8 +25,12 @@ const Profile = () => {
           setRooms((room) => [...room, res.data.data.data[i]]);
         }
       })
+      .then(() => {
+        setIsLoading(false);
+      })
       .catch((err) => {
         console.log(err);
+        setIsLoading(false);
       });
   }, []);
   useEffect(() => {
@@ -82,6 +88,9 @@ const Profile = () => {
       </div>
     );
   });
+  if (isLoading) {
+    return <Loader />;
+  }
   return (
     <div className="profile-page-container">
       <div className="profile-content-container">

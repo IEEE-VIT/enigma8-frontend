@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./PostloginNavbar.styles.css";
 import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core";
-import NotificationsIcon from "@material-ui/icons/Notifications";
+// import NotificationsIcon from "@material-ui/icons/Notifications";
 import ProfileMenu from "../Menu/ProfileMenu/ProfileMenu.component";
 import Instructions from "../Instructions/Instructions.component";
 import InstructionsLogo from "../../assets/navbar/Instructions.svg";
@@ -88,7 +88,7 @@ const PostloginNavbar = () => {
           </div>
         </Link>
         <ProfileMenu />
-        <NotificationsIcon className="postlogin-nav-item" />
+        {/* <NotificationsIcon className="postlogin-nav-item" /> */}
       </div>
     </nav>
   );

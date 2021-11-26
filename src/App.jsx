@@ -10,7 +10,7 @@ import TokenProtectedRoute from "./components/TokenProtectedRoute.component";
 
 import Container from "./components/Container/Container.component";
 import PreloginNavbar from "./components/PreloginNavbar/PreloginNavbar.component";
-// import GameRoute from "./components/GameRoute/GameRoute.component";
+import GameRoute from "./components/GameRoute/GameRoute.component";
 import PreEnigmaNavbar from "./components/PreEnigmaNavbar/PreEnigmaNavbar.component";
 import PostloginNavbar from "./components/PostloginNavbar/PostloginNavbar.component";
 import DownloadApps from "./pages/DownloadApps/DownloadApps.pages";
@@ -95,13 +95,13 @@ function App() {
             )}
           />
           <TokenProtectedRoute
-            // redirect="/"
+            redirect="/"
             exact
             path="/welcome"
             component={Welcome}
           />
           <ProtectedRoute
-            // redirect="/"
+            redirect="/"
             exact
             path="/countdown"
             component={() => (
@@ -109,7 +109,7 @@ function App() {
             )}
           />
           <ProtectedRoute
-            // redirect="/"
+            redirect="/"
             exact
             path="/demoquestion"
             component={() => (
@@ -121,39 +121,39 @@ function App() {
             exact
             path="/rooms"
             component={() => (
-              <Container navbar={PostloginNavbar} page={Rooms} />
+              <GameRoute navbar={PostloginNavbar} page={Rooms} />
             )}
           />
           <ProtectedRoute
-            // redirect="/"
+            redirect="/"
             exact
             path="/leaderboard"
             component={() => (
-              <Container navbar={PostloginNavbar} page={Leaderboard} />
+              <GameRoute navbar={PostloginNavbar} page={Leaderboard} />
             )}
           />
           <ProtectedRoute
-            // redirect="/"
+            redirect="/"
             exact
             path="/profile"
             component={() => (
-              <Container navbar={PostloginNavbar} page={Profile} />
+              <GameRoute navbar={PostloginNavbar} page={Profile} />
             )}
           />
           <ProtectedRoute
-            // redirect="/"
+            redirect="/"
             exact
             path="/story"
             component={() => (
-              <Container navbar={PostloginNavbar} page={Story} />
+              <GameRoute navbar={PostloginNavbar} page={Story} />
             )}
           />
           <ProtectedRoute
-            // redirect="/"
+            redirect="/"
             exact
             path="/question"
             component={() => (
-              <Container navbar={PostloginNavbar} page={Question} />
+              <GameRoute navbar={PostloginNavbar} page={Question} />
             )}
           />
           <Route

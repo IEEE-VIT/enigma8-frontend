@@ -27,11 +27,8 @@ const LoginPortal = () => {
   };
 
   const AppleAuthRedirect = (response) => {
-    console.log("apple response", response);
-
     signInWithApple(response.authorization.id_token)
       .then((res) => {
-        console.log(res.data.data);
         setCookies("token", res.data.data.JWT);
         setCookies("newUser", res.data.data.isNew);
       })
@@ -54,9 +51,9 @@ const LoginPortal = () => {
 
         <AppleSignin
           authOptions={{
-            clientId: "com.enigma7.0",
+            clientId: process.env.REACT_APP_CLIENT_ID,
             scope: "email name",
-            redirectURI: "https://enigma8.loca.lt",
+            redirectURI: process.env.REACT_APP_REDIRECT_URI,
             state: "",
             nonce: "nonce",
             usePopup: true,
@@ -66,7 +63,6 @@ const LoginPortal = () => {
           buttonExtraChildren="Continue with Apple"
           onSuccess={AppleAuthRedirect}
           onError={(error) => {
-            console.log("Ssup");
             console.error(error);
           }}
           render={(props) => (
