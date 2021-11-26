@@ -44,6 +44,12 @@ const Sponsors = () => {
               type={4}
             />
             <SponsorsCard
+              img={SponsorsLIST.FoodPartnerLogo.logo}
+              title="FOOD PARTNER"
+              link={SponsorsLIST.FoodPartnerLogo.link}
+              type={4}
+            />
+            <SponsorsCard
               img={SponsorsLIST.GiftingPartnerLogo.logo}
               title="GIFTING PARTNER"
               link={SponsorsLIST.GiftingPartnerLogo.link}

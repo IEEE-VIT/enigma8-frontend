@@ -7,6 +7,7 @@ import HomePowerdBySponsorLogo from "../home/home-sponsor-poweredby.svg";
 import HomeBlockchainPartnerLogo from "../home/home-sponsor-blockchain-partner.svg";
 
 import EnvPartnerLogo from "../home/sponsor-env-partner.png";
+import FoodPartnerLogo from "../home/sponsor-food-McDonalds.svg";
 import GiftingPartnerLogo from "../home/sponsor-gifting-partner.svg";
 
 import PartnerALogo from "../home/sponsor-partner-a.svg";
@@ -48,6 +49,10 @@ const SponsorsLIST = {
   GiftingPartnerLogo: {
     logo: GiftingPartnerLogo,
     link: "https://offostore.com/",
+  },
+  FoodPartnerLogo: {
+    logo: FoodPartnerLogo,
+    link: "https://www.mcdonaldsindia.com/McDonaldsApp/",
   },
   PartnerALogo: {
     logo: PartnerALogo,
