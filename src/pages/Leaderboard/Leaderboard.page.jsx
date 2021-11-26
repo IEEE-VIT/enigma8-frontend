@@ -17,6 +17,7 @@ import TimerComponent from "../../components/TimerCard/TimerCard.component";
 import { getLeaderboard, searchLeaderboard } from "../../api/leaderboards";
 import { timer } from "../../api/timer";
 import "./Leaderboard.styles.css";
+import Loader from "../../components/Loader/Loader.component";
 
 const useStyles = makeStyles((theme) => ({
   table: {
@@ -207,6 +208,7 @@ const Leaderboard = () => {
   const [secondsRight, setSecondsRight] = useState(0);
   const [secondsLeft, setSecondsLeft] = useState(0);
   const [search, setSearch] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
   const getRemTime = () => {
     timer()
       .then(async (res) => {
@@ -252,8 +254,12 @@ const Leaderboard = () => {
         setScore(res.data.data.userRank.score);
         setQuestionsSolved(res.data.data.userRank.questionsSolved);
       })
+      .then(() => {
+        setIsLoading(false);
+      })
       .catch((err) => {
         console.log(err);
+        setIsLoading(false);
       });
   }, []);
   useEffect(updateRemTime, [remTime]);
@@ -312,6 +318,9 @@ const Leaderboard = () => {
         });
     }
   };
+  if (isLoading) {
+    return <Loader />;
+  }
   return (
     <div className="leaderboard-container">
       <Grid container className={classes.leaderboard} justifyContent="center">

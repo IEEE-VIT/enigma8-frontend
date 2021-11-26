@@ -6,6 +6,7 @@ import {
   makeStyles,
   Container,
   Typography,
+  CircularProgress,
 } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 import { useCookies } from "react-cookie";
@@ -130,6 +131,7 @@ const useStyles = makeStyles((theme) => ({
 const Welcome = () => {
   const [cookies, setCookies] = useCookies(["newUser"]);
   const history = useHistory();
+  const [isSubmitLoading, setIsSubmitLoading] = useState(false);
   useEffect(() => {
     if (cookies.newUser === "false") {
       history.push("/countdown");
@@ -181,13 +183,16 @@ const Welcome = () => {
   const sendData = () => {
     vaildate();
     if (!validateData.username && !validateData.outreach) {
+      setIsSubmitLoading(true);
       createProfile(data.username, data.outreach)
         .then(() => {
           setCookies("newUser", false);
           history.push("/countdown");
+          setIsSubmitLoading(false);
         })
         .catch((err) => {
-          console.log(err.response.data);
+          console.log(err);
+          setIsSubmitLoading(false);
           if (
             Object.prototype.hasOwnProperty.call(err.response.data, "message")
           ) {
@@ -340,9 +345,13 @@ const Welcome = () => {
           ))}
         </TextField>
         <br />
-        <GoldenBtn marginTop="0p" width="148px" triggerFunction={sendData}>
-          Get Started
-        </GoldenBtn>
+        {isSubmitLoading ? (
+          <CircularProgress />
+        ) : (
+          <GoldenBtn marginTop="0p" width="148px" triggerFunction={sendData}>
+            Get Started
+          </GoldenBtn>
+        )}
       </Paper>
     </Container>
   );

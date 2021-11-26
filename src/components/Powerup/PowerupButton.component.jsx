@@ -13,7 +13,6 @@ const PowerupButton = ({
       selectPowerupButton(_id);
     }
   };
-  console.log(icon, name, detail, availableToUse);
   return (
     <button
       type="button"

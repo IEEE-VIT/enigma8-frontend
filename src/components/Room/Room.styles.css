@@ -1,7 +1,6 @@
 .rooms-room-container {
-  margin: 0 50px;
   position: relative;
-  top: 2px;
+  top: 14px;
 }
 
 .room-question-status {

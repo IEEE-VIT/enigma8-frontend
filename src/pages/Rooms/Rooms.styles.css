@@ -3,9 +3,8 @@
   flex-direction: row;
   flex-basis: 164px;
   flex-wrap: wrap;
-  justify-content: center;
-  /* display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr; */
+  justify-content: space-around;
+  padding: 12px 120px;
   background: url("../../assets/rooms/pillar.svg") no-repeat;
   background-position: bottom;
   background-size: contain;

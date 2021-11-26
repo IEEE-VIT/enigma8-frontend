@@ -3,11 +3,12 @@ import Room from "../../components/Room/Room.component";
 import "./Rooms.styles.css";
 import { allRooms } from "../../api/room";
 import keys from "../../assets/profile/solved-key.svg";
-// import pillar from "../../assets/rooms/pillar.svg";
+import Loader from "../../components/Loader/Loader.component";
 
 const Rooms = () => {
   const [rooms, setRooms] = useState([]);
   const [stars, setStars] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     allRooms()
       .then((res) => {
@@ -21,8 +22,12 @@ const Rooms = () => {
           }
         }
       })
+      .then(() => {
+        setIsLoading(false);
+      })
       .catch((err) => {
         console.log(err);
+        setIsLoading(false);
       });
   }, []);
 
@@ -42,6 +47,10 @@ const Rooms = () => {
     }
     return <></>;
   });
+
+  if (isLoading) {
+    return <Loader />;
+  }
   return (
     <div className="rooms-page">
       <div className="rooms-status">
@@ -54,28 +63,6 @@ const Rooms = () => {
       <div className="rooms-container-lower rooms-container">
         {roomsListLower}
       </div>
-      {/* <div className="pillar-container">
-        <img
-          className="pillar pillar-top  pillar-left pillar-left-top"
-          src={pillar}
-          alt=""
-        />
-        <img
-          className="pillar pillar-bottom pillar-left pillar-left-bottom"
-          src={pillar}
-          alt=""
-        />
-        <img
-          className="pillar pillar-top pillar-right pillar-right-top"
-          src={pillar}
-          alt=""
-        />
-        <img
-          className="pillar pillar-bottom pillar-right pillar-right-bottom"
-          src={pillar}
-          alt=""
-        />
-      </div> */}
     </div>
   );
 };

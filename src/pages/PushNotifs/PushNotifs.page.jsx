@@ -15,7 +15,7 @@ const PushNotifs = () => {
         body: payload.notification.body,
       });
     })
-    .catch((err) => console.log("failed: ", err));
+    .catch((err) => console.log(err));
   return (
     <div>
       {show ? (
