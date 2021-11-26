@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { TextField, Paper, makeStyles } from "@material-ui/core";
+import {
+  TextField,
+  Paper,
+  makeStyles,
+  CircularProgress,
+} from "@material-ui/core";
 import { useLocation, useHistory } from "react-router-dom";
 import {
   getQuestion,
@@ -14,6 +19,7 @@ import BlueBtn from "../../components/CustomButton/Blue/BlueBtn.component";
 import BlueNestedModal from "../../components/CustomModal/BlueNestedModal/BlueNestedModal.component";
 import "./Question.styles.css";
 import GoldenBtn from "../../components/CustomButton/Golden/GoldenBtn.component";
+import Loader from "../../components/Loader/Loader.component";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -103,6 +109,8 @@ const Question = () => {
   const [dontSend, setDontSend] = useState(false);
   const history = useHistory();
   const location = useLocation();
+  const [isLoading, setIsLoading] = useState(true);
+  const [isSubmitLoading, setIsSubmitLoading] = useState(false);
   if (location.state === undefined) {
     window.location.href = "/rooms";
   }
@@ -128,7 +136,6 @@ const Question = () => {
   const handlePowerUp = () => {
     usePowerup(roomId)
       .then((res) => {
-        console.log(res.data.data);
         setIsPowerUp(true);
         setPowerupHelperText(res.data.data.text);
         if (res.data.data.imgUrl !== null) {
@@ -165,8 +172,12 @@ const Question = () => {
           setPowerupUsed(true);
         }
       })
+      .then(() => {
+        setIsLoading(false);
+      })
       .catch((err) => {
         console.log(err);
+        setIsLoading(false);
       });
   };
   const closeCorrectAnswer = () => {
@@ -175,6 +186,7 @@ const Question = () => {
         pathname: "/rooms",
       });
     } else {
+      setIsLoading(true);
       fetchQuestion();
       setAnswer("");
       setIsHint(false);
@@ -271,7 +283,12 @@ const Question = () => {
     setAnswer(value);
   };
   const handleSubmit = () => {
-    if (!dontSend) {
+    if (answer.trim() === "") {
+      wrongAnswer.status = true;
+      wrongAnswer.helper = "Please enter an answer";
+      setWrongAnswer({ ...wrongAnswer });
+    } else if (!dontSend) {
+      setIsSubmitLoading(true);
       setDontSend(true);
       submitAnswer(roomId, answer)
         .then((res) => {
@@ -286,8 +303,12 @@ const Question = () => {
           setScoreEarned(res.data.data.scoreEarned);
           setDontSend(false);
         })
+        .then(() => {
+          setIsSubmitLoading(false);
+        })
         .catch((err) => {
           console.log(err);
+          setIsSubmitLoading(false);
         });
     }
   };
@@ -343,6 +364,9 @@ const Question = () => {
       />
     );
   };
+  if (isLoading) {
+    return <Loader />;
+  }
   return (
     <div className="question-page">
       <div className="question-section-1-room-heading">Room {roomNo}</div>
@@ -415,13 +439,17 @@ const Question = () => {
                 type="outlined"
                 header="HINT"
               />
-              <GoldenBtn
-                marginTop="0px"
-                width="148px"
-                triggerFunction={handleSubmit}
-              >
-                Submit
-              </GoldenBtn>
+              {isSubmitLoading ? (
+                <CircularProgress />
+              ) : (
+                <GoldenBtn
+                  marginTop="0px"
+                  width="148px"
+                  triggerFunction={handleSubmit}
+                >
+                  Submit
+                </GoldenBtn>
+              )}
             </div>
           </div>
         </div>

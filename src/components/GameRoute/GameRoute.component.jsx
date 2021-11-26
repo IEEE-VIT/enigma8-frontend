@@ -5,10 +5,10 @@ import { timer } from "../../api/timer";
 const GameRoute = ({ navbar, page }) => {
   const getRemTime = () => {
     timer()
-      .then(async () => {
-        // if (await !res.data.data.enigmaStarted) {
-        //   window.location.href = "/countdown";
-        // }
+      .then(async (res) => {
+        if (await !res.data.data.enigmaStarted) {
+          window.location.href = "/countdown";
+        }
       })
       .catch((err) => {
         console.log(err);
