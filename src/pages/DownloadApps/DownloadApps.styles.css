@@ -1,0 +1,26 @@
+.home-mobile {
+  background: url("../../assets/mobile/bg.svg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100%;
+  font-family: Cinzel Decorative;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 27px;
+}
+.mobile-img {
+  margin-top: 10vh;
+}
+.mobile-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30vh;
+}
+.text {
+  margin-bottom: 5vh;
+}

@@ -1,5 +1,5 @@
-import React from "react";
-import { Switch, Route } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Switch, Route, useHistory } from "react-router-dom";
 import "./App.css";
 
 import { ThemeProvider } from "@material-ui/core";
@@ -13,7 +13,7 @@ import PreloginNavbar from "./components/PreloginNavbar/PreloginNavbar.component
 import GameRoute from "./components/GameRoute/GameRoute.component";
 import PreEnigmaNavbar from "./components/PreEnigmaNavbar/PreEnigmaNavbar.component";
 import PostloginNavbar from "./components/PostloginNavbar/PostloginNavbar.component";
-
+import DownloadApps from "./pages/DownloadApps/DownloadApps.pages";
 import Home from "./pages/Home/Home.page";
 import FAQ from "./pages/FAQ/faq.page";
 import Sponsors from "./pages/Sponsors/Sponsors.page";
@@ -54,10 +54,33 @@ const theme = createTheme({
 });
 
 function App() {
+  const history = useHistory();
+  const [showMobile, setShowMobile] = useState(false);
+  const [, setWindowWidth] = useState(0);
+  console.log(showMobile);
+  const isMobile = (width) => {
+    if (width < 700) {
+      return true;
+    }
+    return false;
+  };
+  useEffect(() => {
+    setShowMobile(isMobile(window.innerWidth));
+    window.addEventListener("resize", (x) => {
+      if (x.currentTarget.innerWidth < 500) {
+        history.push("/download");
+      } else {
+        history.push("/countdown");
+      }
+      setWindowWidth(x.currentTarget.innerWidth);
+      setShowMobile(isMobile(x.currentTarget.innerWidth));
+    });
+  }, []);
   return (
     <div className="App">
       <ThemeProvider theme={theme}>
         <Switch>
+          <Route exact path="/download" component={DownloadApps} />
           <Route exact path="/" component={Home} />
           <Route
             exact
@@ -138,11 +161,12 @@ function App() {
             path="/googlesuccessfulAuth"
             component={SuccessfulAuth}
           />
-          <ProtectedRoute
+          {/* <ProtectedRoute
+            // redirect="/"
             component={() => (
               <Container navbar={PreEnigmaNavbar} page={Countdown} />
             )}
-          />
+          /> */}
         </Switch>
         <PushNotifs />
       </ThemeProvider>

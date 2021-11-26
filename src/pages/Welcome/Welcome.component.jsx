@@ -130,12 +130,13 @@ const useStyles = makeStyles((theme) => ({
 
 const Welcome = () => {
   const [cookies, setCookies] = useCookies(["newUser"]);
+  console.log(cookies);
   const history = useHistory();
   const [isSubmitLoading, setIsSubmitLoading] = useState(false);
   useEffect(() => {
-    if (cookies.newUser === "false") {
-      history.push("/countdown");
-    }
+    // if (cookies.newUser === "false") {
+    //   history.push("/countdown");
+    // }
   }, []);
 
   const [data, setData] = useState({

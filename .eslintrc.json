@@ -18,6 +18,7 @@
   },
   "plugins": ["react"],
   "rules": {
+    "import/no-unresolved": [2, { "caseSensitive": false }],
     "react/jsx-filename-extension": "off",
     "no-use-before-define": [
       "error",
@@ -38,7 +39,8 @@
     "import/prefer-default-export": "off",
     "react/no-array-index-key": "off",
     "import/no-named-as-default-member": "off",
-    "jsx-a11y/media-has-caption": "off"
+    "jsx-a11y/media-has-caption": "off",
+    "import/no-named-as-default": "off"
   },
   "root": true,
   "settings": {

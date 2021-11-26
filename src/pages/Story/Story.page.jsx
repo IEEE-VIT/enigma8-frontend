@@ -23,7 +23,7 @@ const Story = () => {
   const [currentroomNo, setCurrentroomNo] = useState(-1);
   // const [currentroomId, setCurrentroomId] = useState("");
   // next room not unlocked
-  const [isSolved, setIsSolved] = useState(false);
+  const [isSolved, setIsSolved] = useState(true);
   // for question route
   const [nextRoomId, setNextRoomId] = useState("");
   const [nextRoomNo, setNextRoomNo] = useState(0);
@@ -52,8 +52,15 @@ const Story = () => {
               if (info[i].journey.powerupSet === "yes") {
                 setUnlocked(Number(info[i].room.roomNo));
                 setCurrentroomNo(Number(info[i].room.roomNo));
+
                 // Setting ISFIRSTROOM
-                if (Number(info[i].room.roomNo)) setIsFirstRoom(true);
+                if (
+                  Number(info[i].room.roomNo) === 1 &&
+                  info[i].room._id === currentroomNo
+                ) {
+                  console.log(Number(info[i].room.roomNo));
+                  setIsFirstRoom(false);
+                }
               }
               if (redirectRoomId === info[i].room._id) {
                 const statusList = info[i].journey.questionsStatus;
@@ -219,6 +226,7 @@ const Story = () => {
     return ChatBoxContainer();
   };
   const decideClass = () => {
+    console.log(isFirstRoom, metCharacters);
     if (preGame) return 1;
     if (isFirstRoom && !metCharacters) {
       return 2;
