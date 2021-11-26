@@ -7,24 +7,39 @@ import { getUser } from "../../api/user";
 import StoryMenu from "../../components/Menu/StoryMenu/StoryMenu.component";
 
 const Story = () => {
+  // type 1 - game not started
+  const [preGame, setPreGame] = useState(false);
+  // type 2 - Room 1: before meeting characters
+  const [isFirstRoom, setIsFirstRoom] = useState(false);
+  // type 3 - Room 1: after meeting characters
+  const [metCharacters, setMetCharacters] = useState(false);
+  // type 4 - Other rooms
+
+  // for internal navigation and dropdown
+  const [totalRooms, setTotalRooms] = useState(0);
   const [unlocked, setUnlocked] = useState(0);
-  const [currentroomNo, setCurrentroomNo] = useState(0);
+  const [currentroomNo, setCurrentroomNo] = useState(-1);
+  // const [currentroomId, setCurrentroomId] = useState("");
+  // next room not unlocked
   const [isSolved, setIsSolved] = useState(false);
+  // for question route
   const [nextRoomId, setNextRoomId] = useState("");
   const [nextRoomNo, setNextRoomNo] = useState(0);
-  const [totalRooms, setTotalRooms] = useState(0);
+
   const [story, setStory] = useState([]);
   const history = useHistory();
-  const handleReturn = () => {
-    history.push("/rooms");
-  };
-  const handleChange = (room) => {
-    setCurrentroomNo(room);
-  };
+
   useEffect(() => {
+    // currentRoomId - to know which room to show
     getUser().then((res) => {
       const redirectRoomId = res.data.data.currentRoomId;
+      // Setting PREGAME
+      if (redirectRoomId === undefined) setPreGame(true);
       setNextRoomId(redirectRoomId);
+      // for dropdown menu :
+      // total rooms
+      // upto how many are unlocked (for disabling)
+      //
       allRooms()
         .then((resp) => {
           const info = resp.data.data.data;
@@ -33,6 +48,8 @@ const Story = () => {
             if (info[i].journey.powerupSet === "yes") {
               setUnlocked(Number(info[i].room.roomNo));
               setCurrentroomNo(Number(info[i].room.roomNo));
+              // Setting ISFIRSTROOM
+              if (Number(info[i].room.roomNo)) setIsFirstRoom(true);
             }
             if (redirectRoomId === info[i].room._id) {
               const statusList = info[i].journey.questionsStatus;
@@ -57,21 +74,22 @@ const Story = () => {
         console.log(err);
       });
   }, []);
-  const storyList = story.filter((chat) => {
+
+  // Filter story based on room
+  const filteredStory = story.filter((chat) => {
     const selectedRoomNo = Number(chat.roomNo);
-    if (currentroomNo === 1) {
-      if (selectedRoomNo === 1 || selectedRoomNo === 0) {
-        return true;
-      }
-    } else if (currentroomNo === selectedRoomNo) {
-      return true;
-    }
-    return false;
+    if (currentroomNo === 1 && !metCharacters) return selectedRoomNo === 0;
+    return currentroomNo === selectedRoomNo;
   });
-  const chatList = storyList.map((message, i) => {
-    return <div className={`story-chat-${i + 1}`}>{message.message}</div>;
-  });
+
+  // Drop down - change rooms
+  const handleChange = (room) => {
+    setCurrentroomNo(room);
+  };
+
+  // Continue button
   const handleContinue = () => {
+    // internal redirecting
     if (currentroomNo < unlocked) {
       setCurrentroomNo(currentroomNo + 1);
     } else if (isSolved) {
@@ -83,22 +101,68 @@ const Story = () => {
       });
     }
   };
-  return (
-    <div className="story-container">
-      <div className="story-back-btn">
-        <button type="button" onClick={handleReturn}>
-          Back
-        </button>
+
+  const PreGameContainer = () => (
+    <div className="pregame-container">
+      <div className="pregame-text">Please start the game first </div>
+    </div>
+  );
+
+  // Distribute story content
+  const Character = filteredStory.map((message, i) => {
+    return (
+      <div className={`story-character story-character-${i + 1}`}>
+        <div
+          className={`story-character-sender story-character-sender-${i + 1}`}
+        >
+          {message.sender}
+        </div>
+        <div
+          className={`story-character-message story-character-message-${i + 1}`}
+        >
+          {message.message}
+        </div>
       </div>
-      <div className="story-menu">
-        <StoryMenu
-          count={totalRooms}
-          unlocked={unlocked}
-          showRoom={currentroomNo}
-          triggerFunction={handleChange}
-        />
+    );
+  });
+
+  const RoomZeroContainer = () => (
+    <div className="roomzero-container">
+      <div className="roomzero-content">{Character}</div>
+      <button
+        type="button"
+        className="story-roomzero-btn"
+        onClick={() => setMetCharacters(true)}
+      >
+        Continue Reading
+      </button>
+    </div>
+  );
+
+  // Distribute story content
+  const ChatBox = filteredStory.map((message, i) => {
+    return (
+      <div className={`story-chatbox story-chatbox-${i % 2}`}>
+        <div className={`story-chatbox-sender story-chatbox-sender-${i % 2}`}>
+          {message.sender}
+        </div>
+        <div className={`story-chatbox-message story-chatbox-message-${i % 2}`}>
+          {message.message}
+        </div>
       </div>
-      <div className="story-content">{chatList}</div>
+    );
+  });
+
+  const ChatBoxContainer = () => (
+    <div className="chatbox-container">
+      <StoryMenu
+        count={totalRooms}
+        unlocked={unlocked}
+        showRoom={currentroomNo}
+        triggerFunction={handleChange}
+        className="story-menu"
+      />
+      <div className="chatbox-content">{ChatBox}</div>
       <button
         type="button"
         className="story-continue-btn"
@@ -108,6 +172,27 @@ const Story = () => {
           ? "Keep playing to unlock more"
           : "Continue reading"}
       </button>
+    </div>
+  );
+
+  const decideContent = () => {
+    if (preGame) return PreGameContainer();
+    console.log("contents", isFirstRoom, metCharacters);
+    if (isFirstRoom && !metCharacters) {
+      return RoomZeroContainer();
+    }
+    return ChatBoxContainer();
+  };
+  const decideClass = () => {
+    if (preGame) return 1;
+    if (isFirstRoom && !metCharacters) {
+      return 2;
+    }
+    return 3;
+  };
+  return (
+    <div className={`story-container story-container-${decideClass()}`}>
+      {decideContent()}
     </div>
   );
 };

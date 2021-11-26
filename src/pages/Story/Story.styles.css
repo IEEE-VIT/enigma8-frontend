@@ -1,18 +1,167 @@
+/* Story Container - For all types */
 .story-container {
-  color: white;
-  padding: 2% 4vw;
+  background: url("../../assets/story/StoryBackground.svg") no-repeat center
+    center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  padding: 5vh 3vw;
 }
-.story-content div {
-  padding: 2%;
-  margin: 2%;
+.story-container-1 {
+  height: calc(100% - 69px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100% - 69px);
 }
+.story-container-2 {
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.story-container-3 {
+  height: fit-content;
+  padding: 5vh 5vw;
+}
+
+/* Type 1 - PreGame */
+
+.pregame-text {
+  /* position: absolute;
+  top: 40%; */
+  color: #d08123;
+  text-align: center;
+  padding: 20px 2vw;
+  background: #121212;
+  border: 1px solid #292929;
+  box-sizing: border-box;
+  border-radius: 6px;
+  margin: 0 0 64px 4vh;
+  font-size: 2rem;
+  z-index: 10;
+  margin: 0 20vw;
+}
+
 .story-content div:nth-child(odd) {
   text-align: left;
   color: goldenrod;
   padding-right: 10%;
 }
-.story-content div:nth-child(even) {
+
+/* Type 2 - RoomZero : Characters */
+
+.roomzero-content {
+  /* display: flex;
+  flex-direction: row; */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: space-around;
+  margin: 0 10vw;
+  text-align: justify;
+}
+
+.story-character {
+  background: #000000;
+  border-radius: 12px;
+  /* border: 1px solid #037ec3; */
+  border: 1px solid #d08123;
+  padding: 2%;
+  margin: 2vw;
+  /* border-image: linear-gradient(to right, #0fa3b1, #037ec3);
+  border-image-slice: 1;
+  border-color: #037ec3; */
+}
+
+.story-character-sender {
+  font-family: Cinzel;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1.5rem;
+  letter-spacing: 0.7px;
+  padding: 4% 1%;
+}
+.story-character-message {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.2rem;
+  letter-spacing: 0.7px;
+  padding: 1% 4%;
+}
+.story-character-sender,
+.story-character-message-2 {
+  color: #d08123;
+}
+@supports (background-clip: text) and (-webkit-text-fill-color: transparent) {
+  .story-character-sender,
+  .story-character-message-2 {
+    background-image: linear-gradient(to bottom, #fccb69 4%, #d17a0f 100%);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+.story-character-message-1 {
+  color: #0fa3b1 !important;
+}
+
+/* .story-content div:nth-child(even) {
   text-align: right;
   color: aqua;
   padding-left: 10%;
+} */
+
+/* Type 3 - Chatbox Room 1 and others */
+
+.chatbox-content {
+  background: #0b0b0b;
+  opacity: 0.9;
+  border: 1px solid #5e5e5e;
+  box-sizing: border-box;
+  border-radius: 15px;
+  z-index: 1;
+  padding: 2% 3%;
+}
+.story-chatbox-0 {
+  margin: 1% 50% 1% 0;
+}
+.story-chatbox-1 {
+  margin: 1% 0 1% 60%;
+}
+.story-chatbox-sender {
+  padding: 1% 4%;
+  font-size: 1.3rem;
+}
+.story-chatbox-message {
+  border-radius: 6px;
+  background-color: rgb(56, 55, 55);
+  padding: 2% 4%;
+  font-size: 1.3rem;
+  color: #ffd37c;
+}
+.story-chatbox-sender {
+  color: #d08123;
+  font-family: Cinzel;
+  font-style: normal;
+  font-weight: bold;
+}
+@supports (background-clip: text) and (-webkit-text-fill-color: transparent) {
+  .story-chatbox-sender {
+    background-image: linear-gradient(to bottom, #fccb69 4%, #d17a0f 100%);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+.story-chatbox-sender-1,
+.story-chatbox-message-0 {
+  text-align: left;
+}
+.story-chatbox-message-1 {
+  color: #0fa3b1 !important;
+}
+.story-chatbox-message-1,
+.story-chatbox-sender-0 {
+  text-align: right;
 }
