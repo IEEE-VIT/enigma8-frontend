@@ -1,7 +1,58 @@
-.powerup-modal-description-container-row {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+.powerup-container {
+  background-color: #0b0b0b;
+  width: 70% !important;
+}
+.powerup-item-container {
   align-items: center;
-  cursor: pointer;
+  vertical-align: middle;
+  border-radius: 10px !important;
+  box-shadow: 0px 4px 4px rgba(15, 163, 177, 0.5);
+  border-radius: 10px;
+}
+.powerups-modal-title {
+  font-family: "Cinzel Decorative";
+  font-style: normal;
+  font-weight: bold;
+  font-size: 2.5rem;
+  color: #d08123;
+}
+
+@supports (background-clip: text) and (-webkit-text-fill-color: transparent) {
+  .powerups-modal-title {
+    background-image: linear-gradient(to bottom, #fccb69 4%, #d17a0f 100%);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+.powerup-item {
+  display: grid;
+  grid-template-columns: 1fr 2fr 4fr;
+  align-items: center;
+  vertical-align: middle;
+  padding: 1% 5%;
+}
+.powerup-item-icon {
+  width: 65px;
+}
+.powerup-item-heading {
+  font-size: 2rem;
+  font-family: Cinzel;
+  font-style: normal;
+  font-weight: bold;
+  color: #d08123;
+}
+@supports (background-clip: text) and (-webkit-text-fill-color: transparent) {
+  .powerup-item-heading {
+    background-image: linear-gradient(to bottom, #fccb69 4%, #d17a0f 100%);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+.powerup-item-text {
+  font-size: 1.2rem;
+  text-align: left;
+  padding-left: 4%;
+  color: #0fa3b1;
 }

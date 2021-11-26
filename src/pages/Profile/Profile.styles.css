@@ -1,0 +1,108 @@
+.profile-page-container {
+  text-align: center;
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.profile-card-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: bold;
+}
+.profile-card {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin: 1% 25% 2.5% 25%;
+}
+.profile-card-heading {
+  font-family: "Cinzel Decorative";
+  font-style: normal;
+  font-weight: bold;
+  font-size: 2rem;
+}
+.profile-card-item {
+  padding: 2vh 0;
+  font-size: 1.3rem;
+}
+.profile-card-item-1 {
+  padding-left: 50%;
+}
+.profile-progress-heading,
+.profile-card-heading,
+.profile-card-item-1 {
+  color: #d08123;
+}
+@supports (background-clip: text) and (-webkit-text-fill-color: transparent) {
+  .profile-card-heading .profile-card-heading,
+  .profile-card-item-1 {
+    background-image: linear-gradient(to bottom, #fccb69 4%, #d17a0f 100%);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+.profile-progress-heading {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+.profile-card-row {
+  display: grid;
+  grid-template-columns: 2fr 0.2fr 2fr;
+}
+.profile-card-item-3 {
+  color: #0fa3b1;
+  align-items: center;
+  vertical-align: middle;
+  display: flex;
+}
+.profile-card-item-3-img {
+  padding-left: 10px;
+}
+.progress-bar {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 3% 0% 2% 0%;
+  text-align: center;
+}
+.profile-bg {
+  height: 80vh;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  top: 5vh;
+  text-align: center;
+}
+
+/* Extra small devices (phones, 600px and down) */
+/* @media (max-width: 600px) {
+   .profile-bg {
+  height: 60vh;
+  top: 5vh;
+}
+} */
+
+/* Small devices (tablets and large phones, 600px and up) */
+@media (min-width: 600px) and (max-width: 992px) {
+  .profile-bg {
+    height: 70vh;
+    top: 5vh;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1200px) {
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+}

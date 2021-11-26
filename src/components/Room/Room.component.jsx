@@ -3,6 +3,7 @@ import "./Room.styles.css";
 import PropTypes from "prop-types";
 import { useHistory, useLocation } from "react-router-dom";
 import Toast from "../Notifications/Toast.component";
+import RoomDoor from "../../assets/rooms/RoomDoor.svg";
 import locked from "../../assets/rooms/locked.svg";
 import solved from "../../assets/rooms/solved.svg";
 import unsolvedUnlocked from "../../assets/rooms/unsolved-unlocked.svg";
@@ -12,6 +13,7 @@ import Powerup from "../Powerup/Powerup.component";
 const Room = (props) => {
   const { room, journey } = props;
   const [lockedRoom, setLockedRoom] = useState(false);
+  const [questionSolved, setQuestionSolved] = useState(false);
   const [notification, setNotification] = useState({ title: "", body: "" });
   const [openPowerup, setOpenPowerup] = useState(false);
   const handleClose = () => {
@@ -20,35 +22,49 @@ const Room = (props) => {
   const history = useHistory();
   const location = useLocation();
   const questionCall = () => {
-    if (!journey.roomUnlocked) {
-      checkIfRoomUnlocked(room._id)
-        .then((res) => {
-          console.log(res.data.data);
-          switch (res.data.data.unlock) {
-            case true:
-              setOpenPowerup(true);
-              break;
-            default:
-              setLockedRoom(true);
-              setNotification({
-                title: "Room Locked",
-                body: `You need ${res.data.data.starsNeeded} stars to unlock the room.`,
-              });
-              setTimeout(() => {
-                setLockedRoom(false);
-              }, 4000);
-              break;
-          }
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    } else {
-      history.push({
-        pathname: "/question",
-        state: { ...location.state, roomNo: room.roomNo, roomId: room._id },
+    checkIfRoomUnlocked(room._id)
+      .then((res) => {
+        switch (res.data.data.status) {
+          case "locked":
+            setLockedRoom(true);
+            setNotification({
+              title: "Room Locked",
+              body: `You need ${res.data.data.starsNeeded} keys to unlock the room.`,
+            });
+            setTimeout(() => {
+              setLockedRoom(false);
+            }, 4000);
+            break;
+          case "complete":
+            setQuestionSolved(true);
+            setNotification({
+              title: "Room Solved",
+              body: `You have solved the room.`,
+            });
+            setTimeout(() => {
+              setQuestionSolved(false);
+            }, 4000);
+            break;
+          case "unlocked":
+            history.push({
+              pathname: "/question",
+              state: {
+                ...location.state,
+                roomNo: room.roomNo,
+                roomId: room._id,
+              },
+            });
+            break;
+          case "canUnlock":
+            setOpenPowerup(true);
+            break;
+          default:
+            break;
+        }
+      })
+      .catch((err) => {
+        console.log(err);
       });
-    }
   };
 
   const questionsStatus = journey.questionsStatus.map(
@@ -63,7 +79,7 @@ const Room = (props) => {
 
       return (
         <img
-          className="question-image"
+          className={`question-image question-image${index}`}
           key={index}
           src={questionIMG}
           alt="room-status"
@@ -73,19 +89,26 @@ const Room = (props) => {
   );
   return (
     <div>
-      <div className="room-container">
-        {" "}
+      <div className="rooms-room-container">
         <div className="room-question-status">{questionsStatus}</div>
-        <button
-          type="button"
-          className="room-card"
-          id={room._id}
+        <div
           onClick={questionCall}
+          onKeyDown={questionCall}
+          role="button"
+          className="room-card"
+          style={{ cursor: "pointer" }}
+          id={room._id}
+          tabIndex={0}
         >
-          &nbsp;{room.roomNo}
-        </button>
+          <img src={RoomDoor} alt="" className="room-card" />
+        </div>
       </div>
       {lockedRoom ? (
+        <Toast title={notification.title} body={notification.body} />
+      ) : (
+        <> </>
+      )}
+      {questionSolved ? (
         <Toast title={notification.title} body={notification.body} />
       ) : (
         <> </>
@@ -115,11 +138,12 @@ Room.propTypes = {
   }).isRequired,
   journey: PropTypes.shape({
     // powerupId: PropTypes.string.isRequired,
-    powerupUsed: PropTypes.bool.isRequired,
     questionsStatus: PropTypes.arrayOf(PropTypes.string).isRequired,
     // roomId: PropTypes.string.isRequired,
     roomUnlocked: PropTypes.bool.isRequired,
     stars: PropTypes.number.isRequired,
+    powerupSet: PropTypes.string.isRequired,
+    powerupUsed: PropTypes.string.isRequired,
     // userId: PropTypes.string.isRequired,
     // _id: PropTypes.string.isRequired,
   }).isRequired,

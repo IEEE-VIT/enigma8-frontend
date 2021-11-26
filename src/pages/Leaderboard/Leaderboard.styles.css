@@ -1,0 +1,29 @@
+.countdown-time-container {
+  margin-right: 6.45px;
+}
+
+.user-status-container {
+  display: flex;
+  flex-direction: column;
+  padding: 0px 346px;
+  width: 100%;
+}
+
+.user-status-details {
+  display: flex;
+  justify-content: space-between;
+}
+.user-status-details-text-bold {
+  font-family: Mulish;
+  font-weight: 700;
+  font-size: 16.71px;
+}
+.user-status-details-text {
+  font-family: Mulish;
+  font-weight: 700;
+  font-size: 12.53px;
+}
+
+.MuiPaginationItem-ellipsis {
+  color: #d08123 !important;
+}

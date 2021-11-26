@@ -1,0 +1,3 @@
+ul.instructions-list li {
+  list-style-image: url("../../assets/instructions/list-icon.svg");
+}
