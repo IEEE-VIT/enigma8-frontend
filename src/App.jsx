@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import React, { useEffect } from "react";
+=======
+import React, { useState, useEffect } from "react";
+>>>>>>> 9785871261e96e492842941703ebfaf873bda614
 import { Switch, Route, useHistory } from "react-router-dom";
 import "./App.css";
 
