@@ -29,7 +29,7 @@ const Room = (props) => {
             setLockedRoom(true);
             setNotification({
               title: "Room Locked",
-              body: `You need ${res.data.data.starsNeeded} stars to unlock the room.`,
+              body: `You need ${res.data.data.starsNeeded} keys to unlock the room.`,
             });
             setTimeout(() => {
               setLockedRoom(false);
@@ -89,7 +89,7 @@ const Room = (props) => {
   );
   return (
     <div>
-      <div className="room-container">
+      <div className="rooms-room-container">
         <div className="room-question-status">{questionsStatus}</div>
         <div
           onClick={questionCall}

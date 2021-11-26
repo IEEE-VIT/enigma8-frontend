@@ -10643,6 +10643,11 @@ react-app-polyfill@^2.0.0:
     regenerator-runtime "^0.13.7"
     whatwg-fetch "^3.4.1"
 
+react-apple-signin-auth@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/react-apple-signin-auth/-/react-apple-signin-auth-1.0.4.tgz#02587198a5a2372e7d73ad047937e865ee43370d"
+  integrity sha512-oR0gPCc1FXRm5C/KyvskJsefeZeCGCVe6tcthvkmGWJOOT/G7oZ2P89qe+5Y4w2qTIzN/ZsWqyz3S4yh6/gssA==
+
 react-cookie@^4.1.1:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/react-cookie/-/react-cookie-4.1.1.tgz#832e134ad720e0de3e03deaceaab179c4061a19d"

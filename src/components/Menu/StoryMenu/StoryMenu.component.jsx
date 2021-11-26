@@ -71,6 +71,7 @@ const StoryMenu = ({ count, unlocked, triggerFunction, showRoom }) => {
         PaperProps={{
           style: {
             transform: "translateX(-0%) translateY(16%)",
+            backgroundColor: "#0B0B0B",
           },
         }}
       >

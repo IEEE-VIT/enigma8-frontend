@@ -452,7 +452,7 @@ const Leaderboard = () => {
                   style={{ width: "200px" }}
                   align="center"
                 >
-                  Stars
+                  Keys
                 </TableCell>
               </TableRow>
             </TableHead>

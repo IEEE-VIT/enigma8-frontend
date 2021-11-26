@@ -1,11 +1,18 @@
 .rooms-container {
-  /* display: flex;
+  display: flex;
   flex-direction: row;
   flex-basis: 164px;
   flex-wrap: wrap;
-  justify-content: center; */
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  justify-content: center;
+  /* display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr; */
+  background: url("../../assets/rooms/pillar.svg") no-repeat;
+  background-position: bottom;
+  background-size: contain;
+}
+
+.rooms-container-lower {
+  margin-top: 28px;
 }
 .rooms-status {
   display: flex;
@@ -26,3 +33,22 @@
     -webkit-text-fill-color: transparent;
   }
 } */
+
+.pillar {
+  position: absolute;
+}
+
+.pillar-top {
+  top: 28.5%;
+}
+
+.pillar-left {
+  left: 0;
+}
+
+.pillar-right {
+  right: 0;
+}
+.pillar-bottom {
+  top: 81.5%;
+}

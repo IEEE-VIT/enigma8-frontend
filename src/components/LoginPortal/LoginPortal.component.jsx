@@ -1,15 +1,18 @@
 import React, { useEffect } from "react";
 import "./LoginPortal.styles.css";
-import { Cookies } from "react-cookie";
+import { Cookies, useCookies } from "react-cookie";
+import AppleSignin from "react-apple-signin-auth";
 import { useHistory } from "react-router-dom";
+import { signInWithApple } from "../../api/user";
 import GoogleIcon from "../../assets/home/googleIcon.svg";
+import AppleIcon from "../../assets/home/appleIcon.svg";
 
 const LoginPortal = () => {
+  const [, setCookies] = useCookies(["token", "newUser"]);
   const cookies = new Cookies();
   const token = cookies.get("token");
   const newUser = cookies.get("newUser");
   const history = useHistory();
-
   useEffect(() => {
     if (token) {
       history.push("/countdown");
@@ -22,6 +25,21 @@ const LoginPortal = () => {
     const url = `${process.env.REACT_APP_BACKEND_URL}/auth/web/google`;
     window.open(url, "_self");
   };
+
+  const AppleAuthRedirect = (response) => {
+    console.log("apple response", response);
+
+    signInWithApple(response.authorization.id_token)
+      .then((res) => {
+        console.log(res.data.data);
+        setCookies("token", res.data.data.JWT);
+        setCookies("newUser", res.data.data.isNew);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   return (
     <div id="login">
       <div className="login">
@@ -31,16 +49,34 @@ const LoginPortal = () => {
           onClick={GoogleAuthRedirect}
         >
           <img className="google-icon" src={GoogleIcon} alt="" />
-          <span className="login-inner-text"> Continue with Google</span>
+          <span className="login-inner-text"> Sign in With Google</span>
         </button>
 
-        {/* <button
-          className="login-button google-login-button"
-          type="button"
-          disabled
-        >
-          Continue with Apple
-        </button> */}
+        <AppleSignin
+          authOptions={{
+            clientId: "com.enigma7.0",
+            scope: "email name",
+            redirectURI: "https://enigma8.loca.lt",
+            state: "",
+            nonce: "nonce",
+            usePopup: true,
+          }}
+          uiType="dark"
+          className="apple-auth-btn"
+          buttonExtraChildren="Continue with Apple"
+          onSuccess={AppleAuthRedirect}
+          onError={(error) => {
+            console.log("Ssup");
+            console.error(error);
+          }}
+          render={(props) => (
+            // eslint-disable-next-line
+            <button type="button" className="login-btn" {...props}>
+              <img className="apple-icon" src={AppleIcon} alt="" />
+              <span className="login-inner-text"> Sign in With Apple</span>
+            </button>
+          )}
+        />
       </div>
     </div>
   );
