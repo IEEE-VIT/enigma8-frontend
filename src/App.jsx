@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Switch, Route, useHistory } from "react-router-dom";
 import "./App.css";
 
@@ -55,26 +55,12 @@ const theme = createTheme({
 
 function App() {
   const history = useHistory();
-  const [showMobile, setShowMobile] = useState(false);
-  const [, setWindowWidth] = useState(0);
-  console.log(showMobile);
-  const isMobile = (width) => {
-    if (width < 700) {
-      return true;
-    }
-    return false;
-  };
   useEffect(() => {
-    setShowMobile(isMobile(window.innerWidth));
-    window.addEventListener("resize", (x) => {
-      if (x.currentTarget.innerWidth < 500) {
-        history.push("/download");
-      } else {
-        history.push("/countdown");
-      }
-      setWindowWidth(x.currentTarget.innerWidth);
-      setShowMobile(isMobile(x.currentTarget.innerWidth));
-    });
+    if (window.innerWidth < 700) {
+      history.push("/download");
+    } else {
+      history.push("/countdown");
+    }
   }, []);
   return (
     <div className="App">
