@@ -30,6 +30,9 @@ const Toast = ({ title, body }) => {
         pauseOnFocusLoss={false}
         draggable
         pauseOnHover={false}
+        theme="dark"
+        icon={false}
+        limit={1}
       />
     </div>
   );
