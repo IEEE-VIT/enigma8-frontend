@@ -1,6 +1,28 @@
 import { Cookies } from "react-cookie";
 import enigmaAPI from "./config";
 
+export const signInWithApple = (idToken) => {
+  return new Promise((resolve, reject) => {
+    enigmaAPI
+      .post(
+        "/auth/web/apple",
+        {
+          id_token: idToken,
+        },
+        {}
+      )
+      .then((res) => {
+        resolve(res);
+        if (res.status !== 200) {
+          throw new Error("Something Went Wrong!");
+        }
+      })
+      .catch((err) => {
+        reject(err);
+      });
+  });
+};
+
 export const createProfile = (username, outreach) => {
   const cookies = new Cookies();
   const token = cookies.get("token");

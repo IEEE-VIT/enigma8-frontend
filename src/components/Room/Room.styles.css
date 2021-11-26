@@ -1,10 +1,7 @@
-.room-container {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  margin: 2vh 2vw;
+.rooms-room-container {
+  margin: 0 50px;
+  position: relative;
+  top: 2px;
 }
 
 .room-question-status {

@@ -153,7 +153,6 @@ const Welcome = () => {
       [name]: value,
     });
   };
-
   const vaildate = () => {
     if (data.username.trim() === "") {
       validateData.username = true;
@@ -237,6 +236,13 @@ const Welcome = () => {
         });
     }
   };
+
+  const onEnter = (e) => {
+    if (e.key === "Enter") {
+      sendData();
+    }
+  };
+
   const outreach = [
     {
       value: "instagram",
@@ -294,6 +300,7 @@ const Welcome = () => {
           error={validateData.username}
           helperText={validateData.usernameHelper}
           onChange={addData}
+          onKeyDown={onEnter}
           style={{
             marginBottom: "25px",
             color: "#ffd37c",

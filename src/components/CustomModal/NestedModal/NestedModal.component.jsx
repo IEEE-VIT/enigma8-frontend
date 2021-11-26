@@ -39,7 +39,7 @@ const NestedModal = ({
             alt=""
           />
         ) : (
-          { powerUp }
+          ` ${powerUp}`
         )}
       </p>
     </div>
@@ -60,7 +60,7 @@ NestedModal.propTypes = {
   triggerFunction: PropTypes.func.isRequired,
   PostMessage: PropTypes.elementType.isRequired,
   powerUp: PropTypes.string,
-  imagePowerup: PropTypes.string,
+  imagePowerup: PropTypes.bool,
   imagePowerupUrl: PropTypes.string,
 };
 

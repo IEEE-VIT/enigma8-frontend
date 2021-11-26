@@ -5,6 +5,7 @@ import { getFullStory } from "../../api/story";
 import { allRooms } from "../../api/room";
 import { getUser } from "../../api/user";
 import StoryMenu from "../../components/Menu/StoryMenu/StoryMenu.component";
+import GoldenBtn from "../../components/CustomButton/Golden/GoldenBtn.component";
 
 const Story = () => {
   // type 1 - game not started
@@ -101,6 +102,9 @@ const Story = () => {
       });
     }
   };
+  const handleClick = () => {
+    setMetCharacters(true);
+  };
 
   const PreGameContainer = () => (
     <div className="pregame-container">
@@ -129,13 +133,16 @@ const Story = () => {
   const RoomZeroContainer = () => (
     <div className="roomzero-container">
       <div className="roomzero-content">{Character}</div>
-      <button
+      {/* <button
         type="button"
         className="story-roomzero-btn"
         onClick={() => setMetCharacters(true)}
       >
         Continue Reading
-      </button>
+      </button> */}
+      <GoldenBtn marginTop="0px" width="200px" triggerFunction={handleClick}>
+        Continue Reading
+      </GoldenBtn>
     </div>
   );
 
@@ -163,7 +170,7 @@ const Story = () => {
         className="story-menu"
       />
       <div className="chatbox-content">{ChatBox}</div>
-      <button
+      {/* <button
         type="button"
         className="story-continue-btn"
         onClick={handleContinue}
@@ -171,7 +178,24 @@ const Story = () => {
         {currentroomNo === unlocked
           ? "Keep playing to unlock more"
           : "Continue reading"}
-      </button>
+      </button> */}
+      {currentroomNo === unlocked ? (
+        <GoldenBtn
+          marginTop="24px"
+          width="280px"
+          triggerFunction={handleContinue}
+        >
+          Keep playing to unlock more
+        </GoldenBtn>
+      ) : (
+        <GoldenBtn
+          marginTop="24px"
+          width="200px"
+          triggerFunction={handleContinue}
+        >
+          Continue Reading
+        </GoldenBtn>
+      )}
     </div>
   );
 

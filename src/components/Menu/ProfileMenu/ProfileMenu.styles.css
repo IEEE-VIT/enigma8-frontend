@@ -6,7 +6,7 @@
   font-weight: bold;
 }
 .profile-menu .MuiButton-root {
-  padding: 0 !important;
+  padding: 0 28px !important;
   text-transform: none !important;
   letter-spacing: 0.6px !important;
 }

@@ -57,8 +57,8 @@ const Instructions = ({ handleClose, openInstructions }) => {
     ],
     roomStates: [
       "A room can either be locked, unlocked, or solved.",
-      "A room is locked when the player does not have the minimum amount of stars to unlock it else if the player hasn’t yet chosen a powerup for that room.",
-      "A room is unlocked when the player has sufficient stars and has chosen a powerup for that room.",
+      "A room is locked when the player does not have the minimum amount of keys to unlock it else if the player hasn’t yet chosen a powerup for that room.",
+      "A room is unlocked when the player has sufficient keys and has chosen a powerup for that room.",
       "A room is solved only when a player solves all three questions in that room.",
     ],
     powerups: [
@@ -192,7 +192,7 @@ const Instructions = ({ handleClose, openInstructions }) => {
               : {}
           }
         >
-          Miscellannous
+          Miscellaneous
         </button>
       </div>
       <div>

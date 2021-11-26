@@ -11,7 +11,6 @@ import ModalContainer from "../../components/CustomModal/ModalContainer/ModalCon
 import PowerupModalContainer from "../../components/CustomModal/PowerupModalContainer/PowerupModalContainer.component";
 import BlueOverlayModal from "../../components/CustomModal/BlueOverlayModal/BlueOverlayModal.component";
 import BlueBtn from "../../components/CustomButton/Blue/BlueBtn.component";
-import NestedModal from "../../components/CustomModal/NestedModal/NestedModal.component";
 import BlueNestedModal from "../../components/CustomModal/BlueNestedModal/BlueNestedModal.component";
 import "./Question.styles.css";
 import GoldenBtn from "../../components/CustomButton/Golden/GoldenBtn.component";
@@ -24,14 +23,14 @@ const useStyles = makeStyles((theme) => ({
     // WebkitTextFillColor: "transparent",
     color: "#d08123",
     fontFamily: "Mulish",
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: "#121212",
   },
   paper: {
     alignItems: "center",
     justifyContent: "center",
     verticalAlign: "middle",
     padding: "1% 2% 0 2%",
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: "#121212",
     fontFamily: "Mulish",
     color: theme.palette.primary.main,
     display: "flex",
@@ -101,6 +100,7 @@ const Question = () => {
   const [nextRoomUnlocked, setNextRoomUnlocked] = useState(false);
   const [scoreEarned, setScoreEarned] = useState(0);
   const [wrongAnswer, setWrongAnswer] = useState({});
+  const [dontSend, setDontSend] = useState(false);
   const history = useHistory();
   const location = useLocation();
   if (location.state === undefined) {
@@ -130,7 +130,7 @@ const Question = () => {
       .then((res) => {
         console.log(res.data.data);
         setIsPowerUp(true);
-        setPowerupHelperText(`${res.data.data.text}`);
+        setPowerupHelperText(res.data.data.text);
         if (res.data.data.imgUrl !== null) {
           setImagePowerup(true);
           setImagePowerupUrl(res.data.data.imgUrl);
@@ -176,6 +176,16 @@ const Question = () => {
       });
     } else {
       fetchQuestion();
+      setAnswer("");
+      setIsHint(false);
+      setHint("");
+      setIsPowerUp(false);
+      setPowerupName("");
+      setPowerupIcon("");
+      setPowerupUsed(false);
+      setImagePowerup(false);
+      setImagePowerupUrl("");
+      setPowerupHelperText("");
       setIsCorrectAnswer(false);
     }
   };
@@ -206,7 +216,7 @@ const Question = () => {
       return (
         <div>
           <h4 style={{ marginBottom: 30, marginTop: 0 }}>
-            Your answer is correct! You earnt {scoreEarned} points!
+            Your answer is correct! You earned {scoreEarned} points!
           </h4>
           <div
             style={{
@@ -225,7 +235,7 @@ const Question = () => {
               <BlueBtn
                 triggerFunction={redirectToRoom}
                 marginTop="0"
-                width="140.74px"
+                width="215.74px"
               >
                 Continue to Rooms
               </BlueBtn>
@@ -237,7 +247,7 @@ const Question = () => {
     return (
       <div>
         <h4 style={{ marginBottom: 30, marginTop: 0 }}>
-          Your answer is correct! You earnt {scoreEarned} points!
+          Your answer is correct! You earned {scoreEarned} points!
         </h4>
         <BlueBtn
           triggerFunction={closeCorrectAnswer}
@@ -261,21 +271,25 @@ const Question = () => {
     setAnswer(value);
   };
   const handleSubmit = () => {
-    submitAnswer(roomId, answer)
-      .then((res) => {
-        setIsCloseAnswer(res.data.data.closeAnswer);
-        setIsCorrectAnswer(res.data.data.correctAnswer);
-        if (!res.data.data.correctAnswer) {
-          wrongAnswer.status = !res.data.data.correctAnswer;
-          wrongAnswer.helper = "Keep trying!";
-          setWrongAnswer({ ...wrongAnswer });
-        }
-        setNextRoomUnlocked(res.data.data.nextRoomUnlocked);
-        setScoreEarned(res.data.data.scoreEarned);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    if (!dontSend) {
+      setDontSend(true);
+      submitAnswer(roomId, answer)
+        .then((res) => {
+          setIsCloseAnswer(res.data.data.closeAnswer);
+          setIsCorrectAnswer(res.data.data.correctAnswer);
+          if (!res.data.data.correctAnswer) {
+            wrongAnswer.status = !res.data.data.correctAnswer;
+            wrongAnswer.helper = "Wrong Answer, Keep trying!";
+            setWrongAnswer({ ...wrongAnswer });
+          }
+          setNextRoomUnlocked(res.data.data.nextRoomUnlocked);
+          setScoreEarned(res.data.data.scoreEarned);
+          setDontSend(false);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
   };
   const onEnter = (e) => {
     if (e.key === "Enter") {
@@ -293,7 +307,8 @@ const Question = () => {
       });
   };
   const HintModal = () => {
-    const PreHintText = "If you use hint, then your points will be reduced.";
+    const PreHintText =
+      "Using hint will deduct points from your score. Are you sure you want to use hint?";
     const PostHintText = `${hint}`;
     return (
       <BlueNestedModal
@@ -307,13 +322,16 @@ const Question = () => {
   };
   const PowerUpModal = () => {
     const PrePowerUpText = `This powerup can be used only once in this room. Are you sure you want to use ${powerupName} powerup for this question?`;
-    // const PostPowerUpText = `${powerupHelperText} ${powerUp}`;
 
     if (powerupUsed === true) {
-      return <div>You&apos;ve already claimed your powerup for this room.</div>;
+      return (
+        <div style={{ color: "#0fa3b1" }}>
+          You&apos;ve already claimed your powerup for this room.
+        </div>
+      );
     }
     return (
-      <NestedModal
+      <BlueNestedModal
         stateValue={isPowerUp}
         PreMessage={PrePowerUpText}
         ButtonText="Use Powerup"
@@ -345,9 +363,7 @@ const Question = () => {
                 <div className="question-section-1-questionNo">
                   Q. {questionNum}
                 </div>
-                <div className="question-section-1-text">
-                  Question: {question}
-                </div>
+                <div className="question-section-1-text">{question}</div>
               </div>
             </div>
             {isHint ? (
@@ -381,6 +397,7 @@ const Question = () => {
                   variant="outlined"
                   required
                   className={`text-field ${classes.root}`}
+                  value={answer}
                   onChange={handleSetAnswer}
                   onKeyDown={onEnter}
                   error={wrongAnswer.status}
@@ -396,7 +413,7 @@ const Question = () => {
                 innerText={HintModal()}
                 openText="Hint"
                 type="outlined"
-                header=""
+                header="HINT"
               />
               <GoldenBtn
                 marginTop="0px"
