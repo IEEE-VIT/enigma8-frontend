@@ -9,6 +9,7 @@ import { timer } from "../../api/timer";
 import OverlayModal from "../../components/CustomModal/OverlayModal/OverlayModal.component";
 import TimerComponent from "../../components/TimerCard/TimerCard.component";
 import GoldenBtn from "../../components/CustomButton/Golden/GoldenBtn.component";
+import Loader from "../../components/Loader/Loader.component";
 import "./Countdown.styles.css";
 import "./ignite.styles.scss";
 
@@ -84,7 +85,7 @@ const Countdown = () => {
   const [secondsLeft, setSecondsLeft] = useState(0);
   const [wrongSystemTime, setWrongSystemTime] = useState(false);
   const [fire, setFire] = useState(``);
-
+  const [isLoading, setIsLoading] = useState(true);
   const getRemTime = () => {
     timer()
       .then(async (res) => {
@@ -105,6 +106,9 @@ const Countdown = () => {
         }
         setRemTime(res.data.data.date);
         setIs420(res.data.data.enigmaStarted);
+      })
+      .then(() => {
+        setIsLoading(false);
       })
       .catch((err) => {
         console.log(err);
@@ -256,6 +260,9 @@ const Countdown = () => {
       </div>
     );
   };
+  if (isLoading) {
+    return <Loader />;
+  }
   return (
     <div className={`countdown-page ${classes.root}`}>
       &nbsp;

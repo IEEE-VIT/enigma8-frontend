@@ -9,7 +9,7 @@
   margin-top: 35px;
 }
 .login-btn {
-  cursor: pointer;
+  cursor: url(../../assets/PointerCursor.svg), auto !important;
   border: 1px solid #d08123;
   color: #d08123;
   display: flex;

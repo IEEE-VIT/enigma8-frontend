@@ -1,6 +1,6 @@
 .outline-golden-btn {
   background: none;
-  cursor: pointer;
+  cursor: url(../../../assets/PointerCursor.svg), auto !important;
   margin-bottom: 5% !important;
   padding: 10px;
   border: 1px solid #d08123;

@@ -34,7 +34,6 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "18px",
     background: "none",
     border: "none",
-    cursor: "pointer",
     paddingBottom: "3px",
     color: "#0fa3b1",
   },
@@ -131,14 +130,21 @@ const Instructions = ({ handleClose, openInstructions }) => {
             padding: "0",
           }}
         >
-          <img src={Close} style={{ height: 25, cursor: "pointer" }} alt="" />
+          <img
+            src={Close}
+            style={{
+              height: 25,
+              cursor: "url(../../assets/PointerCursor.svg), auto !important",
+            }}
+            alt=""
+          />
         </button>
       </div>
       <div className={classes.instructions}>Instructions</div>
       <div className={classes.buttons}>
         <button
           type="button"
-          className={classes.button}
+          className={`${classes.button} cursor-pointer`}
           onClick={setGameMechanics}
           style={
             instructionContent[0] === instructions.gameMechanics[0]
@@ -150,7 +156,7 @@ const Instructions = ({ handleClose, openInstructions }) => {
         </button>
         <button
           type="button"
-          className={classes.button}
+          className={`${classes.button} cursor-pointer`}
           onClick={setScoringSystem}
           style={
             instructionContent[0] === instructions.scoringSystem[0]
@@ -162,7 +168,7 @@ const Instructions = ({ handleClose, openInstructions }) => {
         </button>
         <button
           type="button"
-          className={classes.button}
+          className={`${classes.button} cursor-pointer`}
           onClick={setRoomStates}
           style={
             instructionContent[0] === instructions.roomStates[0]
@@ -174,7 +180,7 @@ const Instructions = ({ handleClose, openInstructions }) => {
         </button>
         <button
           type="button"
-          className={classes.button}
+          className={`${classes.button} cursor-pointer`}
           onClick={setPowerups}
           style={
             instructionContent[0] === instructions.powerups[0]
@@ -186,7 +192,7 @@ const Instructions = ({ handleClose, openInstructions }) => {
         </button>
         <button
           type="button"
-          className={classes.button}
+          className={`${classes.button} cursor-pointer`}
           onClick={setMiscellaneous}
           style={
             instructionContent[0] === instructions.miscellaneous[0]

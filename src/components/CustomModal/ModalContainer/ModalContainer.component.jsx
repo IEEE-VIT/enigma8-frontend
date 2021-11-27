@@ -68,8 +68,11 @@ const ModalContainer = ({ innerText, openText, type, header }) => {
                 }}
               >
                 <img
+                  className="cursor-pointer"
                   src={Close}
-                  style={{ height: 25, cursor: "pointer" }}
+                  style={{
+                    height: 25,
+                  }}
                   alt=""
                 />
               </button>

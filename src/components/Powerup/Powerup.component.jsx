@@ -127,7 +127,14 @@ const Powerup = (props) => {
             padding: "0",
           }}
         >
-          <img src={Close} style={{ height: 25, cursor: "pointer" }} alt="" />
+          <img
+            src={Close}
+            className="cursor-pointer"
+            style={{
+              height: 25,
+            }}
+            alt=""
+          />
         </button>
       </div>
       <h2 style={{ margin: 0 }} className="powerups-modal-title">

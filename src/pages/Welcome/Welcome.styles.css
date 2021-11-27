@@ -35,7 +35,7 @@
   -webkit-text-fill-color: transparent;
   -moz-text-fill-color: transparent; */
   color: #d08123;
-  cursor: pointer;
+  cursor: url(../../assets/PointerCursor.svg), auto !important;
   margin-bottom: 5% !important;
   padding: 10px;
   border: 1px solid #d08123;
