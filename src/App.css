@@ -48,6 +48,7 @@ img {
 * {
   scroll-behavior: smooth;
   color: #d08123;
+  cursor: url(./assets/Cursor.svg), auto;
 }
 *::-webkit-scrollbar {
   width: 7.5px;
@@ -61,4 +62,11 @@ img {
   background: linear-gradient(180deg, #ffd37c -12.24%, #d08123 65.33%);
   border-top-left-radius: 24px;
   border-bottom-left-radius: 24px;
+}
+
+.cursor-pointer {
+  cursor: url(./assets/PointerCursor.svg), auto !important;
+}
+.cursor-disabled {
+  cursor: url(./assets/DisabledCursor.svg), auto !important;
 }

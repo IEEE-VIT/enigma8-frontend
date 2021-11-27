@@ -10,3 +10,7 @@
   text-transform: none !important;
   letter-spacing: 0.6px !important;
 }
+
+.navbar-profile-menu {
+  cursor: url(../../../assets/PointerCursor.svg), auto !important;
+}

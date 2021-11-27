@@ -16,24 +16,40 @@ const PowerupButton = ({
   return (
     <button
       type="button"
-      className="powerup-item-container"
+      className={
+        !availableToUse
+          ? "powerup-item-container cursor-disabled"
+          : "powerup-item-container cursor-pointer"
+      }
       style={{
         width: "100%",
         marginTop: 10,
         backgroundColor: `${bgColour}`,
         border: "none",
         opacity: !availableToUse ? 0.7 : "none",
-        cursor: !availableToUse ? "not-allowed" : "pointer",
       }}
       id={_id}
       onClick={selectPowerup}
       disabled={!availableToUse}
     >
-      <div className="powerup-item">
-        <img src={icon} className="powerup-item-icon" alt="" />
-        <div className="powerup-item-heading">{name}</div>
-        <div className="powerup-item-text">{detail}</div>
-      </div>
+      {" "}
+      {availableToUse ? (
+        <div className="powerup-item cursor-pointer">
+          <img src={icon} className="powerup-item-icon cursor-pointer" alt="" />
+          <div className="powerup-item-heading cursor-pointer">{name}</div>
+          <div className="powerup-item-text cursor-pointer">{detail}</div>
+        </div>
+      ) : (
+        <div className="powerup-item cursor-disabled">
+          <img
+            src={icon}
+            className="powerup-item-icon cursor-disabled"
+            alt=""
+          />
+          <div className="powerup-item-heading cursor-disabled">{name}</div>
+          <div className="powerup-item-text cursor-disabled">{detail}</div>
+        </div>
+      )}
     </button>
   );
 };

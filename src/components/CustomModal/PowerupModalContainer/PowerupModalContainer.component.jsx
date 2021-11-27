@@ -45,10 +45,20 @@ const PowerupModalContainer = ({
         <button
           onClick={handleOpen}
           type="button"
-          style={{ background: "none", border: "none", cursor: "pointer" }}
+          className="cursor-pointer"
+          style={{
+            background: "none",
+            border: "none",
+          }}
         >
-          <img src={powerupIcon} style={{ width: "99px" }} alt="" />
+          <img
+            src={powerupIcon}
+            className="cursor-pointer"
+            style={{ width: "99px" }}
+            alt=""
+          />
           <div
+            className="cursor-pointer"
             style={{
               marginTop: "4px",
               fontSize: "18px",
@@ -86,7 +96,10 @@ const PowerupModalContainer = ({
               >
                 <img
                   src={Close}
-                  style={{ height: 25, cursor: "pointer" }}
+                  className="cursor-pointer"
+                  style={{
+                    height: 25,
+                  }}
                   alt=""
                 />
               </button>

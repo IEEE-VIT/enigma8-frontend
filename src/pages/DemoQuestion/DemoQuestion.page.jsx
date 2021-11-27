@@ -251,7 +251,11 @@ const DemoQuestion = () => {
           <div className="mock-question-back" style={{ textAlign: "left" }}>
             <button
               type="button"
-              style={{ background: "none", border: "none", cursor: "pointer" }}
+              className="cursor-pointer"
+              style={{
+                background: "none",
+                border: "none",
+              }}
               onClick={goBack}
             >
               <img src={Back} className={classes.back} alt="" />

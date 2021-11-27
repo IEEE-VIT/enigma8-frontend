@@ -95,12 +95,11 @@ const Room = (props) => {
           onClick={questionCall}
           onKeyDown={questionCall}
           role="button"
-          className="room-card"
-          style={{ cursor: "pointer" }}
+          className="room-card cursor-pointer"
           id={room._id}
           tabIndex={0}
         >
-          <img src={RoomDoor} alt="" className="room-card" />
+          <img src={RoomDoor} alt="" className="room-card cursor-pointer" />
         </div>
       </div>
       {lockedRoom ? (

@@ -66,12 +66,12 @@ const PostloginNavbar = () => {
           )}
           <button
             type="button"
+            className="pointer-cursor"
             style={{
               background: "none",
               border: "none",
               margin: "0",
               padding: "0",
-              cursor: "pointer",
             }}
             onClick={handleOpen}
           >

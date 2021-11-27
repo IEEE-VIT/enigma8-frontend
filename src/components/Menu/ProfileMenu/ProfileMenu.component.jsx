@@ -81,13 +81,13 @@ const ProfileMenu = () => {
           className={classes.menuoptions}
           onClick={() => handleClose(1)}
         >
-          <img src={viewProfile} alt="" />
+          <img className="navbar-profile-menu" src={viewProfile} alt="" />
         </MenuItem>
         <MenuItem
           className={classes.menuoptions}
           onClick={() => handleClose(2)}
         >
-          <img src={logoutIcon} alt="" />
+          <img className="navbar-profile-menu" src={logoutIcon} alt="" />
         </MenuItem>
       </Menu>
     </div>

@@ -1,6 +1,6 @@
 .blue-btn {
   background: linear-gradient(180deg, #0fa3b1 17.7%, #037ec3 65.33%);
-  cursor: pointer;
+  cursor: url(../../../assets/PointerCursor.svg), auto !important;
   margin-bottom: 5% !important;
   padding: 10px;
   border: 1px solid #0fa3b1;

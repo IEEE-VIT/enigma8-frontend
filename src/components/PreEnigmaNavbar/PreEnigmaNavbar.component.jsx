@@ -29,7 +29,6 @@ const useStyles = makeStyles((theme) => ({
   logout: {
     border: "none",
     background: "none",
-    cursor: "pointer",
     fontSize: "24px",
     display: "flex",
     verticalAlign: "center",
@@ -57,7 +56,7 @@ const PreEnigmaNavbar = () => {
         </Link>
       </div>
       <div
-        className={classes.logout}
+        className={`${classes.button} cursor-pointer`}
         onClick={logout}
         onKeyDown={logout}
         role="button"

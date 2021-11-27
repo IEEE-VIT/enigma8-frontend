@@ -1,6 +1,6 @@
 .golden-btn {
   background: linear-gradient(180deg, #ffd37c 17.7%, #d08123 65.33%);
-  cursor: pointer;
+  cursor: url(../../../assets/PointerCursor.svg), auto !important;
   margin-bottom: 5% !important;
   padding: 10px;
   border: 1px solid #d08123;

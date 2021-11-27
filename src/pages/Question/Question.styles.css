@@ -52,7 +52,7 @@
   background-color: transparent;
   background-repeat: no-repeat;
   border: none;
-  cursor: pointer;
+  cursor: url(../../assets/PointerCursor.svg), auto !important;
   overflow: hidden;
   outline: none;
   font-family: Mulish;
