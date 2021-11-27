@@ -56,10 +56,9 @@ const Story = () => {
                 // Setting ISFIRSTROOM
                 if (
                   Number(info[i].room.roomNo) === 1 &&
-                  info[i].room._id === currentroomNo
+                  info[i].room._id === redirectRoomId
                 ) {
-                  console.log(Number(info[i].room.roomNo));
-                  setIsFirstRoom(false);
+                  setIsFirstRoom(true);
                 }
               }
               if (redirectRoomId === info[i].room._id) {
@@ -104,6 +103,10 @@ const Story = () => {
 
   // Drop down - change rooms
   const handleChange = (room) => {
+    if (room === 1) {
+      setMetCharacters(false);
+      setIsFirstRoom(true);
+    }
     setCurrentroomNo(room);
   };
 
