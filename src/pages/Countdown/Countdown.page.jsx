@@ -6,7 +6,7 @@ import moment from "moment-timezone";
 import CountdownBg from "../../assets/countdown/countdown-page-bg.svg";
 import Torch from "../../assets/countdown/countdown-torch.svg";
 import { timer } from "../../api/timer";
-import OverlayModal from "../../components/CustomModal/OverlayModal/OverlayModal.component";
+// import OverlayModal from "../../components/CustomModal/OverlayModal/OverlayModal.component";
 import TimerComponent from "../../components/TimerCard/TimerCard.component";
 import GoldenBtn from "../../components/CustomButton/Golden/GoldenBtn.component";
 import Loader from "../../components/Loader/Loader.component";
@@ -84,6 +84,7 @@ const Countdown = () => {
   const [secondsRight, setSecondsRight] = useState(0);
   const [secondsLeft, setSecondsLeft] = useState(0);
   const [wrongSystemTime, setWrongSystemTime] = useState(false);
+  console.log(wrongSystemTime);
   const [fire, setFire] = useState(``);
   const [isLoading, setIsLoading] = useState(true);
   const getRemTime = () => {
@@ -175,11 +176,12 @@ const Countdown = () => {
           <div
             className={`countdown-timer-head ${classes.countdownTimeHeader}`}
           >
-            {is420
-              ? "The wait is over!"
-              : "The Ultimate Cryptic Hunt Begins In"}
+            Thank you for playing Enigma 8.0
           </div>
-
+          <div className="countdown-thank-you">
+            We have frozen the leaderboard. However looking at the enthusiasm we
+            will be keeping the questions open till November 30th 11.59 PM IST
+          </div>
           <div className="countdown-page-container">
             <div
               className={`${classes.countdownPageDays} countdown-time-container`}
@@ -268,14 +270,14 @@ const Countdown = () => {
       &nbsp;
       <Timer />
       <MockQuestion />
-      {wrongSystemTime ? (
+      {/* {wrongSystemTime ? (
         <OverlayModal
           header="Your clock is inaccurate"
           innerText="Adjust the system time and date and reload the page."
         />
       ) : (
         <> </>
-      )}
+      )} */}
       {/* <div className="fire-container fire-container-1"></div> */}
       {/* <div className="fire-container fire-container-2"></div> */}
       <div className="brazer">

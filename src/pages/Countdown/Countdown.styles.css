@@ -19,7 +19,11 @@
 .countdown-time-container {
   margin-right: 30px;
 }
-
+.countdown-thank-you {
+  color: #77c5c4;
+  font-size: 1.3rem;
+  padding: 2vh 25vw;
+}
 .brazer-container-left,
 .brazer-container-right {
   width: 25vw;
