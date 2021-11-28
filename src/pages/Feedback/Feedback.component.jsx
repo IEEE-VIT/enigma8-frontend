@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Feedback.styles.css";
 import { useHistory } from "react-router-dom";
 import {
@@ -10,7 +10,7 @@ import {
   Radio,
   FormHelperText,
 } from "@material-ui/core";
-import { SubmitFeedback } from "../../api/feedback";
+import { SubmitFeedback, feedbackfilled } from "../../api/feedback";
 import GoldenBtn from "../../components/CustomButton/Golden/GoldenBtn.component";
 
 const useStyles = makeStyles((theme) => ({
@@ -82,6 +82,15 @@ const useStyles = makeStyles((theme) => ({
 const Feedback = () => {
   const [VITIAN, setVITIAN] = useState(false);
   const history = useHistory();
+  useEffect(() => {
+    feedbackfilled()
+      .then(() => {
+        history.push({ pathname: "/" });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
   const [isSubmitLoading, setIsSubmitLoading] = useState(false);
   const [data, setData] = useState({
     isVITStudent: "",

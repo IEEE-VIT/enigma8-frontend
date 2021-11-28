@@ -22,3 +22,6 @@
 .postlogin-nav-item {
   padding: 0 2vw;
 }
+.postlogin-nav-item:hover {
+  transform: scale(1.05);
+}

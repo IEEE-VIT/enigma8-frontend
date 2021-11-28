@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import "./Toast.styles.css";
 
 const Toast = ({ title, body }) => {
   const hideNotif = title === "";
@@ -11,7 +12,7 @@ const Toast = ({ title, body }) => {
     }
     function Display() {
       return (
-        <div>
+        <div className="toast-component">
           <h4>{title}</h4>
           <p>{body}</p>
         </div>
