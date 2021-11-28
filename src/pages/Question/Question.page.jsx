@@ -462,6 +462,7 @@ const Question = () => {
           powerupIcon={powerupIcon}
           type="outlined"
           header="Powerup"
+          className="powerup-component"
         />
       </div>
       {isCloseAnswer ? <BlueOverlayModal innerText={closeAnswered()} /> : <></>}

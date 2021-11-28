@@ -31,7 +31,7 @@ const FAQ = () => {
             link={discordLink}
             img={DiscordLogo}
             linkClass=""
-            imgClass="faq-discord-logo"
+            imgClass="faq-discord-logo cursor-pointer"
           />
         </div>
       </div>

@@ -9,12 +9,13 @@ const useStyles = makeStyles((theme) => ({
   paper: {
     position: "absolute",
     width: "70%",
-    backgroundColor: "#000",
+    backgroundColor: "#0b0b0b",
     border: "2px solid #000",
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
     maxHeight: "80%",
     overflowY: "auto",
+    color: "#d08123",
   },
   instructions: {
     textAlign: "center",

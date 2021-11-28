@@ -52,7 +52,11 @@ const PreEnigmaNavbar = () => {
       <div className={classes.enigma}>
         <Link to="/">
           {" "}
-          <img src={EnigmaFont} alt="" className="enigma-nav-logo" />
+          <img
+            src={EnigmaFont}
+            alt=""
+            className="enigma-nav-logo cursor-pointer"
+          />
         </Link>
       </div>
       <div
@@ -62,7 +66,12 @@ const PreEnigmaNavbar = () => {
         role="button"
         tabIndex={0}
       >
-        <img style={{ height: 25.33 }} src={logoutIcon} alt="" />
+        <img
+          style={{ height: 25.33 }}
+          src={logoutIcon}
+          alt=""
+          className="cursor-pointer"
+        />
       </div>
     </nav>
   );

@@ -47,7 +47,7 @@ img {
 
 * {
   scroll-behavior: smooth;
-  color: #d08123;
+  /* color: #d08123; */
   cursor: url(./assets/Cursor.svg), auto;
 }
 *::-webkit-scrollbar {

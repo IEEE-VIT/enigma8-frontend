@@ -80,6 +80,9 @@
   align-items: center;
   /* flex-wrap: wrap; */
 }
+.sponsor-panel-item:hover {
+  transform: scale(1.03);
+}
 .footer-discord {
   padding: 0 2vw 1vh 0;
 }

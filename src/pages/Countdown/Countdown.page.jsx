@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
   countdownTimeHeader: {
     fontSize: "32px",
     fontWeight: "700",
-    margin: "60px 18px",
+    margin: "2.5vh 18px",
     textAlign: "center",
     fontFamily: "Cinzel Decorative",
     [theme.breakpoints.down("sm")]: {

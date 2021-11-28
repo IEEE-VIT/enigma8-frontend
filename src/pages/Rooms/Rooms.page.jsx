@@ -2,12 +2,15 @@ import React, { useState, useEffect } from "react";
 import Room from "../../components/Room/Room.component";
 import "./Rooms.styles.css";
 import { allRooms } from "../../api/room";
+import { feedbackfilled } from "../../api/feedback";
 import keys from "../../assets/profile/solved-key.svg";
 import Loader from "../../components/Loader/Loader.component";
+import Feedback from "../../assets/rooms/feedback.svg";
 
 const Rooms = () => {
   const [rooms, setRooms] = useState([]);
   const [stars, setStars] = useState(0);
+  const [filled, setFilled] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     allRooms()
@@ -30,7 +33,15 @@ const Rooms = () => {
         setIsLoading(false);
       });
   }, []);
-
+  useEffect(() => {
+    feedbackfilled()
+      .then((res) => {
+        setFilled(res.data.data.feedbackfilled);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
   const roomsListUpper = rooms.map((room, index) => {
     if (index < 4) {
       return (
@@ -53,6 +64,18 @@ const Rooms = () => {
   }
   return (
     <div className="rooms-page">
+      {filled ? (
+        <a href="/feedback">
+          <img
+            src={Feedback}
+            alt=""
+            className="rooms-feedback-img cursor-pointer"
+          />
+        </a>
+      ) : (
+        ""
+      )}
+
       <div className="rooms-status">
         <div className="room-status-text">Next room unlocks in {stars}</div>
         <img src={keys} alt="" />

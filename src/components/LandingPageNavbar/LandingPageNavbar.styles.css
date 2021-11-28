@@ -18,6 +18,9 @@
 .landingpage-nav-item {
   color: #d08123;
 }
+.landingpage-nav-item:hover {
+  transform: scale(1.07);
+}
 @supports (background-clip: text) and (-webkit-text-fill-color: transparent) {
   .landingpage-nav-item {
     background-image: linear-gradient(to bottom, #fccb69 4%, #d17a0f 100%);

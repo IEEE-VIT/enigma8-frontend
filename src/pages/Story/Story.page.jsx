@@ -229,7 +229,6 @@ const Story = () => {
     return ChatBoxContainer();
   };
   const decideClass = () => {
-    console.log(isFirstRoom, metCharacters);
     if (preGame) return 1;
     if (isFirstRoom && !metCharacters) {
       return 2;
