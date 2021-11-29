@@ -1,4 +1,6 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
+import { Cookies } from "react-cookie";
 import "./DownloadApps.styles.css";
 
 import EnimgaBrand from "../../assets/mobile/enigma.svg";
@@ -8,9 +10,19 @@ import apple from "../../assets/mobile/appstore.svg";
 import LinkImage from "../../components/LinkImage/LinkImage.component";
 
 const DownloadApps = () => {
+  const cookies = new Cookies();
+  const history = useHistory();
+  const logout = () => {
+    cookies.remove("token");
+    cookies.remove("newUser");
+    window.location.reload();
+  };
+  const handleClick = () => {
+    return window.innerWidth < 700 ? logout() : history.push({ pathname: "/" });
+  };
   return (
     <div className="home-mobile">
-      <a href="/">
+      <a href="/" onClick={handleClick}>
         <img src={EnimgaBrand} alt="" className="mobile-img" />
       </a>
 

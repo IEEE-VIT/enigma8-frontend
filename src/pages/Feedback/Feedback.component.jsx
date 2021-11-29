@@ -84,8 +84,8 @@ const Feedback = () => {
   const history = useHistory();
   useEffect(() => {
     feedbackfilled()
-      .then(() => {
-        history.push({ pathname: "/" });
+      .then((res) => {
+        if (res.data.data.data.feedbackFilled) history.push({ pathname: "/" });
       })
       .catch((err) => {
         console.log(err);
@@ -129,6 +129,7 @@ const Feedback = () => {
       temp.regNo = "";
     }
     setValidateData({ ...temp });
+    return Object.values(temp).every((x) => x === "");
   };
 
   const handleOnSubmit = () => {
@@ -136,22 +137,24 @@ const Feedback = () => {
     setIsSubmitLoading(true);
     const vitStatus = data.isVITStudent === "yes";
     const gameStatus = Number(data.gameRating);
-    SubmitFeedback(
-      vitStatus,
-      gameStatus,
-      data.userExperience,
-      data.featureIdeas,
-      data.regNo,
-      data.vitEmail
-    )
-      .then(() => {
-        setIsSubmitLoading(false);
-        history.push({ pathname: "/rooms" });
-      })
-      .catch((err) => {
-        console.log(err);
-        setIsSubmitLoading(false);
-      });
+    if (validate())
+      SubmitFeedback(
+        vitStatus,
+        gameStatus,
+        data.userExperience,
+        data.featureIdeas,
+        data.regNo,
+        data.vitEmail
+      )
+        .then(() => {
+          setIsSubmitLoading(false);
+          history.push({ pathname: "/rooms" });
+        })
+        .catch((err) => {
+          console.log(err);
+          setIsSubmitLoading(false);
+        });
+    setIsSubmitLoading(false);
   };
 
   const onEnter = (e) => {

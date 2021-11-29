@@ -56,3 +56,6 @@
   right: 0;
   top: calc(1 * (60vh));
 }
+.rooms-feedback-img:hover {
+  transform: scale(1.05);
+}
