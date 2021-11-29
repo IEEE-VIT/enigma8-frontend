@@ -91,21 +91,18 @@
   padding: 1% 4%;
   color: #ffd37c;
 }
-.story-character-sender {
-  color: #d08123;
-}
-
+.story-character-sender,
 .story-character-message-2 {
   color: #ffd37c;
+  font-weight: bold;
 }
-/* @supports (background-clip: text) and (-webkit-text-fill-color: transparent) {
-  .story-character-sender,
-  .story-character-message-2 {
+@supports (background-clip: text) and (-webkit-text-fill-color: transparent) {
+  .story-character-sender {
     background-image: linear-gradient(to bottom, #fccb69 4%, #d17a0f 100%);
     background-clip: text;
     -webkit-text-fill-color: transparent;
   }
-} */
+}
 
 .story-character-message-1 {
   color: #0fa3b1 !important;

@@ -41,17 +41,21 @@ const PostloginNavbar = () => {
     <nav className={classes.nav}>
       <div className={classes.enigma}>
         <Link to="/rooms">
-          <img src={EnigmaFont} alt="" className="enigma-nav-logo" />
+          <img
+            src={EnigmaFont}
+            alt=""
+            className="enigma-nav-logo cursor-pointer"
+          />
         </Link>
       </div>
       <div className="postlogin-nav">
         <Link to="/rooms">
-          <div className="postlogin-nav-item postlogin-nav-item-text">
+          <div className="postlogin-nav-item postlogin-nav-item-text cursor-pointer">
             Rooms
           </div>
         </Link>
         <Link to="/story">
-          <div className="postlogin-nav-item postlogin-nav-item-text">
+          <div className="postlogin-nav-item postlogin-nav-item-text cursor-pointer">
             Story
           </div>
         </Link>
@@ -78,12 +82,12 @@ const PostloginNavbar = () => {
             <img
               src={InstructionsLogo}
               alt=""
-              className="postlogin-nav-item postlogin-nav-item-instructions"
+              className="postlogin-nav-item postlogin-nav-item-instructions cursor-pointer"
             />
           </button>
         </div>
         <Link to="/leaderboard">
-          <div className="postlogin-nav-item postlogin-nav-item-text">
+          <div className="postlogin-nav-item postlogin-nav-item-text cursor-pointer">
             Leaderboard
           </div>
         </Link>

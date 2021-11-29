@@ -24,3 +24,12 @@
 .text {
   margin-bottom: 5vh;
 }
+.download-app {
+  margin: 1vh 0;
+}
+@media (max-width: 700px) {
+  .download-app {
+    width: 40vw;
+    margin: 1vh 0;
+  }
+}

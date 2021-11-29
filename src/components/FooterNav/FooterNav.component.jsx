@@ -25,37 +25,37 @@ const FooterNav = () => {
           link={linkedinLink}
           img={LinkedInIcon}
           linkClass="footer-social-link"
-          imgClass="footer-social-icon"
+          imgClass="sidenavbar-icon cursor-pointer"
         />
         <LinkImage
           link={twitterLink}
           img={TwitterIcon}
           linkClass="footer-social-link"
-          imgClass="footer-social-icon"
+          imgClass="sidenavbar-icon cursor-pointer"
         />
         <LinkImage
           link={facebookLink}
           img={FacebookIcon}
           linkClass="footer-social-link"
-          imgClass="footer-social-icon"
+          imgClass="sidenavbar-icon cursor-pointer"
         />
         <LinkImage
           link={instagramLink}
           img={InstagramIcon}
           linkClass="footer-social-link"
-          imgClass="footer-social-icon"
+          imgClass="sidenavbar-icon cursor-pointer"
         />
         <LinkImage
           link={githubLink}
           img={GitHubIcon}
           linkClass="footer-social-link"
-          imgClass="footer-social-icon"
+          imgClass="sidenavbar-icon cursor-pointer"
         />
         <LinkImage
           link={youtubeLink}
           img={YouTubeIcon}
           linkClass="footer-social-link"
-          imgClass="footer-social-icon"
+          imgClass="sidenavbar-icon cursor-pointer"
         />
       </div>
     </div>

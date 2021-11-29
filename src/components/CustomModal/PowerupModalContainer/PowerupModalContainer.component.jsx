@@ -22,7 +22,7 @@ const PowerupModalContainer = ({
     left: "50%",
     transform: "translate(-50%, -50%)",
     width: "60%",
-    bgcolor: "#121212",
+    bgcolor: "#0b0b0b",
     border: "2.5px solid transparent",
     // borderImage: "linear-gradient(to right, #0FA3B1, #037EC3)",
     // borderImageSlice: 1,
@@ -53,12 +53,12 @@ const PowerupModalContainer = ({
         >
           <img
             src={powerupIcon}
-            className="cursor-pointer"
+            className="cursor-pointer powerup-icon-img"
             style={{ width: "99px" }}
             alt=""
           />
           <div
-            className="cursor-pointer"
+            className="cursor-pointer powerup-icon-font"
             style={{
               marginTop: "4px",
               fontSize: "18px",

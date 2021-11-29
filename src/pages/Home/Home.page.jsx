@@ -94,19 +94,19 @@ const HomePage = () => {
             img={SponsorsLIST.HomeBlockchainPartnerLogo.logo}
             link={SponsorsLIST.HomeBlockchainPartnerLogo.link}
             linkClass="footer-social-link"
-            imgClass="sponsor-panel-item sponsor-panel-item-1"
+            imgClass="sponsor-panel-item sponsor-panel-item-1 cursor-pointer"
           />
           <LinkImage
             img={SponsorsLIST.HomeTitleSponsor.logo}
             link={SponsorsLIST.HomeTitleSponsor.link}
             linkClass="footer-social-link"
-            imgClass="sponsor-panel-item sponsor-panel-item-2"
+            imgClass="sponsor-panel-item sponsor-panel-item-2 cursor-pointer"
           />
           <LinkImage
             link={SponsorsLIST.HomePoweredBySponsor.link}
             img={SponsorsLIST.HomePoweredBySponsor.logo}
             linkClass="footer-social-link"
-            imgClass="sponsor-panel-item sponsor-panel-item-3"
+            imgClass="sponsor-panel-item sponsor-panel-item-3 cursor-pointer"
           />
         </div>
         <LinkImage

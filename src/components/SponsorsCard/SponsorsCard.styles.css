@@ -68,7 +68,8 @@
 .sponsorcard-paper-0 {
   display: none;
 }
-.sponsorcard-img {
+.sponsorcard-img:hover {
+  transform: scale(1.05);
 }
 /*  title sponsor */
 .sponsorcard-img-1 {

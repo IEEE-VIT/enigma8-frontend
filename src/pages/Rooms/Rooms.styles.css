@@ -51,3 +51,8 @@
 .pillar-bottom {
   top: 81.5%;
 }
+.rooms-feedback-img {
+  position: fixed;
+  right: 0;
+  top: calc(1 * (60vh));
+}

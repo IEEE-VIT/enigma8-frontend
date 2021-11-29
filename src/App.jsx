@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Switch, Route, useHistory } from "react-router-dom";
 import "./App.css";
+import { Cookies } from "react-cookie";
 
 import { ThemeProvider } from "@material-ui/core";
 import { createTheme } from "@material-ui/core/styles";
@@ -19,7 +20,7 @@ import FAQ from "./pages/FAQ/faq.page";
 import Sponsors from "./pages/Sponsors/Sponsors.page";
 import Story from "./pages/Story/Story.page";
 import Welcome from "./pages/Welcome/Welcome.component";
-
+import Feedback from "./pages/Feedback/Feedback.component";
 import Countdown from "./pages/Countdown/Countdown.page";
 import DemoQuestion from "./pages/DemoQuestion/DemoQuestion.page";
 
@@ -32,7 +33,7 @@ import PushNotifs from "./pages/PushNotifs/PushNotifs.page";
 
 import SuccessfulAuth from "./components/SuccessfulAuth.component";
 
-// import NotFound from "./pages/NotFound/NotFound.page";
+import NotFound from "./pages/NotFound/NotFound.page";
 
 const theme = createTheme({
   palette: {
@@ -54,13 +55,18 @@ const theme = createTheme({
 });
 
 function App() {
+  const cookies = new Cookies();
+  const token = cookies.get("token");
   const history = useHistory();
   useEffect(() => {
     if (window.innerWidth < 700) {
-      history.push("/download");
-    } else {
-      history.push("/countdown");
+      if (token === "undefined" || token == null || token === "") {
+        console.log("Until next time, adios from Enigma!");
+      } else {
+        history.push({ pathname: "/download" });
+      }
     }
+    return true;
   }, []);
   return (
     <div className="App">
@@ -147,12 +153,14 @@ function App() {
             path="/googlesuccessfulAuth"
             component={SuccessfulAuth}
           />
+          <Route exact path="/feedback" component={Feedback} />
           {/* <ProtectedRoute
             // redirect="/"
             component={() => (
               <Container navbar={PreEnigmaNavbar} page={Countdown} />
             )}
           /> */}
+          <Route path="*" component={NotFound} />
         </Switch>
         <PushNotifs />
       </ThemeProvider>

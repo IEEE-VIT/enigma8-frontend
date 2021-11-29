@@ -12,6 +12,9 @@
 .room-card {
   align-items: center;
 }
+.room-card:hover {
+  transform: scale(1.005);
+}
 
 .question-image {
   -moz-user-select: none;

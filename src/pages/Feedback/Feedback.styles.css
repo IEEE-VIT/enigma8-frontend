@@ -1,0 +1,84 @@
+.feedback-container {
+  background-image: url("../../assets/feedback/bg.svg");
+  background-position: center;
+  background-size: cover;
+  background-size: 100%;
+  padding: 0% 10%;
+  font-family: Mulish;
+  text-align: center;
+}
+.feedback-heading {
+  text-align: center;
+}
+.feedback-rows-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.feedback-row {
+  padding: 0.2vh 0;
+}
+.feedback-container .MuiOutlinedInput-input {
+  padding: 2vh 1vw;
+}
+.feedback-container .makeStyles-root-1 .MuiInputBase-input {
+  color: #ffd37c !important;
+}
+.feedback-row-2 {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+}
+.feedback-row-2 > div {
+  text-align: left;
+  width: 100%;
+}
+.makeStyles-root-1 .MuiSvgIcon-root {
+  color: #0fa3b1 !important;
+}
+.feedback-container .MuiFormGroup-root {
+  justify-content: space-evenly;
+}
+.feedback-question {
+  color: #ffd37c;
+  padding: 2vh 0;
+}
+.feedback-radiogroup .MuiIconButton-label,
+.feedback-radiogroup .MuiTypography-root {
+  color: #0fa3b1 !important;
+}
+.feedback-radiogroup {
+  align-items: center;
+}
+.feedback-radiogroup-item {
+  color: #0fa3b1 !important;
+}
+.golden-btn {
+  color: #d08123;
+  cursor: url(../../assets/PointerCursor.svg), auto !important;
+  margin-bottom: 5% !important;
+  padding: 10px;
+  border: 1px solid #d08123;
+}
+
+/* .feedback-text-field {
+  width: 50% !important;
+} */
+.feedback-container .MuiFormControl-root {
+  display: block !important;
+  text-align: left;
+}
+
+@media (max-width: 800px) {
+  .feedback-row-2 {
+    flex-direction: column;
+  }
+  /* .text-field {
+    width: 85% !important;
+  } */
+  .golden-btn {
+    color: #d08123;
+    margin-bottom: 10% !important;
+  }
+}

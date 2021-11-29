@@ -49,13 +49,13 @@ const PreloginNavbar = () => {
   const ExtendedNav = () => (
     <div className="prelogin-nav-extended">
       <Link to="/">
-        <div className="prelogin-nav-item">Home</div>
+        <div className="prelogin-nav-item cursor-pointer">Home</div>
       </Link>
       <Link to="/sponsors">
-        <div className="prelogin-nav-item">Sponsors</div>
+        <div className="prelogin-nav-item cursor-pointer">Sponsors</div>
       </Link>
       <Link to="/faq">
-        <div className="prelogin-nav-item">FAQs</div>
+        <div className="prelogin-nav-item cursor-pointer">FAQs</div>
       </Link>
     </div>
   );
@@ -63,7 +63,11 @@ const PreloginNavbar = () => {
     <nav className={classes.nav}>
       <div className={classes.enigma}>
         <Link to="/">
-          <img src={EnigmaFont} alt="" className="enigma-nav-logo" />
+          <img
+            src={EnigmaFont}
+            alt=""
+            className="enigma-nav-logo cursor-pointer"
+          />
         </Link>
       </div>
       <div className="prelogin-nav">

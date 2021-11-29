@@ -16,12 +16,34 @@
 .user-status-details-text-bold {
   font-family: Mulish;
   font-weight: 700;
-  font-size: 16.71px;
+  font-size: 1.4rem;
 }
 .user-status-details-text {
   font-family: Mulish;
   font-weight: 700;
-  font-size: 12.53px;
+  font-size: 1rem;
+}
+.leaderboard-you-row {
+  /* box-sizing: content-box; */
+  border: 1.3px solid #d08123;
+  border-left: 0;
+  border-right: 0;
+}
+.user-status-details-text-bold,
+.user-status-details-text,
+.leaderboard-title,
+.leaderboard-you {
+  color: #d08123;
+}
+@supports (background-clip: text) and (-webkit-text-fill-color: transparent) {
+  .user-status-details-text-bold,
+  .user-status-details-text,
+  .leaderboard-title,
+  .leaderboard-you {
+    background-image: linear-gradient(to bottom, #fccb69 4%, #d17a0f 100%);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 }
 
 .MuiPaginationItem-ellipsis {

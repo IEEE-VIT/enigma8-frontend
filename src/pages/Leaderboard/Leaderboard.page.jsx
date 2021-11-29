@@ -25,6 +25,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "black",
     "& .MuiTableCell-root": {
       border: "1px solid #363636",
+      borderBottom: "0",
       borderLeftColor: "#0FA3B1",
       borderRightColor: "#0FA3B1",
     },
@@ -36,12 +37,13 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   tableCell: {
-    color: "#d08123",
+    color: "#FFD37C",
   },
   tableCellUser: {
-    backgroundColor: "#D08123",
-    color: "#000000",
+    backgroundColor: "#000000",
+    // color: "#000000",
     fontWeight: "500",
+    fontSize: "1.3rem",
   },
   container: {
     width: "1000px",
@@ -324,7 +326,9 @@ const Leaderboard = () => {
   return (
     <div className="leaderboard-container">
       <Grid container className={classes.leaderboard} justifyContent="center">
-        <div style={{ marginTop: "48px" }}>Leaderboard</div>
+        <div style={{ marginTop: "48px" }} className="leaderboard-title">
+          Leaderboard
+        </div>
       </Grid>
       <br />
       <Grid
@@ -428,7 +432,7 @@ const Leaderboard = () => {
           style={{
             margin: "24px",
             width: "1000px",
-            borderBottom: "1px solid #0FA3B1",
+            // borderBottom: "1px solid #0FA3B1",
           }}
           component={Paper}
         >
@@ -482,17 +486,29 @@ const Leaderboard = () => {
                   </TableCell>
                 </TableRow>
               ))}
-              <TableRow>
-                <TableCell className={classes.tableCellUser} align="center">
+              <TableRow className="leaderboard-you-row">
+                <TableCell
+                  className={`leaderboard-you ${classes.tableCellUser}`}
+                  align="center"
+                >
                   {rank}
                 </TableCell>
-                <TableCell className={classes.tableCellUser} align="center">
+                <TableCell
+                  className={`leaderboard-you ${classes.tableCellUser}`}
+                  align="center"
+                >
                   {username} (You)
                 </TableCell>
-                <TableCell className={classes.tableCellUser} align="center">
+                <TableCell
+                  className={`leaderboard-you ${classes.tableCellUser}`}
+                  align="center"
+                >
                   {score}
                 </TableCell>
-                <TableCell className={classes.tableCellUser} align="center">
+                <TableCell
+                  className={`leaderboard-you ${classes.tableCellUser}`}
+                  align="center"
+                >
                   {questionsSolved}
                 </TableCell>
               </TableRow>

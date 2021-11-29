@@ -21,7 +21,7 @@ const SponsorsCard = ({ img, title, link, type }) => {
           link={link}
           img={img}
           linkClass=""
-          imgClass={`sponsorcard-img sponsorcard-img-${type}`}
+          imgClass={`sponsorcard-img sponsorcard-img-${type} cursor-pointer`}
         />
       </div>
     </div>

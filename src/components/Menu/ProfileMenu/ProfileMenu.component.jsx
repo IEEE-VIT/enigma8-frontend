@@ -57,7 +57,7 @@ const ProfileMenu = () => {
         <img
           src={ProfileLogo}
           alt=""
-          className="prelogin-nav-item prelogin-nav-item-profile"
+          className="prelogin-nav-item prelogin-nav-item-profile cursor-pointer"
         />
       </Button>
       <Menu

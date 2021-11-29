@@ -2,7 +2,7 @@
   border-radius: 10px 0 0 10px;
   position: absolute;
   right: 0;
-  bottom: calc(-1 * (10vh));
+  bottom: calc(-1 * (6vh));
   padding: 1vh 10px;
   display: flex;
   flex-direction: column;
@@ -17,6 +17,9 @@
 }
 .navbar-social img {
   width: 70%;
+}
+.sidenavbar-icon:hover {
+  transform: scale(1.2);
 }
 @media (max-width: 950px) and (min-width: 801px) {
   .navbar-social img {

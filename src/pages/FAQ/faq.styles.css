@@ -59,7 +59,9 @@
 .faq-discord-container img {
   width: 25%;
 }
-
+.faq-discord-logo:hover {
+  transform: scale(1.07);
+}
 /* Extra small devices (phones, 600px and down) */
 @media (max-width: 600px) {
   .faq-container {
