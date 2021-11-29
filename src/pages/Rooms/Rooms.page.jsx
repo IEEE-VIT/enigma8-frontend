@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { Cookies } from "react-cookie";
+import { useHistory } from "react-router-dom";
 import Room from "../../components/Room/Room.component";
 import "./Rooms.styles.css";
 import { allRooms } from "../../api/room";
@@ -9,9 +11,22 @@ import Feedback from "../../assets/rooms/feedback.svg";
 
 const Rooms = () => {
   const [rooms, setRooms] = useState([]);
+  const cookies = new Cookies();
+  const token = cookies.get("token");
+  const history = useHistory();
   const [stars, setStars] = useState(0);
   const [filled, setFilled] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  useEffect(() => {
+    if (window.innerWidth < 700) {
+      if (token === "undefined" || token == null || token === "") {
+        console.log("Until next time, adios from Enigma!");
+      } else {
+        history.push({ pathname: "/download" });
+      }
+    }
+    return true;
+  }, []);
   useEffect(() => {
     allRooms()
       .then((res) => {
@@ -36,7 +51,7 @@ const Rooms = () => {
   useEffect(() => {
     feedbackfilled()
       .then((res) => {
-        setFilled(res.data.data.feedbackfilled);
+        setFilled(res.data.data.data.feedbackFilled);
       })
       .catch((err) => {
         console.log(err);
@@ -64,7 +79,7 @@ const Rooms = () => {
   }
   return (
     <div className="rooms-page">
-      {filled ? (
+      {!filled ? (
         <a href="/feedback">
           <img
             src={Feedback}
