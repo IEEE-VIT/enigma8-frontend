@@ -10,12 +10,14 @@
   position: absolute;
   top: 10%;
   bottom: 50%;
+  z-index: 10;
 }
 .not-found-page-title {
   width: 50vh;
   position: absolute;
   top: 30%;
   bottom: 50%;
+  z-index: 11;
 }
 .not-fount-btn {
   cursor: url(../../assets/PointerCursor.svg), auto !important;
@@ -35,6 +37,7 @@
   position: absolute;
   top: 60%;
   bottom: 50%;
+  z-index: 11;
 }
 .not-fount-btn:hover {
   background-color: rgb(20, 20, 20);
