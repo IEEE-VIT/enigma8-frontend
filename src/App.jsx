@@ -153,13 +153,12 @@ function App() {
             path="/googlesuccessfulAuth"
             component={SuccessfulAuth}
           />
-          <Route exact path="/feedback" component={Feedback} />
-          {/* <ProtectedRoute
-            // redirect="/"
-            component={() => (
-              <Container navbar={PreEnigmaNavbar} page={Countdown} />
-            )}
-          /> */}
+          <TokenProtectedRoute
+            redirect="/"
+            exact
+            path="/feedback"
+            component={Feedback}
+          />
           <Route path="*" component={NotFound} />
         </Switch>
         <PushNotifs />

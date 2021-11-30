@@ -43,6 +43,7 @@
 .feedback-question {
   color: #ffd37c;
   padding: 2vh 0;
+  text-align: left;
 }
 .feedback-radiogroup .MuiIconButton-label,
 .feedback-radiogroup .MuiTypography-root {

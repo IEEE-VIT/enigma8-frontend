@@ -265,8 +265,27 @@ const Leaderboard = () => {
       });
   }, []);
   useEffect(updateRemTime, [remTime]);
-  const searchUser = async () => {
-    if (search !== "") {
+  const searchUser = async (firstPage) => {
+    if (firstPage === 1 && search !== "") {
+      await searchLeaderboard(firstPage, search, perPage)
+        .then((res) => {
+          setLeaderboard(res.data.data.leaderboard);
+          setCount(res.data.data.totalPage);
+          setPage(1);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } else if (firstPage === 0) {
+      getLeaderboard(1, perPage)
+        .then((res) => {
+          setLeaderboard(res.data.data.leaderboard);
+          setCount(res.data.data.totalPage);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } else if (search !== "") {
       await searchLeaderboard(page, search, perPage)
         .then((res) => {
           setLeaderboard(res.data.data.leaderboard);
@@ -291,12 +310,12 @@ const Leaderboard = () => {
     const { value } = e.target;
     await setSearch(value.trim());
     if (value.trim() === "") {
-      searchUser();
+      searchUser(0);
     }
   };
   const onEnter = (e) => {
     if (e.key === "Enter") {
-      searchUser();
+      searchUser(1);
     }
   };
 
