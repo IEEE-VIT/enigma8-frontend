@@ -214,13 +214,13 @@ const Feedback = () => {
             <FormControlLabel
               value="true"
               control={<Radio />}
-              label="yes"
+              label="Yes"
               className="feedback-radiogroup-item"
             />
             <FormControlLabel
               value="false"
               control={<Radio />}
-              label="no"
+              label="No"
               className="feedback-radiogroup-item"
             />
             <FormHelperText>{validateData.isVITStudent}</FormHelperText>
@@ -229,7 +229,7 @@ const Feedback = () => {
         {VITIAN ? (
           <div className="feedback-row feedback-row-2">
             {QuestionContainer(
-              "Enter your Registeration number",
+              "Enter your Registration number",
               "regNo",
               validateData.regNo
             )}
@@ -277,7 +277,7 @@ const Feedback = () => {
         </div>
         <div className="feedback-row feedback-row-4">
           {QuestionContainer(
-            "Q4. Anything you would like to add for the upcoming enigma?",
+            "Q4. Anything you would like to add for the upcoming Enigma?",
             "featureIdeas",
             validateData.featureIdeas
           )}

@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 import parse from "html-react-parser";
 import { useHistory } from "react-router-dom";
 import { makeStyles } from "@material-ui/core";
-import moment from "moment-timezone";
+// import moment from "moment-timezone";
 import CountdownBg from "../../assets/countdown/countdown-page-bg.svg";
 import Torch from "../../assets/countdown/countdown-torch.svg";
 import { timer } from "../../api/timer";
+import { feedbackfilled } from "../../api/feedback";
+import Feedback from "../../assets/rooms/feedback.svg";
 // import OverlayModal from "../../components/CustomModal/OverlayModal/OverlayModal.component";
 import TimerComponent from "../../components/TimerCard/TimerCard.component";
 import GoldenBtn from "../../components/CustomButton/Golden/GoldenBtn.component";
@@ -56,8 +58,6 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   brazier: {
-    // position: "absolute",
-    // bottom: "0",
     height: "55%",
     [theme.breakpoints.down("sm")]: {
       display: "none",
@@ -83,30 +83,34 @@ const Countdown = () => {
   const [minutesLeft, setMinutesLeft] = useState(0);
   const [secondsRight, setSecondsRight] = useState(0);
   const [secondsLeft, setSecondsLeft] = useState(0);
-  const [wrongSystemTime, setWrongSystemTime] = useState(false);
-  console.log(wrongSystemTime);
+  // const [wrongSystemTime, setWrongSystemTime] = useState(false);
+  const [filled, setFilled] = useState(false);
   const [fire, setFire] = useState(``);
   const [isLoading, setIsLoading] = useState(true);
+  const [enigmaOver, setEnigmaOver] = useState(false);
   const getRemTime = () => {
     timer()
       .then(async (res) => {
-        const eventStartTime = moment.tz(
-          Date.parse(process.env.REACT_APP_ENIGMA_START_TIME),
-          "Asia/Calcutta"
-        );
-        const currentTime = moment.tz("Asia/Calcutta");
-        if (
-          Math.floor(
-            moment.duration(eventStartTime.diff(currentTime))._milliseconds /
-              100000
-          ) -
-            res.data.data.date >
-          0
-        ) {
-          setWrongSystemTime(true);
-        }
+        // const eventStartTime = moment.tz(
+        //   Date.parse(process.env.REACT_APP_ENIGMA_START_TIME),
+        //   "Asia/Calcutta"
+        // );
+        // const currentTime = moment.tz("Asia/Calcutta");
+        // if (
+        //   Math.floor(
+        //     moment.duration(eventStartTime.diff(currentTime))._milliseconds /
+        //       100000
+        //   ) -
+        //     res.data.data.date >
+        //   0
+        // ) {
+        //   setWrongSystemTime(true);
+        // }
         setRemTime(res.data.data.date);
         setIs420(res.data.data.enigmaStarted);
+        if (res.data.data.date < 0) {
+          setEnigmaOver(true);
+        }
       })
       .then(() => {
         setIsLoading(false);
@@ -159,15 +163,34 @@ const Countdown = () => {
   useEffect(getRemTime, []);
   useEffect(Ignite, []);
   useEffect(updateRemTime, [remTime]);
+  useEffect(() => {
+    feedbackfilled()
+      .then((res) => {
+        setFilled(res.data.data.data.feedbackFilled);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
   const handleonClick = () => {
     history.push("/rooms");
     setIs420(false);
   };
-  const ContinueButton = (
-    <GoldenBtn marginTop="40px" width="148px" triggerFunction={handleonClick}>
-      Play Enigma
-    </GoldenBtn>
-  );
+  const ContinueButton = () => {
+    <div>
+      {enigmaOver ? (
+        <> </>
+      ) : (
+        <GoldenBtn
+          marginTop="40px"
+          width="148px"
+          triggerFunction={handleonClick}
+        >
+          Play Enigma
+        </GoldenBtn>
+      )}
+    </div>;
+  };
 
   const Timer = () => {
     return (
@@ -178,64 +201,71 @@ const Countdown = () => {
           >
             Thank you for playing Enigma 8.0
           </div>
-          <div className="countdown-thank-you">
-            We have frozen the leaderboard. However looking at the enthusiasm we
-            will be keeping the questions open till November 30th 11.59 PM IST
-          </div>
-          <div className="countdown-page-container">
-            <div
-              className={`${classes.countdownPageDays} countdown-time-container`}
-            >
-              <div className={`${classes.countdownTime}`}>
-                <TimerComponent size="large" number={daysLeft} />
-                <TimerComponent size="large" number={daysRight} />
+          {enigmaOver ? (
+            <div className="countdown-thank-you">See you next year!</div>
+          ) : (
+            <div>
+              <div className="countdown-thank-you">
+                We have frozen the leaderboard. <br /> However looking at the
+                enthusiasm we will be keeping the questions open till November
+                30th 8.00 PM IST
               </div>
-              <div
-                className={`countdown-page-days-text ${classes.countdownTimeText}`}
-              >
-                Days
+              <div className="countdown-page-container">
+                <div
+                  className={`${classes.countdownPageDays} countdown-time-container`}
+                >
+                  <div className={`${classes.countdownTime}`}>
+                    <TimerComponent size="large" number={daysLeft} />
+                    <TimerComponent size="large" number={daysRight} />
+                  </div>
+                  <div
+                    className={`countdown-page-days-text ${classes.countdownTimeText}`}
+                  >
+                    Days
+                  </div>
+                </div>
+                <div
+                  className={`${classes.countdownPageHours} countdown-time-container`}
+                >
+                  <div className={`${classes.countdownTime}`}>
+                    <TimerComponent size="large" number={hoursLeft} />
+                    <TimerComponent size="large" number={hoursRight} />
+                  </div>
+                  <div
+                    className={`countdown-page-days-text ${classes.countdownTimeText}`}
+                  >
+                    Hours
+                  </div>
+                </div>
+                <div
+                  className={`${classes.countdownPageMinutes} countdown-time-container`}
+                >
+                  <div className={`${classes.countdownTime}`}>
+                    <TimerComponent size="large" number={minutesLeft} />
+                    <TimerComponent size="large" number={minutesRight} />
+                  </div>
+                  <div
+                    className={`countdown-page-days-text ${classes.countdownTimeText}`}
+                  >
+                    Minutes
+                  </div>
+                </div>
+                <div
+                  className={`${classes.countdownPageSeconds} countdown-time-container`}
+                >
+                  <div className={`${classes.countdownTime}`}>
+                    <TimerComponent size="large" number={secondsLeft} />
+                    <TimerComponent size="large" number={secondsRight} />
+                  </div>
+                  <div
+                    className={`countdown-page-days-text ${classes.countdownTimeText}`}
+                  >
+                    Seconds
+                  </div>
+                </div>
               </div>
             </div>
-            <div
-              className={`${classes.countdownPageHours} countdown-time-container`}
-            >
-              <div className={`${classes.countdownTime}`}>
-                <TimerComponent size="large" number={hoursLeft} />
-                <TimerComponent size="large" number={hoursRight} />
-              </div>
-              <div
-                className={`countdown-page-days-text ${classes.countdownTimeText}`}
-              >
-                Hours
-              </div>
-            </div>
-            <div
-              className={`${classes.countdownPageMinutes} countdown-time-container`}
-            >
-              <div className={`${classes.countdownTime}`}>
-                <TimerComponent size="large" number={minutesLeft} />
-                <TimerComponent size="large" number={minutesRight} />
-              </div>
-              <div
-                className={`countdown-page-days-text ${classes.countdownTimeText}`}
-              >
-                Minutes
-              </div>
-            </div>
-            <div
-              className={`${classes.countdownPageSeconds} countdown-time-container`}
-            >
-              <div className={`${classes.countdownTime}`}>
-                <TimerComponent size="large" number={secondsLeft} />
-                <TimerComponent size="large" number={secondsRight} />
-              </div>
-              <div
-                className={`countdown-page-days-text ${classes.countdownTimeText}`}
-              >
-                Seconds
-              </div>
-            </div>
-          </div>
+          )}
         </div>
         <div> {is420 ? ContinueButton : ""} </div>
       </div>
@@ -246,10 +276,8 @@ const Countdown = () => {
     return (
       <div>
         <div className={`${classes.mockQuestionText}`}>
-          {is420 ? "" : "Can't wait? Here's a mock question for you."}
-          {is420 ? (
-            <> </>
-          ) : (
+          {!is420 ? "Can't wait? Here's a mock question for you." : ""}
+          {!is420 ? (
             <GoldenBtn
               marginTop="40px"
               width="148px"
@@ -257,6 +285,8 @@ const Countdown = () => {
             >
               Click Here
             </GoldenBtn>
+          ) : (
+            <> </>
           )}
         </div>
       </div>
@@ -267,6 +297,17 @@ const Countdown = () => {
   }
   return (
     <div className={`countdown-page ${classes.root}`}>
+      {!filled && !enigmaOver ? (
+        <a href="/feedback">
+          <img
+            src={Feedback}
+            alt=""
+            className="rooms-feedback-img cursor-pointer"
+          />
+        </a>
+      ) : (
+        ""
+      )}
       &nbsp;
       <Timer />
       <MockQuestion />
@@ -278,8 +319,6 @@ const Countdown = () => {
       ) : (
         <> </>
       )} */}
-      {/* <div className="fire-container fire-container-1"></div> */}
-      {/* <div className="fire-container fire-container-2"></div> */}
       <div className="brazer">
         <div className="brazer-container-left">
           <div className="fire-container fire-container-1">
