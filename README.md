@@ -48,6 +48,6 @@ To start contributing, check out [`CONTRIBUTING.md`](https://github.com/IEEE-VIT
 
 ## License
 
-This project is licensed under [MIT](https://github.com/IEEE-VIT/palette-21-backend/blob/master/LICENSE).
+This project is licensed under [MIT](https://github.com/IEEE-VIT/enigma8-frontend/blob/master/LICENSE).
 
 <p align="center">Made with ❤ by IEEE-VIT</p>
