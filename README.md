@@ -1,8 +1,13 @@
+# ENIGMA 8 Frontend
+
+![Enigma Cover](src/assets/READMECover.png)
+<br/>
+
 ## About
 
-Enigma 8.0 is an online cryptic hunt organized by the IEEE-VIT Student Chapter. This initiative is completetly developed and led by students, and is played by thousands of competitors from all over the world. This being the 8th edition of Enigma, we remain undeafeated as no one has ever been able to complete our challenge!
+Enigma 8.0 is an online cryptic hunt organized by the IEEE-VIT Student Chapter. This initiative is completely developed and led by students and is played by thousands of competitors from all over the world. This being the 8th edition of Enigma, we remain undefeated as no one has ever been able to complete our challenge!
 
-A cryptic hunt with a compelling storyline that you have to navigate skillfully from room to room with powerups that can also be used in each room. The participant with the highest number of points on the leaderboard wins the covetted title.
+A cryptic hunt with a compelling storyline that you have to navigate skillfully from room to room with powerups that can also be used in each room. The participant with the highest number of points on the leaderboard wins the coveted title.
 
 We aim to create a platform where people from all over the world come together and battle for points using their problem-solving skills and out-of-the-box methodologies to crack the code. Only the best will grace the topmost spots on the leaderboard!
 
@@ -10,7 +15,7 @@ You can check out the website [https://enigma.ieeevit.org](https://enigma.ieeevi
 
 ## Tools and technology used
 
-- React
+- React.js
 - MUI
 - Cloudflare Pages
 
